@@ -123,7 +123,8 @@ final class RiotSettings: NSObject {
     
     var userInterfaceTheme: String? {
         get {
-            return defaults.string(forKey: UserDefaultsKeys.userInterfaceTheme)
+            return "light"
+            //return defaults.string(forKey: UserDefaultsKeys.userInterfaceTheme)
         } set {
             defaults.set(newValue, forKey: UserDefaultsKeys.userInterfaceTheme)
         }
@@ -203,21 +204,39 @@ final class RiotSettings: NSObject {
         }
     }
     
-    var encKey: String{
-        get{
-            return "h5r@mg7upu@ch$#u";
+    var encKey: String {
+        get {
+            return "h5r@mg7upu@ch$#u"
         }
     }
     
-    var otpRequestUrl: String{
-        get{
-            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/otp_send.php";
+    var otpRequestUrl: String {
+        get {
+            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/otp_send.php"
         }
     }
     
-    var otpVerifyUrl: String{
-        get{
-            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/otp_secure.php";
+    var otpVerifyUrl: String {
+        get {
+            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/otp_secure.php"
+        }
+    }
+    
+    var contactSyncUrl: String {
+        get {
+            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/sync_contacts.php"
+        }
+    }
+    
+    var chatDomain: String {
+        get {
+            return "goip2call.com"
+        }
+    }
+    
+    var sipServer: String {
+        get {
+            return "158.51.121.6"
         }
     }
 }

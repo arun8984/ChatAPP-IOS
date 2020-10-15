@@ -27,6 +27,8 @@
 #import "ThemeService.h"
 #import "UniversalLink.h"
 
+#include "call.h"
+
 @protocol Configurable;
 @protocol LegacyAppDelegateDelegate;
 
@@ -54,6 +56,15 @@ extern NSString *const AppDelegateUniversalLinkDidChangeNotification;
 {
     // background sync management
     void (^_completionHandler)(UIBackgroundFetchResult);
+    
+    app_config_t _app_config;
+    BOOL isConnected;
+    BOOL isIpod;
+    BOOL launchDefault;
+    BOOL hasPJSIPStarted;
+    pjsua_acc_id  _sip_acc_id;
+    pjsua_call_id call_id;
+
 }
 
 @property (weak, nonatomic) id<LegacyAppDelegateDelegate> delegate;
@@ -243,11 +254,55 @@ extern NSString *const AppDelegateUniversalLinkDidChangeNotification;
 */
 - (void)checkAppVersion;
 
+#pragma mark - ChatApp
+
+@property (strong, nonatomic) MXSession *mainSession;
+
+@property (nonatomic, retain)NSString *Username;
+@property (nonatomic, retain)NSString *Secret;
+@property (nonatomic, retain)NSString *SIPServer;
+@property (nonatomic, retain)NSString *SIPPort;
+@property (nonatomic, retain)NSString *Realm;
+@property (nonatomic, retain)NSString *APIURL;
+@property (nonatomic, retain)NSString *Balance;
+@property (nonatomic, retain)NSString *Currency;
+@property (nonatomic, retain)NSString *RegStatus;
+@property (nonatomic, retain)NSString *displayname;
+
+
+@property (nonatomic, retain) NSString *SipStatus;
+@property (nonatomic, readwrite) BOOL isIncoming;
+@property (nonatomic, retain) NSString *CalledNo;
+
+
+- (void)MakeCall:(NSString *) PhoneNumber;
+-(void)setSIPRegStatus:(NSString *)Status;
+
+@property BOOL launchDefault;
+@property BOOL isConnected;
+@property (nonatomic, readwrite) BOOL hasPJSIPStarted;
+@property pjsua_acc_id  _sip_acc_id;
+@property pjsua_call_id call_id;
+
+-(void)displayParameterError:(NSString *)error;
+
+- (void)callDisconnecting;
+-(void)disconnected:(id)fp8;
+
+- (app_config_t *)pjsipConfig;
+- (BOOL) sipStartup;
+- (void) sipCleanup;
+- (BOOL) sipConnect;
+- (BOOL) sipDisconnect;
+
 @end
 
 @protocol LegacyAppDelegateDelegate <NSObject>
 
 - (void)legacyAppDelegate:(LegacyAppDelegate*)legacyAppDelegate wantsToPopToHomeViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion;
 - (void)legacyAppDelegateRestoreEmptyDetailsViewController:(LegacyAppDelegate*)legacyAppDelegate;
+
+
+
 
 @end

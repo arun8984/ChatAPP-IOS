@@ -39,22 +39,23 @@ final class BuildSettings: NSObject {
     }
     
     static var pushKitAppIdProd: String {
-        return baseBundleIdentifier + ".ios.voip.prod"
+        return baseBundleIdentifier
     }
     
     static var pushKitAppIdDev: String {
-        return baseBundleIdentifier + ".ios.voip.dev"
+        return baseBundleIdentifier
     }
     
     static var pusherAppIdProd: String {
-        return baseBundleIdentifier + ".ios.prod"
+        return baseBundleIdentifier
     }
     
     static var pusherAppIdDev: String {
-        return baseBundleIdentifier + ".ios.dev"
+        return baseBundleIdentifier
     }
     
     static var pushKitAppId: String {
+        
         #if DEBUG
         return pushKitAppIdDev
         #else
@@ -63,6 +64,7 @@ final class BuildSettings: NSObject {
     }
     
     static var pusherAppId: String {
+        
         #if DEBUG
         return pusherAppIdDev
         #else

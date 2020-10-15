@@ -31,6 +31,11 @@
 
 #import "Riot-Swift.h"
 
+#import "NBPhoneNumberUtil.h"
+#import "NSData+AES.h"
+#import "NSString+hex.h"
+#import "ContactSync.h"
+
 @interface MasterTabBarController () <AuthenticationViewControllerDelegate>
 {
     // Array of `MXSession` instances.
@@ -64,6 +69,10 @@
     
     // The groups data source
     GroupsDataSource *groupsDataSource;
+    
+    NSArray *AllPhoneNos;
+    int LIMIT;
+    int TotalPages, CurrentPage;
 }
 
 @property(nonatomic,getter=isHidden) BOOL hidden;
@@ -77,8 +86,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
+    // Do any additional setup after loading the view, typically from a nib.
+    [ThemeService.shared setThemeId:@"light"];
     _authenticationInProgress = NO;
     
     // Note: UITabBarViewController shoud not be embed in a UINavigationController (https://github.com/vector-im/riot-ios/issues/3086)
@@ -86,22 +96,22 @@
 
     // Retrieve the all view controllers
     _homeViewController = self.viewControllers[TABBAR_HOME_INDEX];
-    _favouritesViewController = self.viewControllers[TABBAR_FAVOURITES_INDEX];
-    _peopleViewController = self.viewControllers[TABBAR_PEOPLE_INDEX];
-    _roomsViewController = self.viewControllers[TABBAR_ROOMS_INDEX];
-    _groupsViewController = self.viewControllers[TABBAR_GROUPS_INDEX];
+    //_favouritesViewController = self.viewControllers[TABBAR_FAVOURITES_INDEX];
+    //_peopleViewController = self.viewControllers[TABBAR_PEOPLE_INDEX];
+    //_roomsViewController = self.viewControllers[TABBAR_ROOMS_INDEX];
+    //_groupsViewController = self.viewControllers[TABBAR_GROUPS_INDEX];
     
     // Set the accessibility labels for all buttons #1842
     [_settingsBarButtonItem setAccessibilityLabel:NSLocalizedStringFromTable(@"settings_title", @"Vector", nil)];
     [_searchBarButtonIem setAccessibilityLabel:NSLocalizedStringFromTable(@"search_default_placeholder", @"Vector", nil)];
     [_homeViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_home", @"Vector", nil)];
-    [_favouritesViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_favourites", @"Vector", nil)];
-    [_peopleViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_people", @"Vector", nil)];
-    [_roomsViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_rooms", @"Vector", nil)];
-    [_groupsViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_groups", @"Vector", nil)];
+    //[_favouritesViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_favourites", @"Vector", nil)];
+    //[_peopleViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_people", @"Vector", nil)];
+    //[_roomsViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_rooms", @"Vector", nil)];
+    //[_groupsViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_groups", @"Vector", nil)];
     
     // Sanity check
-    NSAssert(_homeViewController && _favouritesViewController && _peopleViewController && _roomsViewController && _groupsViewController, @"Something wrong in Main.storyboard");
+    //NSAssert(_homeViewController && _favouritesViewController && _peopleViewController && _roomsViewController && _groupsViewController, @"Something wrong in Main.storyboard");
 
     // Adjust the display of the icons in the tabbar.
     for (UITabBarItem *tabBarItem in self.tabBar.items)
@@ -187,13 +197,18 @@
 
     if (!authIsShown)
     {
+        
+        [AppDelegate.theDelegate sipConnect];
+        [AppDelegate theDelegate].mainSession = [MXKAccountManager sharedManager].accounts.firstObject.mxSession;
+        
         // Check whether the user has been already prompted to send crash reports.
-        // (Check whether 'enableCrashReport' flag has been set once)        
+        // (Check whether 'enableCrashReport' flag has been set once)
+        /*
         if (!RiotSettings.shared.isEnableCrashReportHasBeenSetOnce)
         {
             [self promptUserBeforeUsingAnalytics];
         }
-        
+        */
         [self refreshTabBarBadges];
         
         // Release properly pushed and/or presented view controller
@@ -220,8 +235,8 @@
             
             [childViewControllers removeAllObjects];
         }
-        
-        [[AppDelegate theDelegate] checkAppVersion];
+        [self StartContactSync];
+        //[[AppDelegate theDelegate] checkAppVersion];
     }
     
     if (unifiedSearchViewController)
@@ -298,6 +313,7 @@
         // Restore the right delegate of the shared recent data source.
         id<MXKDataSourceDelegate> recentsDataSourceDelegate = _homeViewController;
         RecentsDataSourceMode recentsDataSourceMode = RecentsDataSourceModeHome;
+        /*
         switch (self.selectedIndex)
         {
             case TABBAR_HOME_INDEX:
@@ -318,6 +334,7 @@
             default:
                 break;
         }
+         */
         [recentsDataSource setDelegate:recentsDataSourceDelegate andRecentsDataSourceMode:recentsDataSourceMode];
         
         // Init the recents data source
@@ -882,6 +899,7 @@
 
 - (void)refreshTabBarBadges
 {
+    /*
     // Use a middle dot to signal missed notif in favourites
     [self setMissedDiscussionsMark:(recentsDataSource.missedFavouriteDiscussionsCount? @"\u00B7": nil)
                       onTabBarItem:TABBAR_FAVOURITES_INDEX
@@ -894,6 +912,7 @@
     [self setMissedDiscussionsCount:recentsDataSource.missedGroupDiscussionsCount
                        onTabBarItem:TABBAR_ROOMS_INDEX
                      withBadgeColor:(recentsDataSource.missedHighlightGroupDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
+     */
 }
 
 - (void)setMissedDiscussionsCount:(NSUInteger)count onTabBarItem:(NSUInteger)index withBadgeColor:(UIColor*)badgeColor
@@ -1129,6 +1148,7 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
+    /*
     // Detect multi-tap on the current selected tab.
     if (item.tag == self.selectedIndex)
     {
@@ -1146,6 +1166,7 @@
             [self.favouritesViewController scrollToNextRoomWithMissedNotifications];
         }
     }
+     */
 }
 
 #pragma mark - AuthenticationViewControllerDelegate
@@ -1154,6 +1175,230 @@
 {
     _authenticationInProgress = NO;
     [self.masterTabBarDelegate masterTabBarControllerDidCompleteAuthentication:self];
+}
+
+#pragma mark - Contact Sync
+
+
+-(void)StartContactSync{
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    
+    __block BOOL accessGranted = NO;
+    
+    if (&ABAddressBookRequestAccessWithCompletion != NULL) { // We are on iOS 6
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        
+        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+            accessGranted = granted;
+            dispatch_semaphore_signal(semaphore);
+        });
+        
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    }
+    
+    else { // We are on iOS 5 or Older
+        accessGranted = YES;
+        [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
+    }
+    
+    if (accessGranted) {
+        [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
+    }
+}
+
+-(void)SyncContacts:(ABAddressBookRef )addressBook {
+    LIMIT = 100;
+    AllPhoneNos = [self getContactsWithAddressBook:addressBook];
+    
+    int val = AllPhoneNos.count % LIMIT;
+    val = val == 0 ? 0 : 1;
+    TotalPages = (int)(AllPhoneNos.count / LIMIT) + val;
+    CurrentPage = 0;
+    //   DoSync([self LoadList:CurrentPage];
+    [self DoSync:[self LoadList:CurrentPage]];
+    
+}
+
+-(void)DoSync:(NSString *)PhoneNos{
+    
+    
+    
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *isoCountryCode = [locale objectForKey: NSLocaleCountryCode];
+    NSString *callingCode = [NSString stringWithFormat:@"%@", [[NBPhoneNumberUtil sharedInstance] getCountryCodeForRegion:isoCountryCode].stringValue];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",callingCode];
+    NSArray *ModifiedPhoneNOS = [AllPhoneNos filteredArrayUsingPredicate:predicate];
+    NSString *PhoneNOs = [ModifiedPhoneNOS componentsJoinedByString:@","];
+    
+    NSString *Username = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+    NSString *Password = [[NSUserDefaults standardUserDefaults] objectForKey:@"Password"];
+    
+    NSString *key = RiotSettings.shared.encKey;
+    NSData *plain = [Username dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *cipher = [plain AES128EncryptedDataWithKey:key];
+    NSString *base64Encoded = [cipher base64EncodedStringWithOptions:0];
+    NSString *hexUsername = [base64Encoded stringToHex:base64Encoded];
+    
+    plain = [Password dataUsingEncoding:NSUTF8StringEncoding];
+    cipher = [plain AES128EncryptedDataWithKey:key];
+    base64Encoded = [cipher base64EncodedStringWithOptions:0];
+    NSString *hexPassword = [base64Encoded stringToHex:base64Encoded];
+    
+    NSString *post = [NSString stringWithFormat:@"username=%@&password=%@&phonenos=%@",hexUsername,hexPassword,PhoneNOs];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSString *url_string = RiotSettings.shared.contactSyncUrl;
+    [request setURL:[NSURL URLWithString:url_string]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"requestReply: %@", requestReply);
+        if(data!=nil)
+        {
+            if(requestReply!=nil||![requestReply isEqual:@""])
+            {
+                
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                NSArray *ArrPhoneNos = [json objectForKey:@"phonenos"];
+                if(ArrPhoneNos!=nil){
+                    ContactSync *contactSync = [ContactSync getSharedInstance];
+                    for(int i=0;i<ArrPhoneNos.count;i++){
+                        [contactSync AddContact:[ArrPhoneNos objectAtIndex:i] ContactName:[self getContactNameFromPhoneNumber:[ArrPhoneNos objectAtIndex:i]]];
+                    }
+                    
+                }
+                CurrentPage=CurrentPage+1;
+                if(CurrentPage<TotalPages)
+                    [self DoSync:[self LoadList:CurrentPage]];
+                
+            }
+            
+        }
+    }] resume];
+}
+
+-(NSString *)LoadList:(int)number{
+    
+    NSString *PhoneNos = @"";
+    PhoneNos =[AllPhoneNos componentsJoinedByString:@","];
+    
+    //    int start = number * LIMIT;
+    //    for(int i=start;i<(start)+LIMIT;i++)
+    //    {
+    //        if(i==start){
+    //            PhoneNos = [AllPhoneNos objectAtIndex:i];
+    //        }else if(i<AllPhoneNos.count)
+    //        {
+    //            PhoneNos = [PhoneNos stringByAppendingFormat:@",%@",[AllPhoneNos objectAtIndex:i]];
+    //        }
+    //        else
+    //        {
+    //            break;
+    //        }
+    //    }
+    return PhoneNos;
+}
+
+- (NSArray *)getContactsWithAddressBook:(ABAddressBookRef )addressBook {
+    
+    NSMutableArray *contactList = [[NSMutableArray alloc] init];
+    CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
+    CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *isoCountryCode = [locale objectForKey: NSLocaleCountryCode];
+    for (int i=0;i < nPeople;i++) {
+        
+        ABRecordRef ref = CFArrayGetValueAtIndex(allPeople,i);
+        
+        ABMultiValueRef phones =(__bridge ABMultiValueRef)((__bridge NSString*)ABRecordCopyValue(ref, kABPersonPhoneProperty));
+        
+        NSString* PhoneNo;
+        
+        for(CFIndex j = 0; j < ABMultiValueGetCount(phones); j++) {
+            PhoneNo = (__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, j);
+            if(PhoneNo.length>0){
+                
+                NBPhoneNumber *nbPhoneNumber = [[NBPhoneNumberUtil sharedInstance] parse:PhoneNo defaultRegion:isoCountryCode error:nil];
+                NSString *formattedNumber = [[NBPhoneNumberUtil sharedInstance] format:nbPhoneNumber numberFormat:NBEPhoneNumberFormatE164 error:nil];
+                NSString *prefix = @"+";
+                if ([formattedNumber hasPrefix:prefix])
+                {
+                    // Format the display phone number
+                    PhoneNo = [formattedNumber substringFromIndex:prefix.length];
+                }
+                [contactList addObject:PhoneNo];
+            }
+        }
+    }
+    //NSLog(@"Contacts = %@",contactList);
+    return [contactList copy];
+}
+
+-(NSString *)getContactNameFromPhoneNumber:(NSString *)PhNo{
+    
+    NSString *ContactName=@"";
+    
+    ABAddressBookRef UsersAddressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    
+    __block BOOL accessGranted = NO;
+    
+    if (&ABAddressBookRequestAccessWithCompletion != NULL) { // We are on iOS 6
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        
+        ABAddressBookRequestAccessWithCompletion(UsersAddressBook, ^(bool granted, CFErrorRef error) {
+            accessGranted = granted;
+            dispatch_semaphore_signal(semaphore);
+        });
+        
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    }else { // We are on iOS 5 or Older
+        accessGranted = YES;
+    }
+    
+    if (accessGranted) {
+        CFArrayRef ContactInfoArray = ABAddressBookCopyArrayOfAllPeople(UsersAddressBook);
+        
+        if(ContactInfoArray!=nil){
+            //get the total number of count of the users contact
+            CFIndex numberofPeople = CFArrayGetCount(ContactInfoArray);
+            
+            //iterate through each record and add the value in the array
+            for (int i =0; i<numberofPeople; i++) {
+                ABRecordRef ref = CFArrayGetValueAtIndex(ContactInfoArray, i);
+                NSString *firstName = (__bridge NSString *)ABRecordCopyValue(ref, kABPersonFirstNameProperty);
+                NSString *lastName = (__bridge NSString *)ABRecordCopyValue(ref, kABPersonLastNameProperty);
+                if (lastName !=nil) {
+                    firstName = [firstName stringByAppendingFormat:@" %@",lastName];
+                }
+                ABMultiValueRef multi = ABRecordCopyValue(ref, kABPersonPhoneProperty);
+                
+                NSString* phone;
+                for (CFIndex j=0; j < ABMultiValueGetCount(multi); j++) {
+                    phone=nil;
+                    phone = (__bridge NSString*)ABMultiValueCopyValueAtIndex(multi, j);
+                    phone =[[[[[phone stringByReplacingOccurrencesOfString:@"-" withString:@"" ]stringByReplacingOccurrencesOfString:@"(" withString:@""]stringByReplacingOccurrencesOfString:@")" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""]stringByReplacingOccurrencesOfString:@"+" withString:@""];
+                    phone = [phone stringByReplacingOccurrencesOfString:@"\\s" withString:@""
+                                                                options:NSRegularExpressionSearch
+                                                                  range:NSMakeRange(0, [phone length])];
+                    NSString *searchnumber =PhNo;
+                    searchnumber =[[[[[searchnumber stringByReplacingOccurrencesOfString:@"-" withString:@"" ]stringByReplacingOccurrencesOfString:@"(" withString:@""]stringByReplacingOccurrencesOfString:@")" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""]stringByReplacingOccurrencesOfString:@"+" withString:@""];
+                    searchnumber = [searchnumber stringByReplacingOccurrencesOfString:@"\\s" withString:@""
+                                                                              options:NSRegularExpressionSearch
+                                                                                range:NSMakeRange(0, [searchnumber length])];
+                    if([searchnumber rangeOfString:phone].location != NSNotFound){
+                        return firstName;
+                    }
+                }
+            }
+        }
+    }
+    return ContactName;
 }
 
 @end

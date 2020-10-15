@@ -26,7 +26,6 @@
 		322C110822BBC6F80043FEAC /* WidgetManagerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C110722BBC6F80043FEAC /* WidgetManagerConfig.swift */; };
 		3232AB1422564D9100AD6A5C /* swiftgen-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3232AB0022564D9100AD6A5C /* swiftgen-config.yml */; };
 		3232AB1522564D9100AD6A5C /* flat-swift4-vector.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 3232AB0322564D9100AD6A5C /* flat-swift4-vector.stencil */; };
-		3232AB2122564D9100AD6A5C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3232AB1322564D9100AD6A5C /* README.md */; };
 		3232AB482256558300AD6A5C /* FlowTemplateCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3232AB3C2256558300AD6A5C /* FlowTemplateCoordinatorType.swift */; };
 		3232AB492256558300AD6A5C /* FlowTemplateCoordinatorBridgePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3232AB3D2256558300AD6A5C /* FlowTemplateCoordinatorBridgePresenter.swift */; };
 		3232AB4A2256558300AD6A5C /* FlowTemplateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3232AB3E2256558300AD6A5C /* FlowTemplateCoordinator.swift */; };
@@ -140,9 +139,81 @@
 		32FD757A24D2C9BA00BA7B37 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD757524D2C9BA00BA7B37 /* Bundle.swift */; };
 		32FDC1CD2386CD390084717A /* RiotSettingIntegrationProvisioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FDC1CC2386CD390084717A /* RiotSettingIntegrationProvisioning.swift */; };
 		36D49CB2A40356B7A4C777FD /* Pods_RiotPods_RiotNSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D17C1E14498CAD8DE7537AD /* Pods_RiotPods_RiotNSE.framework */; };
-		72CD26D325342D1400D0B1B0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CD26D125342D1300D0B1B0 /* LoginViewController.m */; };
-		72CD26DD253432B100D0B1B0 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CD26DB253432B000D0B1B0 /* NSData+AES.m */; };
-		72CD26DE253432B100D0B1B0 /* NSString+hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CD26DC253432B000D0B1B0 /* NSString+hex.m */; };
+		724272F3253544F800F9C908 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272F1253544F700F9C908 /* AVFoundation.framework */; };
+		724272F4253544F800F9C908 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272F2253544F700F9C908 /* AVKit.framework */; };
+		724272F62535452C00F9C908 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272F52535452C00F9C908 /* AudioToolbox.framework */; };
+		724272F82535455900F9C908 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272F72535455900F9C908 /* CFNetwork.framework */; };
+		724272FA2535459200F9C908 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272F92535459200F9C908 /* CoreAudio.framework */; };
+		724272FC253545BB00F9C908 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272FB253545BA00F9C908 /* CoreVideo.framework */; };
+		724272FE253545EC00F9C908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272FD253545EC00F9C908 /* Foundation.framework */; };
+		7242733525354B3000F9C908 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242733425354B3000F9C908 /* LoginViewController.m */; };
+		7242733E25354B3A00F9C908 /* NSString+hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242733A25354B3900F9C908 /* NSString+hex.m */; };
+		7242733F25354B3A00F9C908 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242733C25354B3900F9C908 /* NSData+AES.m */; };
+		7242734D25354B4700F9C908 /* call.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242734725354B4500F9C908 /* call.m */; };
+		7242734E25354B4700F9C908 /* ring.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242734825354B4600F9C908 /* ring.m */; };
+		7242734F25354B4700F9C908 /* dtmf.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242734A25354B4600F9C908 /* dtmf.m */; };
+		7242735025354B4700F9C908 /* NSNotificationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242734C25354B4700F9C908 /* NSNotificationAdditions.m */; };
+		7242735A25354BCE00F9C908 /* InCallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242735625354BCD00F9C908 /* InCallController.m */; };
+		7242735B25354BCE00F9C908 /* KeypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242735725354BCE00F9C908 /* KeypadController.m */; };
+		7242735C25354BCE00F9C908 /* contacts.db in Resources */ = {isa = PBXBuildFile; fileRef = 7242735825354BCE00F9C908 /* contacts.db */; };
+		7242736D25354BDF00F9C908 /* ringtone.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 7242736325354BDC00F9C908 /* ringtone.m4r */; };
+		7242736E25354BDF00F9C908 /* RecentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242736425354BDC00F9C908 /* RecentCell.m */; };
+		7242736F25354BDF00F9C908 /* RecentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242736525354BDD00F9C908 /* RecentController.m */; };
+		7242737025354BDF00F9C908 /* RecentDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242736825354BDE00F9C908 /* RecentDB.m */; };
+		7242737125354BE000F9C908 /* recent.db in Resources */ = {isa = PBXBuildFile; fileRef = 7242736925354BDE00F9C908 /* recent.db */; };
+		7242737225354BE000F9C908 /* RecentCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242736B25354BDF00F9C908 /* RecentCall.m */; };
+		7242737325354BE000F9C908 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242736C25354BDF00F9C908 /* Reachability.m */; };
+		7242737825355D3B00F9C908 /* libg729codec-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272A12535431400F9C908 /* libg729codec-arm64-apple-darwin_ios.a */; };
+		7242737A25355D3B00F9C908 /* libg7221codec-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B42535431900F9C908 /* libg7221codec-arm64-apple-darwin_ios.a */; };
+		7242737C25355D3B00F9C908 /* libgsmcodec-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272BA2535431A00F9C908 /* libgsmcodec-arm64-apple-darwin_ios.a */; };
+		7242737E25355D3B00F9C908 /* libilbccodec-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B12535431800F9C908 /* libilbccodec-arm64-apple-darwin_ios.a */; };
+		7242738025355D3B00F9C908 /* libpj-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7242729B2535431200F9C908 /* libpj-arm64-apple-darwin_ios.a */; };
+		7242738225355D3C00F9C908 /* libpjlib-util-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7242729E2535431300F9C908 /* libpjlib-util-arm64-apple-darwin_ios.a */; };
+		7242738425355D3C00F9C908 /* libpjmedia-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B22535431800F9C908 /* libpjmedia-arm64-apple-darwin_ios.a */; };
+		7242738625355D3C00F9C908 /* libpjmedia-audiodev-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272992535431100F9C908 /* libpjmedia-audiodev-arm64-apple-darwin_ios.a */; };
+		7242738825355D3C00F9C908 /* libpjmedia-codec-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272C02535431C00F9C908 /* libpjmedia-codec-arm64-apple-darwin_ios.a */; };
+		7242738A25355D3D00F9C908 /* libpjmedia-videodev-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272BE2535431B00F9C908 /* libpjmedia-videodev-arm64-apple-darwin_ios.a */; };
+		7242738C25355D3D00F9C908 /* libpjnath-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272BB2535431B00F9C908 /* libpjnath-arm64-apple-darwin_ios.a */; };
+		7242738E25355D3D00F9C908 /* libpjsdp-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272A92535431600F9C908 /* libpjsdp-arm64-apple-darwin_ios.a */; };
+		7242739025355D3E00F9C908 /* libpjsip-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272A72535431500F9C908 /* libpjsip-arm64-apple-darwin_ios.a */; };
+		7242739225355D3E00F9C908 /* libpjsip-simple-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B32535431800F9C908 /* libpjsip-simple-arm64-apple-darwin_ios.a */; };
+		7242739425355D3F00F9C908 /* libpjsip-ua-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B72535431900F9C908 /* libpjsip-ua-arm64-apple-darwin_ios.a */; };
+		7242739625355D3F00F9C908 /* libpjsua-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B52535431900F9C908 /* libpjsua-arm64-apple-darwin_ios.a */; };
+		7242739825355D3F00F9C908 /* libpjsua2-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272C12535431C00F9C908 /* libpjsua2-arm64-apple-darwin_ios.a */; };
+		7242739A25355D4000F9C908 /* libresample-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B82535431A00F9C908 /* libresample-arm64-apple-darwin_ios.a */; };
+		7242739C25355D4000F9C908 /* libspeex-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272AE2535431700F9C908 /* libspeex-arm64-apple-darwin_ios.a */; };
+		7242739E25355D4100F9C908 /* libsrtp-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272B92535431A00F9C908 /* libsrtp-arm64-apple-darwin_ios.a */; };
+		724273A025355D4100F9C908 /* libwebrtc-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272A42535431400F9C908 /* libwebrtc-arm64-apple-darwin_ios.a */; };
+		724273A225355D4200F9C908 /* libyuv-arm64-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 724272A82535431500F9C908 /* libyuv-arm64-apple-darwin_ios.a */; };
+		724273B1253561C200F9C908 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 724273AD253561C100F9C908 /* NSString+FontAwesome.m */; };
+		724273B2253561C200F9C908 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 724273B0253561C200F9C908 /* UIFont+FontAwesome.m */; };
+		724273B9253561CB00F9C908 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 724273B8253561CB00F9C908 /* FAImageView.m */; };
+		724273BB253561D600F9C908 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 724273BA253561D600F9C908 /* FontAwesome.ttf */; };
+		72A77C3A2536D9D70030CF63 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A77C392536D9D70030CF63 /* AddressBook.framework */; };
+		72A77C3C2536D9DF0030CF63 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A77C3B2536D9DF0030CF63 /* AddressBookUI.framework */; };
+		72A77C4B2536EADF0030CF63 /* HideDialPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C422536EADB0030CF63 /* HideDialPad.png */; };
+		72A77C4C2536EADF0030CF63 /* directChatOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C432536EADB0030CF63 /* directChatOff@2x.png */; };
+		72A77C4D2536EADF0030CF63 /* outgoing.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C442536EADC0030CF63 /* outgoing.png */; };
+		72A77C4E2536EADF0030CF63 /* missed-call.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C452536EADC0030CF63 /* missed-call.png */; };
+		72A77C4F2536EADF0030CF63 /* directChatOff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C462536EADC0030CF63 /* directChatOff@3x.png */; };
+		72A77C502536EADF0030CF63 /* directChatOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C472536EADD0030CF63 /* directChatOff.png */; };
+		72A77C512536EADF0030CF63 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C482536EADD0030CF63 /* delete.png */; };
+		72A77C522536EADF0030CF63 /* incoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C492536EADE0030CF63 /* incoming.png */; };
+		72A77C532536EADF0030CF63 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C4A2536EADE0030CF63 /* call.png */; };
+		72A77C5B2536EB190030CF63 /* directChatOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C582536EB170030CF63 /* directChatOn@2x.png */; };
+		72A77C5C2536EB190030CF63 /* directChatOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C592536EB180030CF63 /* directChatOn@3x.png */; };
+		72A77C5D2536EB190030CF63 /* directChatOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C5A2536EB180030CF63 /* directChatOn.png */; };
+		72A77C682536ECF50030CF63 /* back_Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C622536ECEF0030CF63 /* back_Orange.png */; };
+		72A77C692536ECF50030CF63 /* profilepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C632536ECF00030CF63 /* profilepicture.png */; };
+		72A77C6A2536ECF50030CF63 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C642536ECF20030CF63 /* save.png */; };
+		72A77C6B2536ECF50030CF63 /* end-call.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C652536ECF20030CF63 /* end-call.png */; };
+		72A77C6C2536ECF50030CF63 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C662536ECF30030CF63 /* settings.png */; };
+		72A77C6D2536ECF50030CF63 /* ShowDialPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 72A77C672536ECF40030CF63 /* ShowDialPad.png */; };
+		72A77C74253716510030CF63 /* LocalContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A77C72253716500030CF63 /* LocalContactsViewController.m */; };
+		72A77C7D253717C60030CF63 /* ContactSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A77C79253717C60030CF63 /* ContactSync.m */; };
+		72A77C7E253717C60030CF63 /* LocalContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A77C7C253717C60030CF63 /* LocalContacts.m */; };
+		72A77C8A2537192D0030CF63 /* LocalContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A77C892537192D0030CF63 /* LocalContactsTableViewCell.m */; };
+		72AAAA5C25382DF3002AD6DB /* camera_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 72AAAA5B25382DF3002AD6DB /* camera_record.png */; };
 		926FA53F1F4C132000F826C2 /* MXSession+Riot.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FA53E1F4C132000F826C2 /* MXSession+Riot.m */; };
 		92726A471F58737A004AD26F /* IntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 92726A461F58737A004AD26F /* IntentHandler.m */; };
 		92726A4B1F58737A004AD26F /* SiriIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 92726A431F58737A004AD26F /* SiriIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -1151,12 +1222,148 @@
 		3D78489521ACA25300B98A7D /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Vector.strings; sourceTree = "<group>"; };
 		44C0F0316A919EAD1835231E /* Pods-RiotPods-RiotNSE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiotPods-RiotNSE.debug.xcconfig"; path = "Target Support Files/Pods-RiotPods-RiotNSE/Pods-RiotPods-RiotNSE.debug.xcconfig"; sourceTree = "<group>"; };
 		5D17C1E14498CAD8DE7537AD /* Pods_RiotPods_RiotNSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiotPods_RiotNSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72CD26D125342D1300D0B1B0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		72CD26D225342D1300D0B1B0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		72CD26D9253432B000D0B1B0 /* NSString+hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+hex.h"; sourceTree = "<group>"; };
-		72CD26DA253432B000D0B1B0 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
-		72CD26DB253432B000D0B1B0 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
-		72CD26DC253432B000D0B1B0 /* NSString+hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+hex.m"; sourceTree = "<group>"; };
+		724272992535431100F9C908 /* libpjmedia-audiodev-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-audiodev-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242729A2535431200F9C908 /* libgsmcodec-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsmcodec-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libgsmcodec-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242729B2535431200F9C908 /* libpj-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpj-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpj-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242729C2535431200F9C908 /* libpjsip-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsip-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242729D2535431300F9C908 /* libpjsua-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsua-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242729E2535431300F9C908 /* libpjlib-util-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjlib-util-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242729F2535431300F9C908 /* libsrtp-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsrtp-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libsrtp-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A02535431300F9C908 /* libpjmedia-videodev-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-videodev-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A12535431400F9C908 /* libg729codec-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg729codec-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libg729codec-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A22535431400F9C908 /* libresample-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libresample-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libresample-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A32535431400F9C908 /* libspeex-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libspeex-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libspeex-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A42535431400F9C908 /* libwebrtc-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwebrtc-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libwebrtc-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A52535431500F9C908 /* libpj-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpj-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpj-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A62535431500F9C908 /* libg7221codec-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg7221codec-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libg7221codec-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A72535431500F9C908 /* libpjsip-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsip-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A82535431500F9C908 /* libyuv-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libyuv-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libyuv-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272A92535431600F9C908 /* libpjsdp-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsdp-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsdp-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272AA2535431600F9C908 /* libpjlib-util-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjlib-util-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272AB2535431600F9C908 /* libpjmedia-codec-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-codec-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272AC2535431600F9C908 /* libpjsip-simple-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsip-simple-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272AD2535431700F9C908 /* libpjsip-ua-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsip-ua-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272AE2535431700F9C908 /* libspeex-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libspeex-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libspeex-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272AF2535431700F9C908 /* libwebrtc-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwebrtc-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libwebrtc-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B02535431700F9C908 /* libpjsdp-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsdp-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsdp-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B12535431800F9C908 /* libilbccodec-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libilbccodec-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libilbccodec-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B22535431800F9C908 /* libpjmedia-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B32535431800F9C908 /* libpjsip-simple-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsip-simple-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B42535431900F9C908 /* libg7221codec-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg7221codec-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libg7221codec-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B52535431900F9C908 /* libpjsua-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsua-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B62535431900F9C908 /* libilbccodec-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libilbccodec-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libilbccodec-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B72535431900F9C908 /* libpjsip-ua-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsip-ua-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B82535431A00F9C908 /* libresample-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libresample-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libresample-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272B92535431A00F9C908 /* libsrtp-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsrtp-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libsrtp-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272BA2535431A00F9C908 /* libgsmcodec-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsmcodec-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libgsmcodec-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272BB2535431B00F9C908 /* libpjnath-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjnath-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjnath-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272BC2535431B00F9C908 /* libpjsua2-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua2-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsua2-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272BD2535431B00F9C908 /* libyuv-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libyuv-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libyuv-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272BE2535431B00F9C908 /* libpjmedia-videodev-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-videodev-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272BF2535431C00F9C908 /* libpjmedia-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272C02535431C00F9C908 /* libpjmedia-codec-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-codec-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272C12535431C00F9C908 /* libpjsua2-arm64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua2-arm64-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjsua2-arm64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272C22535431C00F9C908 /* libpjnath-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjnath-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjnath-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272C32535431D00F9C908 /* libg729codec-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg729codec-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libg729codec-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272C42535431D00F9C908 /* libpjmedia-audiodev-armv7-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev-armv7-apple-darwin_ios.a"; path = "pjsipLib-2.8/device/libpjmedia-audiodev-armv7-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		724272F1253544F700F9C908 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		724272F2253544F700F9C908 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		724272F52535452C00F9C908 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		724272F72535455900F9C908 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		724272F92535459200F9C908 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		724272FB253545BA00F9C908 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		724272FD253545EC00F9C908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		724272FF253549E200F9C908 /* libpjsdp-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsdp-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjsdp-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427300253549E200F9C908 /* libpjsua-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjsua-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427301253549E200F9C908 /* libpjmedia-codec-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjmedia-codec-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427302253549E200F9C908 /* libpjsua2-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua2-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjsua2-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427303253549E200F9C908 /* libresample-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libresample-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libresample-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427304253549E300F9C908 /* libpjmedia-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjmedia-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427305253549E300F9C908 /* libsrtp-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsrtp-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libsrtp-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427306253549E300F9C908 /* libpjsip-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjsip-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427307253549E400F9C908 /* libilbccodec-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libilbccodec-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libilbccodec-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427308253549E400F9C908 /* libpj-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpj-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpj-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427309253549E400F9C908 /* libpjsip-ua-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjsip-ua-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242730A253549E400F9C908 /* libwebrtc-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwebrtc-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libwebrtc-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242730B253549E400F9C908 /* libyuv-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libyuv-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libyuv-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242730C253549E500F9C908 /* libg729codec-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg729codec-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libg729codec-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242730D253549E500F9C908 /* libgsmcodec-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsmcodec-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libgsmcodec-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242730E253549E500F9C908 /* libpjnath-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjnath-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjnath-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242730F253549E500F9C908 /* libpjlib-util-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjlib-util-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427310253549E600F9C908 /* libspeex-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libspeex-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libspeex-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427311253549E600F9C908 /* libg7221codec-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libg7221codec-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libg7221codec-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427312253549E600F9C908 /* libpjmedia-audiodev-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjmedia-audiodev-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427313253549E600F9C908 /* libpjmedia-videodev-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjmedia-videodev-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		72427314253549E700F9C908 /* libpjsip-simple-x86_64-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple-x86_64-apple-darwin_ios.a"; path = "pjsipLib-2.8/simulator/libpjsip-simple-x86_64-apple-darwin_ios.a"; sourceTree = "<group>"; };
+		7242733325354B2F00F9C908 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7242733425354B3000F9C908 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7242733A25354B3900F9C908 /* NSString+hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+hex.m"; sourceTree = "<group>"; };
+		7242733B25354B3900F9C908 /* NSString+hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+hex.h"; sourceTree = "<group>"; };
+		7242733C25354B3900F9C908 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
+		7242733D25354B3A00F9C908 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
+		7242734025354B4400F9C908 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		7242734125354B4400F9C908 /* NSNotificationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationAdditions.h; sourceTree = "<group>"; };
+		7242734625354B4500F9C908 /* dtmf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtmf.h; sourceTree = "<group>"; };
+		7242734725354B4500F9C908 /* call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = call.m; sourceTree = "<group>"; };
+		7242734825354B4600F9C908 /* ring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ring.m; sourceTree = "<group>"; };
+		7242734925354B4600F9C908 /* call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = call.h; sourceTree = "<group>"; };
+		7242734A25354B4600F9C908 /* dtmf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dtmf.m; sourceTree = "<group>"; };
+		7242734B25354B4600F9C908 /* ring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ring.h; sourceTree = "<group>"; };
+		7242734C25354B4700F9C908 /* NSNotificationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationAdditions.m; sourceTree = "<group>"; };
+		7242735525354BCD00F9C908 /* KeypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadController.h; sourceTree = "<group>"; };
+		7242735625354BCD00F9C908 /* InCallController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InCallController.m; sourceTree = "<group>"; };
+		7242735725354BCE00F9C908 /* KeypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadController.m; sourceTree = "<group>"; };
+		7242735825354BCE00F9C908 /* contacts.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = contacts.db; sourceTree = "<group>"; };
+		7242735925354BCE00F9C908 /* InCallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InCallController.h; sourceTree = "<group>"; };
+		7242736125354BDC00F9C908 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7242736225354BDC00F9C908 /* RecentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentController.h; sourceTree = "<group>"; };
+		7242736325354BDC00F9C908 /* ringtone.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = ringtone.m4r; sourceTree = "<group>"; };
+		7242736425354BDC00F9C908 /* RecentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentCell.m; sourceTree = "<group>"; };
+		7242736525354BDD00F9C908 /* RecentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentController.m; sourceTree = "<group>"; };
+		7242736625354BDD00F9C908 /* RecentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentCell.h; sourceTree = "<group>"; };
+		7242736725354BDE00F9C908 /* RecentCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentCall.h; sourceTree = "<group>"; };
+		7242736825354BDE00F9C908 /* RecentDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentDB.m; sourceTree = "<group>"; };
+		7242736925354BDE00F9C908 /* recent.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = recent.db; sourceTree = "<group>"; };
+		7242736A25354BDE00F9C908 /* RecentDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentDB.h; sourceTree = "<group>"; };
+		7242736B25354BDF00F9C908 /* RecentCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentCall.m; sourceTree = "<group>"; };
+		7242736C25354BDF00F9C908 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		724273AD253561C100F9C908 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		724273AE253561C200F9C908 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		724273AF253561C200F9C908 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		724273B0253561C200F9C908 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		724273B7253561CB00F9C908 /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
+		724273B8253561CB00F9C908 /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
+		724273BA253561D600F9C908 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		72A77C392536D9D70030CF63 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		72A77C3B2536D9DF0030CF63 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		72A77C422536EADB0030CF63 /* HideDialPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HideDialPad.png; sourceTree = "<group>"; };
+		72A77C432536EADB0030CF63 /* directChatOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directChatOff@2x.png"; sourceTree = "<group>"; };
+		72A77C442536EADC0030CF63 /* outgoing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outgoing.png; sourceTree = "<group>"; };
+		72A77C452536EADC0030CF63 /* missed-call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missed-call.png"; sourceTree = "<group>"; };
+		72A77C462536EADC0030CF63 /* directChatOff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directChatOff@3x.png"; sourceTree = "<group>"; };
+		72A77C472536EADD0030CF63 /* directChatOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directChatOff.png; sourceTree = "<group>"; };
+		72A77C482536EADD0030CF63 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		72A77C492536EADE0030CF63 /* incoming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = incoming.png; sourceTree = "<group>"; };
+		72A77C4A2536EADE0030CF63 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
+		72A77C582536EB170030CF63 /* directChatOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directChatOn@2x.png"; sourceTree = "<group>"; };
+		72A77C592536EB180030CF63 /* directChatOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "directChatOn@3x.png"; sourceTree = "<group>"; };
+		72A77C5A2536EB180030CF63 /* directChatOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directChatOn.png; sourceTree = "<group>"; };
+		72A77C622536ECEF0030CF63 /* back_Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_Orange.png; sourceTree = "<group>"; };
+		72A77C632536ECF00030CF63 /* profilepicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilepicture.png; sourceTree = "<group>"; };
+		72A77C642536ECF20030CF63 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		72A77C652536ECF20030CF63 /* end-call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "end-call.png"; sourceTree = "<group>"; };
+		72A77C662536ECF30030CF63 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		72A77C672536ECF40030CF63 /* ShowDialPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShowDialPad.png; sourceTree = "<group>"; };
+		72A77C72253716500030CF63 /* LocalContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalContactsViewController.m; sourceTree = "<group>"; };
+		72A77C73253716510030CF63 /* LocalContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalContactsViewController.h; sourceTree = "<group>"; };
+		72A77C79253717C60030CF63 /* ContactSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSync.m; sourceTree = "<group>"; };
+		72A77C7A253717C60030CF63 /* LocalContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalContacts.h; sourceTree = "<group>"; };
+		72A77C7B253717C60030CF63 /* ContactSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSync.h; sourceTree = "<group>"; };
+		72A77C7C253717C60030CF63 /* LocalContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalContacts.m; sourceTree = "<group>"; };
+		72A77C83253718300030CF63 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		72A77C882537192D0030CF63 /* LocalContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalContactsTableViewCell.h; sourceTree = "<group>"; };
+		72A77C892537192D0030CF63 /* LocalContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalContactsTableViewCell.m; sourceTree = "<group>"; };
+		72AAAA5B25382DF3002AD6DB /* camera_record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_record.png; sourceTree = "<group>"; };
 		89D4E24C79BF77457E9B00E8 /* Pods-RiotPods-Riot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiotPods-Riot.release.xcconfig"; path = "Target Support Files/Pods-RiotPods-Riot/Pods-RiotPods-Riot.release.xcconfig"; sourceTree = "<group>"; };
 		926FA53D1F4C132000F826C2 /* MXSession+Riot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MXSession+Riot.h"; sourceTree = "<group>"; };
 		926FA53E1F4C132000F826C2 /* MXSession+Riot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MXSession+Riot.m"; sourceTree = "<group>"; };
@@ -2237,7 +2444,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7242737825355D3B00F9C908 /* libg729codec-arm64-apple-darwin_ios.a in Frameworks */,
+				7242738C25355D3D00F9C908 /* libpjnath-arm64-apple-darwin_ios.a in Frameworks */,
+				72A77C3C2536D9DF0030CF63 /* AddressBookUI.framework in Frameworks */,
+				724273A025355D4100F9C908 /* libwebrtc-arm64-apple-darwin_ios.a in Frameworks */,
+				724272F82535455900F9C908 /* CFNetwork.framework in Frameworks */,
+				7242738625355D3C00F9C908 /* libpjmedia-audiodev-arm64-apple-darwin_ios.a in Frameworks */,
+				724273A225355D4200F9C908 /* libyuv-arm64-apple-darwin_ios.a in Frameworks */,
+				7242739025355D3E00F9C908 /* libpjsip-arm64-apple-darwin_ios.a in Frameworks */,
+				7242738A25355D3D00F9C908 /* libpjmedia-videodev-arm64-apple-darwin_ios.a in Frameworks */,
+				7242737C25355D3B00F9C908 /* libgsmcodec-arm64-apple-darwin_ios.a in Frameworks */,
 				946C5E923D3D650F8EBEDB4A /* Pods_RiotPods_Riot.framework in Frameworks */,
+				7242737E25355D3B00F9C908 /* libilbccodec-arm64-apple-darwin_ios.a in Frameworks */,
+				72A77C3A2536D9D70030CF63 /* AddressBook.framework in Frameworks */,
+				7242739A25355D4000F9C908 /* libresample-arm64-apple-darwin_ios.a in Frameworks */,
+				7242739825355D3F00F9C908 /* libpjsua2-arm64-apple-darwin_ios.a in Frameworks */,
+				7242739E25355D4100F9C908 /* libsrtp-arm64-apple-darwin_ios.a in Frameworks */,
+				7242739625355D3F00F9C908 /* libpjsua-arm64-apple-darwin_ios.a in Frameworks */,
+				7242738E25355D3D00F9C908 /* libpjsdp-arm64-apple-darwin_ios.a in Frameworks */,
+				724272F3253544F800F9C908 /* AVFoundation.framework in Frameworks */,
+				724272F62535452C00F9C908 /* AudioToolbox.framework in Frameworks */,
+				7242738425355D3C00F9C908 /* libpjmedia-arm64-apple-darwin_ios.a in Frameworks */,
+				724272FA2535459200F9C908 /* CoreAudio.framework in Frameworks */,
+				7242738825355D3C00F9C908 /* libpjmedia-codec-arm64-apple-darwin_ios.a in Frameworks */,
+				724272F4253544F800F9C908 /* AVKit.framework in Frameworks */,
+				7242739C25355D4000F9C908 /* libspeex-arm64-apple-darwin_ios.a in Frameworks */,
+				7242739425355D3F00F9C908 /* libpjsip-ua-arm64-apple-darwin_ios.a in Frameworks */,
+				724272FE253545EC00F9C908 /* Foundation.framework in Frameworks */,
+				7242738225355D3C00F9C908 /* libpjlib-util-arm64-apple-darwin_ios.a in Frameworks */,
+				724272FC253545BB00F9C908 /* CoreVideo.framework in Frameworks */,
+				7242738025355D3B00F9C908 /* libpj-arm64-apple-darwin_ios.a in Frameworks */,
+				7242737A25355D3B00F9C908 /* libg7221codec-arm64-apple-darwin_ios.a in Frameworks */,
+				7242739225355D3E00F9C908 /* libpjsip-simple-arm64-apple-darwin_ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2592,6 +2830,82 @@
 		5FC42FA41F5186AFFB6A2404 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72A77C83253718300030CF63 /* libsqlite3.tbd */,
+				72A77C3B2536D9DF0030CF63 /* AddressBookUI.framework */,
+				72A77C392536D9D70030CF63 /* AddressBook.framework */,
+				7242730C253549E500F9C908 /* libg729codec-x86_64-apple-darwin_ios.a */,
+				72427311253549E600F9C908 /* libg7221codec-x86_64-apple-darwin_ios.a */,
+				7242730D253549E500F9C908 /* libgsmcodec-x86_64-apple-darwin_ios.a */,
+				72427307253549E400F9C908 /* libilbccodec-x86_64-apple-darwin_ios.a */,
+				72427308253549E400F9C908 /* libpj-x86_64-apple-darwin_ios.a */,
+				7242730F253549E500F9C908 /* libpjlib-util-x86_64-apple-darwin_ios.a */,
+				72427312253549E600F9C908 /* libpjmedia-audiodev-x86_64-apple-darwin_ios.a */,
+				72427301253549E200F9C908 /* libpjmedia-codec-x86_64-apple-darwin_ios.a */,
+				72427313253549E600F9C908 /* libpjmedia-videodev-x86_64-apple-darwin_ios.a */,
+				72427304253549E300F9C908 /* libpjmedia-x86_64-apple-darwin_ios.a */,
+				7242730E253549E500F9C908 /* libpjnath-x86_64-apple-darwin_ios.a */,
+				724272FF253549E200F9C908 /* libpjsdp-x86_64-apple-darwin_ios.a */,
+				72427314253549E700F9C908 /* libpjsip-simple-x86_64-apple-darwin_ios.a */,
+				72427309253549E400F9C908 /* libpjsip-ua-x86_64-apple-darwin_ios.a */,
+				72427306253549E300F9C908 /* libpjsip-x86_64-apple-darwin_ios.a */,
+				72427300253549E200F9C908 /* libpjsua-x86_64-apple-darwin_ios.a */,
+				72427302253549E200F9C908 /* libpjsua2-x86_64-apple-darwin_ios.a */,
+				72427303253549E200F9C908 /* libresample-x86_64-apple-darwin_ios.a */,
+				72427310253549E600F9C908 /* libspeex-x86_64-apple-darwin_ios.a */,
+				72427305253549E300F9C908 /* libsrtp-x86_64-apple-darwin_ios.a */,
+				7242730A253549E400F9C908 /* libwebrtc-x86_64-apple-darwin_ios.a */,
+				7242730B253549E400F9C908 /* libyuv-x86_64-apple-darwin_ios.a */,
+				724272FD253545EC00F9C908 /* Foundation.framework */,
+				724272FB253545BA00F9C908 /* CoreVideo.framework */,
+				724272F92535459200F9C908 /* CoreAudio.framework */,
+				724272F72535455900F9C908 /* CFNetwork.framework */,
+				724272F52535452C00F9C908 /* AudioToolbox.framework */,
+				724272F1253544F700F9C908 /* AVFoundation.framework */,
+				724272F2253544F700F9C908 /* AVKit.framework */,
+				724272A12535431400F9C908 /* libg729codec-arm64-apple-darwin_ios.a */,
+				724272C32535431D00F9C908 /* libg729codec-armv7-apple-darwin_ios.a */,
+				724272B42535431900F9C908 /* libg7221codec-arm64-apple-darwin_ios.a */,
+				724272A62535431500F9C908 /* libg7221codec-armv7-apple-darwin_ios.a */,
+				724272BA2535431A00F9C908 /* libgsmcodec-arm64-apple-darwin_ios.a */,
+				7242729A2535431200F9C908 /* libgsmcodec-armv7-apple-darwin_ios.a */,
+				724272B12535431800F9C908 /* libilbccodec-arm64-apple-darwin_ios.a */,
+				724272B62535431900F9C908 /* libilbccodec-armv7-apple-darwin_ios.a */,
+				7242729B2535431200F9C908 /* libpj-arm64-apple-darwin_ios.a */,
+				724272A52535431500F9C908 /* libpj-armv7-apple-darwin_ios.a */,
+				7242729E2535431300F9C908 /* libpjlib-util-arm64-apple-darwin_ios.a */,
+				724272AA2535431600F9C908 /* libpjlib-util-armv7-apple-darwin_ios.a */,
+				724272B22535431800F9C908 /* libpjmedia-arm64-apple-darwin_ios.a */,
+				724272BF2535431C00F9C908 /* libpjmedia-armv7-apple-darwin_ios.a */,
+				724272992535431100F9C908 /* libpjmedia-audiodev-arm64-apple-darwin_ios.a */,
+				724272C42535431D00F9C908 /* libpjmedia-audiodev-armv7-apple-darwin_ios.a */,
+				724272C02535431C00F9C908 /* libpjmedia-codec-arm64-apple-darwin_ios.a */,
+				724272AB2535431600F9C908 /* libpjmedia-codec-armv7-apple-darwin_ios.a */,
+				724272BE2535431B00F9C908 /* libpjmedia-videodev-arm64-apple-darwin_ios.a */,
+				724272A02535431300F9C908 /* libpjmedia-videodev-armv7-apple-darwin_ios.a */,
+				724272BB2535431B00F9C908 /* libpjnath-arm64-apple-darwin_ios.a */,
+				724272C22535431C00F9C908 /* libpjnath-armv7-apple-darwin_ios.a */,
+				724272A92535431600F9C908 /* libpjsdp-arm64-apple-darwin_ios.a */,
+				724272B02535431700F9C908 /* libpjsdp-armv7-apple-darwin_ios.a */,
+				724272A72535431500F9C908 /* libpjsip-arm64-apple-darwin_ios.a */,
+				7242729C2535431200F9C908 /* libpjsip-armv7-apple-darwin_ios.a */,
+				724272B32535431800F9C908 /* libpjsip-simple-arm64-apple-darwin_ios.a */,
+				724272AC2535431600F9C908 /* libpjsip-simple-armv7-apple-darwin_ios.a */,
+				724272B72535431900F9C908 /* libpjsip-ua-arm64-apple-darwin_ios.a */,
+				724272AD2535431700F9C908 /* libpjsip-ua-armv7-apple-darwin_ios.a */,
+				724272B52535431900F9C908 /* libpjsua-arm64-apple-darwin_ios.a */,
+				7242729D2535431300F9C908 /* libpjsua-armv7-apple-darwin_ios.a */,
+				724272C12535431C00F9C908 /* libpjsua2-arm64-apple-darwin_ios.a */,
+				724272BC2535431B00F9C908 /* libpjsua2-armv7-apple-darwin_ios.a */,
+				724272B82535431A00F9C908 /* libresample-arm64-apple-darwin_ios.a */,
+				724272A22535431400F9C908 /* libresample-armv7-apple-darwin_ios.a */,
+				724272AE2535431700F9C908 /* libspeex-arm64-apple-darwin_ios.a */,
+				724272A32535431400F9C908 /* libspeex-armv7-apple-darwin_ios.a */,
+				724272B92535431A00F9C908 /* libsrtp-arm64-apple-darwin_ios.a */,
+				7242729F2535431300F9C908 /* libsrtp-armv7-apple-darwin_ios.a */,
+				724272A42535431400F9C908 /* libwebrtc-arm64-apple-darwin_ios.a */,
+				724272AF2535431700F9C908 /* libwebrtc-armv7-apple-darwin_ios.a */,
+				724272A82535431500F9C908 /* libyuv-arm64-apple-darwin_ios.a */,
+				724272BD2535431B00F9C908 /* libyuv-armv7-apple-darwin_ios.a */,
 				92726A501F587410004AD26F /* Intents.framework */,
 				1ED94EFAFB42D616A121F711 /* Pods_RiotPods_Riot.framework */,
 				5D17C1E14498CAD8DE7537AD /* Pods_RiotPods_RiotNSE.framework */,
@@ -2601,25 +2915,109 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		72CD26D025342CED00D0B1B0 /* ChatApp */ = {
+		7242733025354AD200F9C908 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
-				72CD26D82534328800D0B1B0 /* Utils */,
-				72CD26D225342D1300D0B1B0 /* LoginViewController.h */,
-				72CD26D125342D1300D0B1B0 /* LoginViewController.m */,
+				72A77C882537192D0030CF63 /* LocalContactsTableViewCell.h */,
+				72A77C892537192D0030CF63 /* LocalContactsTableViewCell.m */,
+				72A77C73253716510030CF63 /* LocalContactsViewController.h */,
+				72A77C72253716500030CF63 /* LocalContactsViewController.m */,
+				72A77C412536E9560030CF63 /* Images */,
+				724273AC2535619400F9C908 /* FontAwesome */,
+				7242736125354BDC00F9C908 /* Reachability.h */,
+				7242736C25354BDF00F9C908 /* Reachability.m */,
+				7242736925354BDE00F9C908 /* recent.db */,
+				7242736725354BDE00F9C908 /* RecentCall.h */,
+				7242736B25354BDF00F9C908 /* RecentCall.m */,
+				7242736625354BDD00F9C908 /* RecentCell.h */,
+				7242736425354BDC00F9C908 /* RecentCell.m */,
+				7242736225354BDC00F9C908 /* RecentController.h */,
+				7242736525354BDD00F9C908 /* RecentController.m */,
+				7242736A25354BDE00F9C908 /* RecentDB.h */,
+				7242736825354BDE00F9C908 /* RecentDB.m */,
+				7242736325354BDC00F9C908 /* ringtone.m4r */,
+				7242735825354BCE00F9C908 /* contacts.db */,
+				7242735925354BCE00F9C908 /* InCallController.h */,
+				7242735625354BCD00F9C908 /* InCallController.m */,
+				7242735525354BCD00F9C908 /* KeypadController.h */,
+				7242735725354BCE00F9C908 /* KeypadController.m */,
+				7242733325354B2F00F9C908 /* LoginViewController.h */,
+				7242733425354B3000F9C908 /* LoginViewController.m */,
+				7242733225354B1200F9C908 /* Utils */,
+				7242733125354B0400F9C908 /* Sip */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
 		};
-		72CD26D82534328800D0B1B0 /* Utils */ = {
+		7242733125354B0400F9C908 /* Sip */ = {
 			isa = PBXGroup;
 			children = (
-				72CD26DA253432B000D0B1B0 /* NSData+AES.h */,
-				72CD26DB253432B000D0B1B0 /* NSData+AES.m */,
-				72CD26D9253432B000D0B1B0 /* NSString+hex.h */,
-				72CD26DC253432B000D0B1B0 /* NSString+hex.m */,
+				7242734925354B4600F9C908 /* call.h */,
+				7242734725354B4500F9C908 /* call.m */,
+				7242734025354B4400F9C908 /* constants.h */,
+				7242734625354B4500F9C908 /* dtmf.h */,
+				7242734A25354B4600F9C908 /* dtmf.m */,
+				7242734125354B4400F9C908 /* NSNotificationAdditions.h */,
+				7242734C25354B4700F9C908 /* NSNotificationAdditions.m */,
+				7242734B25354B4600F9C908 /* ring.h */,
+				7242734825354B4600F9C908 /* ring.m */,
+			);
+			path = Sip;
+			sourceTree = "<group>";
+		};
+		7242733225354B1200F9C908 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				72A77C7B253717C60030CF63 /* ContactSync.h */,
+				72A77C79253717C60030CF63 /* ContactSync.m */,
+				72A77C7A253717C60030CF63 /* LocalContacts.h */,
+				72A77C7C253717C60030CF63 /* LocalContacts.m */,
+				7242733D25354B3A00F9C908 /* NSData+AES.h */,
+				7242733C25354B3900F9C908 /* NSData+AES.m */,
+				7242733B25354B3900F9C908 /* NSString+hex.h */,
+				7242733A25354B3900F9C908 /* NSString+hex.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		724273AC2535619400F9C908 /* FontAwesome */ = {
+			isa = PBXGroup;
+			children = (
+				724273BA253561D600F9C908 /* FontAwesome.ttf */,
+				724273B7253561CB00F9C908 /* FAImageView.h */,
+				724273B8253561CB00F9C908 /* FAImageView.m */,
+				724273AF253561C200F9C908 /* NSString+FontAwesome.h */,
+				724273AD253561C100F9C908 /* NSString+FontAwesome.m */,
+				724273AE253561C200F9C908 /* UIFont+FontAwesome.h */,
+				724273B0253561C200F9C908 /* UIFont+FontAwesome.m */,
+			);
+			path = FontAwesome;
+			sourceTree = "<group>";
+		};
+		72A77C412536E9560030CF63 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				72AAAA5B25382DF3002AD6DB /* camera_record.png */,
+				72A77C622536ECEF0030CF63 /* back_Orange.png */,
+				72A77C652536ECF20030CF63 /* end-call.png */,
+				72A77C632536ECF00030CF63 /* profilepicture.png */,
+				72A77C642536ECF20030CF63 /* save.png */,
+				72A77C662536ECF30030CF63 /* settings.png */,
+				72A77C672536ECF40030CF63 /* ShowDialPad.png */,
+				72A77C5A2536EB180030CF63 /* directChatOn.png */,
+				72A77C582536EB170030CF63 /* directChatOn@2x.png */,
+				72A77C592536EB180030CF63 /* directChatOn@3x.png */,
+				72A77C4A2536EADE0030CF63 /* call.png */,
+				72A77C482536EADD0030CF63 /* delete.png */,
+				72A77C472536EADD0030CF63 /* directChatOff.png */,
+				72A77C432536EADB0030CF63 /* directChatOff@2x.png */,
+				72A77C462536EADC0030CF63 /* directChatOff@3x.png */,
+				72A77C422536EADB0030CF63 /* HideDialPad.png */,
+				72A77C492536EADE0030CF63 /* incoming.png */,
+				72A77C452536EADC0030CF63 /* missed-call.png */,
+				72A77C442536EADC0030CF63 /* outgoing.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		92726A441F58737A004AD26F /* SiriIntents */ = {
@@ -5312,7 +5710,6 @@
 		F083BB081E7009EC00A9B29C /* Riot */ = {
 			isa = PBXGroup;
 			children = (
-				72CD26D025342CED00D0B1B0 /* ChatApp */,
 				B1098BD921ECE09E000DDA48 /* Generated */,
 				F083BBE41E7009EC00A9B29C /* Categories */,
 				B1098BE621ECFE51000DDA48 /* Coordinators */,
@@ -5451,6 +5848,7 @@
 		F094A9991B78D8F000B1FBBF = {
 			isa = PBXGroup;
 			children = (
+				7242733025354AD200F9C908 /* ChatApp */,
 				B1B7F22824F3F8E900FD567B /* README.md */,
 				3267EFB320E379FD00FF1CAA /* CHANGES.rst */,
 				3267EFB520E379FD00FF1CAA /* AUTHORS.rst */,
@@ -5691,6 +6089,7 @@
 				B1B5590220EF768F00210D55 /* RoomOutgoingAttachmentWithPaginationTitleBubbleCell.xib in Resources */,
 				B1B558CA20EF768F00210D55 /* RoomOutgoingEncryptedAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				B152C73522DF599C0041315A /* apple_emojis_data.json in Resources */,
+				72AAAA5C25382DF3002AD6DB /* camera_record.png in Resources */,
 				F083BDE91E7009ED00A9B29C /* ring.mp3 in Resources */,
 				B1B558F720EF768F00210D55 /* RoomIncomingTextMsgWithPaginationTitleWithoutSenderNameBubbleCell.xib in Resources */,
 				B1B5592B20EF7A5D00210D55 /* TableViewCellWithButton.xib in Resources */,
@@ -5702,8 +6101,10 @@
 				B1B558D520EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithPaginationTitleWithoutSenderNameBubbleCell.xib in Resources */,
 				B12D79FC23E2462200FACEDC /* UserVerificationStartViewController.storyboard in Resources */,
 				B1CE83D32422817200D07506 /* KeyVerificationVerifiedViewController.storyboard in Resources */,
+				72A77C6D2536ECF50030CF63 /* ShowDialPad.png in Resources */,
 				B1B5590020EF768F00210D55 /* RoomOutgoingTextMsgWithoutSenderNameBubbleCell.xib in Resources */,
 				B1B5597020EFA85D00210D55 /* EncryptionInfoView.xib in Resources */,
+				72A77C512536EADF0030CF63 /* delete.png in Resources */,
 				EC51E7AA2514D2E100AAE7DB /* RoomInfoListViewController.storyboard in Resources */,
 				B1B558BC20EF768F00210D55 /* RoomMembershipBubbleCell.xib in Resources */,
 				B1B5571F20EE6C4D00210D55 /* ContactDetailsViewController.xib in Resources */,
@@ -5712,6 +6113,7 @@
 				B105778B221304FA00334B1E /* KeyBackupSetupSuccessFromPassphraseViewController.storyboard in Resources */,
 				B1664DA220F4F95800808783 /* Localizable.strings in Resources */,
 				B169328720F3954A00746532 /* SharedImages.xcassets in Resources */,
+				72A77C4B2536EADF0030CF63 /* HideDialPad.png in Resources */,
 				B1664DA120F4F94F00808783 /* InfoPlist.strings in Resources */,
 				B1B5579B20EF575B00210D55 /* AuthInputsView.xib in Resources */,
 				B1B5594620EF7BD000210D55 /* RoomCollectionViewCell.xib in Resources */,
@@ -5740,11 +6142,13 @@
 				B1B5593720EF7BAC00210D55 /* TableViewCellWithCheckBoxAndLabel.xib in Resources */,
 				B190F55B22CE35FD00AEB493 /* EditHistoryHeaderView.xib in Resources */,
 				EC31F016251B53BC00D407DA /* RoomInfoBasicView.xib in Resources */,
+				72A77C6C2536ECF50030CF63 /* settings.png in Resources */,
 				EC1CA86524C1DEC400DE9EBF /* EnterPinCodeViewController.storyboard in Resources */,
 				B1B5579020EF568D00210D55 /* GroupTableViewCell.xib in Resources */,
 				B142317B22CCFA2000FFA96A /* EditHistoryCell.xib in Resources */,
 				B1B5581B20EF625800210D55 /* ExpandedRoomTitleView.xib in Resources */,
 				B1B558C220EF768F00210D55 /* RoomIncomingEncryptedTextMsgBubbleCell.xib in Resources */,
+				72A77C4E2536EADF0030CF63 /* missed-call.png in Resources */,
 				B1B558F620EF768F00210D55 /* RoomOutgoingTextMsgBubbleCell.xib in Resources */,
 				B1B5574D20EE6C4D00210D55 /* MediaPickerViewController.xib in Resources */,
 				B1B5575020EE6C4D00210D55 /* AuthenticationViewController.xib in Resources */,
@@ -5757,9 +6161,11 @@
 				B1B558E320EF768F00210D55 /* RoomEmptyBubbleCell.xib in Resources */,
 				EC711B8F24A63B37008F830C /* SecretsRecoveryWithKeyViewController.storyboard in Resources */,
 				ECFBD5EC250F97FC00DD5F5A /* RoomCreationWithPaginationCollapsedBubbleCell.xib in Resources */,
+				72A77C5B2536EB190030CF63 /* directChatOn@2x.png in Resources */,
 				B1E5368F21FB7258001F3AFF /* KeyBackupRecoverFromPassphraseViewController.storyboard in Resources */,
 				B1B5590420EF768F00210D55 /* RoomOutgoingAttachmentBubbleCell.xib in Resources */,
 				B1B558F120EF768F00210D55 /* RoomIncomingAttachmentWithPaginationTitleBubbleCell.xib in Resources */,
+				72A77C502536EADF0030CF63 /* directChatOff.png in Resources */,
 				B1B557CB20EF5D8000210D55 /* DirectoryServerTableViewCell.xib in Resources */,
 				B1B558EC20EF768F00210D55 /* RoomMembershipCollapsedBubbleCell.xib in Resources */,
 				EC711BAD24A63B58008F830C /* SecureBackupSetupIntroViewController.storyboard in Resources */,
@@ -5770,6 +6176,7 @@
 				F083BDE81E7009ED00A9B29C /* message.caf in Resources */,
 				B1107ECA2200B09F0038014B /* KeyBackupRecoverSuccessViewController.storyboard in Resources */,
 				B1B9DEF522EB426D0065E677 /* ReactionHistoryViewCell.xib in Resources */,
+				7242737125354BE000F9C908 /* recent.db in Resources */,
 				B1550FCA2420E8F500CE097B /* QRCodeReaderViewController.storyboard in Resources */,
 				B1B5579C20EF575B00210D55 /* ForgotPasswordInputsView.xib in Resources */,
 				F083BE011E7009ED00A9B29C /* third_party_licenses.html in Resources */,
@@ -5780,7 +6187,6 @@
 				B1B5573720EE6C4D00210D55 /* GroupParticipantsViewController.xib in Resources */,
 				B110872421F098F0003554A5 /* ActivityIndicatorView.xib in Resources */,
 				B1B5573320EE6C4D00210D55 /* GroupHomeViewController.xib in Resources */,
-				3232AB2122564D9100AD6A5C /* README.md in Resources */,
 				3291DC8A23E0BE820009732F /* Security.storyboard in Resources */,
 				B1B5593920EF7BAC00210D55 /* TableViewCellWithCheckBoxes.xib in Resources */,
 				B1B557C120EF5B4500210D55 /* DisabledRoomInputToolbarView.xib in Resources */,
@@ -5800,17 +6206,22 @@
 				B1B557E820EF60F500210D55 /* MessagesSearchResultTextMsgBubbleCell.xib in Resources */,
 				B1B558D920EF768F00210D55 /* RoomOutgoingEncryptedAttachmentBubbleCell.xib in Resources */,
 				B1B5573020EE6C4D00210D55 /* BugReportViewController.xib in Resources */,
+				724273BB253561D600F9C908 /* FontAwesome.ttf in Resources */,
 				B169329B20F39E6300746532 /* Main.storyboard in Resources */,
 				B1CE83DB2422817200D07506 /* KeyVerificationVerifyByScanningViewController.storyboard in Resources */,
 				3232AB1422564D9100AD6A5C /* swiftgen-config.yml in Resources */,
 				324A204F225FC571004FE8B0 /* DeviceVerificationIncomingViewController.storyboard in Resources */,
 				3232AB4B2256558300AD6A5C /* TemplateScreenViewController.storyboard in Resources */,
+				72A77C522536EADF0030CF63 /* incoming.png in Resources */,
 				B1D1BDA822BBAFC900831367 /* ReactionsMenuView.xib in Resources */,
 				32B1FEDB21A46F2C00637127 /* TermsView.xib in Resources */,
 				B1BD71BF238EA56700BA92E2 /* WidgetPermissionViewController.storyboard in Resources */,
+				72A77C4C2536EADF0030CF63 /* directChatOff@2x.png in Resources */,
+				72A77C5D2536EB190030CF63 /* directChatOn.png in Resources */,
 				B1DCC63222E7026F00625807 /* EmojiPickerHeaderView.xib in Resources */,
 				B1B5578E20EF568D00210D55 /* GroupInviteTableViewCell.xib in Resources */,
 				B1B5582020EF625800210D55 /* SimpleRoomTitleView.xib in Resources */,
+				72A77C682536ECF50030CF63 /* back_Orange.png in Resources */,
 				F083BE061E7009ED00A9B29C /* Riot-Defaults.plist in Resources */,
 				B1B558D120EF768F00210D55 /* RoomIncomingEncryptedAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B558FE20EF768F00210D55 /* RoomMembershipExpandedWithPaginationTitleBubbleCell.xib in Resources */,
@@ -5843,17 +6254,21 @@
 				B1B557AD20EF5A6D00210D55 /* DeviceView.xib in Resources */,
 				B1B5573920EE6C4D00210D55 /* GroupRoomsViewController.xib in Resources */,
 				B1B5597620EFB02A00210D55 /* InviteRecentTableViewCell.xib in Resources */,
+				7242736D25354BDF00F9C908 /* ringtone.m4r in Resources */,
 				B1B558FB20EF768F00210D55 /* RoomIncomingAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				EC711B8C24A63B37008F830C /* SecretsRecoveryWithPassphraseViewController.storyboard in Resources */,
 				EC85D7192477DCD7002C44C9 /* KeyVerificationScanConfirmationViewController.storyboard in Resources */,
 				B1B558BB20EF768F00210D55 /* RoomOutgoingTextMsgWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B557A720EF5A1B00210D55 /* DeviceTableViewCell.xib in Resources */,
 				B14084C823BF76CB0010F692 /* BubbleCellContentView.xib in Resources */,
+				72A77C5C2536EB190030CF63 /* directChatOn@3x.png in Resources */,
 				B1B557D220EF5E3500210D55 /* MediaAlbumTableCell.xib in Resources */,
 				B1B558C520EF768F00210D55 /* RoomOutgoingEncryptedTextMsgBubbleCell.xib in Resources */,
 				B1B5582B20EF666100210D55 /* DirectoryRecentTableViewCell.xib in Resources */,
 				B105778F2213052A00334B1E /* KeyBackupSetupSuccessFromRecoveryKeyViewController.storyboard in Resources */,
+				72A77C692536ECF50030CF63 /* profilepicture.png in Resources */,
 				EC1CA89924C9C9A200DE9EBF /* SetupBiometricsViewController.storyboard in Resources */,
+				72A77C6A2536ECF50030CF63 /* save.png in Resources */,
 				B1B5590F20EF782800210D55 /* TableViewCellWithPhoneNumberTextField.xib in Resources */,
 				B1B5578520EF564900210D55 /* GroupTableViewCellWithSwitch.xib in Resources */,
 				B1B557B320EF5AEF00210D55 /* EventDetailsView.xib in Resources */,
@@ -5862,6 +6277,7 @@
 				B1B557DD20EF5FBB00210D55 /* FilesSearchTableViewCell.xib in Resources */,
 				B1B5590320EF768F00210D55 /* RoomSelectedStickerBubbleCell.xib in Resources */,
 				B1B5573F20EE6C4D00210D55 /* SegmentedViewController.xib in Resources */,
+				72A77C532536EADF0030CF63 /* call.png in Resources */,
 				B1B5581E20EF625800210D55 /* RoomTitleView.xib in Resources */,
 				B1B558C020EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B5572420EE6C4D00210D55 /* RoomViewController.xib in Resources */,
@@ -5871,10 +6287,13 @@
 				3284A35120A07C210044F922 /* postMessageAPI.js in Resources */,
 				EC1CA8D424D8103400DE9EBF /* App-Common.xcconfig in Resources */,
 				B1B557A220EF58AD00210D55 /* ContactTableViewCell.xib in Resources */,
+				72A77C4F2536EADF0030CF63 /* directChatOff@3x.png in Resources */,
 				ECFBD5CE250A7AAF00DD5F5A /* DirectoryNetworkTableHeaderFooterView.xib in Resources */,
+				7242735C25354BCE00F9C908 /* contacts.db in Resources */,
 				B1B558EB20EF768F00210D55 /* RoomIncomingTextMsgWithPaginationTitleBubbleCell.xib in Resources */,
 				B1C543A6239E999700DCA1FA /* KeyVerificationCellInnerContentView.xib in Resources */,
 				32891D76226728EF00C82226 /* KeyVerificationDataLoadingViewController.storyboard in Resources */,
+				72A77C6B2536ECF50030CF63 /* end-call.png in Resources */,
 				B1B5581820EF625800210D55 /* PreviewRoomTitleView.xib in Resources */,
 				B1B5583020EF66BA00210D55 /* RoomIdOrAliasTableViewCell.xib in Resources */,
 				B1B558BF20EF768F00210D55 /* RoomOutgoingEncryptedTextMsgWithoutSenderNameBubbleCell.xib in Resources */,
@@ -5882,6 +6301,7 @@
 				B1B558DB20EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithoutSenderNameBubbleCell.xib in Resources */,
 				B185145D24B8C9A400EE19EA /* MajorUpdateViewController.storyboard in Resources */,
 				B1CE83E42422817200D07506 /* KeyVerificationVerifyBySASViewController.storyboard in Resources */,
+				72A77C4D2536EADF0030CF63 /* outgoing.png in Resources */,
 				B1B5572B20EE6C4D00210D55 /* RoomMemberDetailsViewController.xib in Resources */,
 				B1D4752C21EE52C30067973F /* KeyBackupSetupIntroViewController.storyboard in Resources */,
 				B1B558C620EF768F00210D55 /* RoomIncomingEncryptedAttachmentBubbleCell.xib in Resources */,
@@ -6128,6 +6548,7 @@
 				B1B5573A20EE6C4D00210D55 /* GroupRoomsViewController.m in Sources */,
 				B1B558F920EF768F00210D55 /* RoomOutgoingTextMsgWithoutSenderNameBubbleCell.m in Sources */,
 				B1FDF56021F5FE5500BA3834 /* KeyBackupSetupPassphraseViewAction.swift in Sources */,
+				7242734D25354B4700F9C908 /* call.m in Sources */,
 				B1B5573120EE6C4D00210D55 /* BugReportViewController.m in Sources */,
 				ECFBD5CB250A7AAF00DD5F5A /* DirectoryRoomTableViewCellVM.swift in Sources */,
 				324A2051225FC571004FE8B0 /* DeviceVerificationIncomingViewState.swift in Sources */,
@@ -6150,6 +6571,7 @@
 				B1B5581C20EF625800210D55 /* RoomAvatarTitleView.m in Sources */,
 				EC1CA86124C1DEC400DE9EBF /* EnterPinCodeViewModel.swift in Sources */,
 				B169330820F3CA0E00746532 /* ContactsDataSource.m in Sources */,
+				7242735A25354BCE00F9C908 /* InCallController.m in Sources */,
 				EC1CA86924C1DEC400DE9EBF /* SetPinCoordinator.swift in Sources */,
 				B1B5574B20EE6C4D00210D55 /* MediaAlbumContentViewController.m in Sources */,
 				ECFBD5CC250A7AAF00DD5F5A /* DirectoryRoomTableViewCell.swift in Sources */,
@@ -6165,6 +6587,7 @@
 				32F6B96D2270623100BBA352 /* KeyVerificationDataLoadingViewModel.swift in Sources */,
 				B16932B120F3AC9200746532 /* RoomSearchDataSource.m in Sources */,
 				B1B5574520EE6C4D00210D55 /* StartChatViewController.m in Sources */,
+				7242737325354BE000F9C908 /* Reachability.m in Sources */,
 				3232AB4C2256558300AD6A5C /* TemplateScreenCoordinator.swift in Sources */,
 				B1B5575920EE6C4D00210D55 /* HomeMessagesSearchViewController.m in Sources */,
 				B1B558DE20EF768F00210D55 /* RoomIncomingAttachmentBubbleCell.m in Sources */,
@@ -6247,7 +6670,7 @@
 				B110872521F098F0003554A5 /* ActivityIndicatorPresenter.swift in Sources */,
 				32242F1521E8FBA900725742 /* DarkTheme.swift in Sources */,
 				B1D211E222BD193C00D939BD /* ReactionsMenuViewModel.swift in Sources */,
-				72CD26D325342D1400D0B1B0 /* LoginViewController.m in Sources */,
+				7242733525354B3000F9C908 /* LoginViewController.m in Sources */,
 				EC2B4EF124A1EEBD005EB739 /* DataProtectionHelper.swift in Sources */,
 				B140B4A621F89E7600E3F5FE /* KeyBackupSetupCoordinatorBridgePresenter.swift in Sources */,
 				B1B5577420EE702900210D55 /* WidgetViewController.m in Sources */,
@@ -6297,6 +6720,7 @@
 				B1BEE74C23E093260003A4CB /* UserVerificationSessionStatusViewController.swift in Sources */,
 				EC711BAB24A63B58008F830C /* SecureBackupSetupIntroViewController.swift in Sources */,
 				B1B9DEEB22EB34EF0065E677 /* ReactionHistoryViewModel.swift in Sources */,
+				72A77C74253716510030CF63 /* LocalContactsViewController.m in Sources */,
 				B1C543B023A2871300DCA1FA /* KeyVerificationBaseBubbleCell.swift in Sources */,
 				B1963B2F228F1C4900CBA17F /* BubbleReactionViewCell.swift in Sources */,
 				B1B558E920EF768F00210D55 /* RoomSelectedStickerBubbleCell.m in Sources */,
@@ -6304,6 +6728,7 @@
 				B1B558DF20EF768F00210D55 /* RoomOutgoingTextMsgWithoutSenderInfoBubbleCell.m in Sources */,
 				F083BE041E7009ED00A9B29C /* Tools.m in Sources */,
 				3275FD8C21A5A2C500B9C13D /* TermsView.swift in Sources */,
+				7242734E25354B4700F9C908 /* ring.m in Sources */,
 				B1B9DEE822EB34EF0065E677 /* ReactionHistoryCoordinatorType.swift in Sources */,
 				EC711B7424A63B37008F830C /* SecretsSetupRecoveryKeyViewModelType.swift in Sources */,
 				B14F143122144F6500FA0595 /* KeyBackupRecoverFromRecoveryKeyViewState.swift in Sources */,
@@ -6312,6 +6737,7 @@
 				EC1CA85F24C1DEC400DE9EBF /* EnterPinCodeViewModelType.swift in Sources */,
 				B1098C1121ED07E4000DDA48 /* NavigationRouterType.swift in Sources */,
 				B1B5573D20EE6C4D00210D55 /* WebViewViewController.m in Sources */,
+				7242733E25354B3A00F9C908 /* NSString+hex.m in Sources */,
 				3209451221F1C1430088CAA2 /* BlackTheme.swift in Sources */,
 				B1B5572720EE6C4D00210D55 /* RoomSearchViewController.m in Sources */,
 				B14084C623BF76890010F692 /* BubbleCellContentView.swift in Sources */,
@@ -6322,6 +6748,7 @@
 				EC31F012251B4DBD00D407DA /* RoomInfoListViewData.swift in Sources */,
 				32DB557722FDADE50016329E /* ServiceTermsModalCoordinator.swift in Sources */,
 				ECF57A4B25090C23004BBF9D /* EnterNewRoomDetailsViewModel.swift in Sources */,
+				7242736F25354BDF00F9C908 /* RecentController.m in Sources */,
 				B185145B24B8C98200EE19EA /* MajorUpdateViewController.swift in Sources */,
 				32DB557922FDADE50016329E /* ServiceTermsModalScreenViewModel.swift in Sources */,
 				ECFBD5F8250FA59B00DD5F5A /* RoomCreationEventsModalCoordinator.swift in Sources */,
@@ -6330,7 +6757,6 @@
 				F083BDEF1E7009ED00A9B29C /* UINavigationController+Riot.m in Sources */,
 				B1B5581F20EF625800210D55 /* SimpleRoomTitleView.m in Sources */,
 				B1C562E2228C7C8D0037F12A /* RoomContextualMenuViewController.swift in Sources */,
-				72CD26DE253432B100D0B1B0 /* NSString+hex.m in Sources */,
 				ECFBD5F9250FA59B00DD5F5A /* RoomCreationEventsModalViewModelType.swift in Sources */,
 				B169330020F3C97D00746532 /* RoomDataSource.m in Sources */,
 				B1B558ED20EF768F00210D55 /* RoomIncomingTextMsgWithoutSenderNameBubbleCell.m in Sources */,
@@ -6347,6 +6773,7 @@
 				B1B558DD20EF768F00210D55 /* RoomIncomingEncryptedTextMsgBubbleCell.m in Sources */,
 				B1098BE521ECE1FC000DDA48 /* Storyboards.swift in Sources */,
 				3232ABC2225B996200AD6A5C /* Themable.swift in Sources */,
+				724273B9253561CB00F9C908 /* FAImageView.m in Sources */,
 				ECFBD5D3250A7AAF00DD5F5A /* ShowDirectoryCoordinator.swift in Sources */,
 				32A6001B22C661100042C1D9 /* EditHistoryViewAction.swift in Sources */,
 				3232ABA7225730E100AD6A5C /* DeviceVerificationStartCoordinator.swift in Sources */,
@@ -6361,6 +6788,7 @@
 				32DB557A22FDADE50016329E /* ServiceTermsModalScreenViewController.swift in Sources */,
 				B1B9DEF422EB426D0065E677 /* ReactionHistoryViewCell.swift in Sources */,
 				B1B5573C20EE6C4D00210D55 /* MasterTabBarController.m in Sources */,
+				7242735B25354BCE00F9C908 /* KeypadController.m in Sources */,
 				B1DCC61B22E5E17100625807 /* EmojiPickerCoordinator.swift in Sources */,
 				ECF57A4525090C23004BBF9D /* CreateRoomCoordinatorType.swift in Sources */,
 				EC85D7292477DCF2002C44C9 /* KeyVerificationManuallyVerifyViewModelType.swift in Sources */,
@@ -6399,6 +6827,7 @@
 				B157FA9F23264AE900EBFBD4 /* SettingsDiscoveryThreePidDetailsCoordinator.swift in Sources */,
 				B1CE83D92422817200D07506 /* KeyVerificationVerifyByScanningViewAction.swift in Sources */,
 				B1C45A8B232A8C2600165425 /* SettingsIdentityServerViewModel.swift in Sources */,
+				7242735025354B4700F9C908 /* NSNotificationAdditions.m in Sources */,
 				EC711B8224A63B37008F830C /* SecretsSetupRecoveryPassphraseViewModelType.swift in Sources */,
 				B12D7A0123E2462200FACEDC /* UserVerificationStartViewModel.swift in Sources */,
 				B12C56EF2396CB5E00FAC6DE /* RoomMessageURLParser.swift in Sources */,
@@ -6477,6 +6906,7 @@
 				B1BEE72A23DF38B20003A4CB /* UserVerificationSessionStatusCell.swift in Sources */,
 				B1C45A8A232A8C2600165425 /* SettingsIdentityServerCoordinatorBridgePresenter.swift in Sources */,
 				B1C7822F2500EAF500337EB9 /* TabBarCoordinator.swift in Sources */,
+				72A77C7D253717C60030CF63 /* ContactSync.m in Sources */,
 				B1B557DE20EF5FBB00210D55 /* FilesSearchTableViewCell.m in Sources */,
 				B1B5574020EE6C4D00210D55 /* SegmentedViewController.m in Sources */,
 				ECF57A4C25090C23004BBF9D /* EnterNewRoomDetailsViewAction.swift in Sources */,
@@ -6487,6 +6917,7 @@
 				EC619C1924DAD96000663A80 /* UIScrollView.swift in Sources */,
 				B125FE1F231D5DF700B72806 /* SettingsDiscoveryViewModelType.swift in Sources */,
 				EC85D7162477DCD7002C44C9 /* KeyVerificationScanConfirmationViewAction.swift in Sources */,
+				7242734F25354B4700F9C908 /* dtmf.m in Sources */,
 				EC711BAF24A63B58008F830C /* SecureBackupSetupCoordinatorType.swift in Sources */,
 				ECFBD5D4250A7AAF00DD5F5A /* ShowDirectoryCoordinatorType.swift in Sources */,
 				EC1CA89C24C9C9A200DE9EBF /* SetupBiometricsViewModel.swift in Sources */,
@@ -6526,6 +6957,7 @@
 				B14084CA23BF89310010F692 /* KeyVerificationRequestStatusWithPaginationTitleBubbleCell.swift in Sources */,
 				B1DCC61D22E5E17100625807 /* EmojiPickerViewModelType.swift in Sources */,
 				B1B5574120EE6C4D00210D55 /* RecentsViewController.m in Sources */,
+				7242733F25354B3A00F9C908 /* NSData+AES.m in Sources */,
 				B1D250D82118AA0A000F4E93 /* RoomPredecessorBubbleCell.m in Sources */,
 				B12676832523E4D100BE6B98 /* SecretsResetCoordinator.swift in Sources */,
 				B1B5577120EE702800210D55 /* StickerPickerViewController.m in Sources */,
@@ -6582,6 +7014,7 @@
 				B18DEDD9243377C10075FEF7 /* KeyVerificationSelfVerifyWaitViewController.swift in Sources */,
 				EC1CA89524C9C9A200DE9EBF /* SetupBiometricsViewController.swift in Sources */,
 				324A2052225FC571004FE8B0 /* DeviceVerificationIncomingViewAction.swift in Sources */,
+				72A77C8A2537192D0030CF63 /* LocalContactsTableViewCell.m in Sources */,
 				EC85D72C2477DCF2002C44C9 /* KeyVerificationManuallyVerifyViewState.swift in Sources */,
 				EC1CA86E24C5BA4500DE9EBF /* PinCodePreferences.swift in Sources */,
 				B105778D2213051E00334B1E /* KeyBackupSetupSuccessFromRecoveryKeyViewController.swift in Sources */,
@@ -6611,6 +7044,7 @@
 				ECF57A4925090C23004BBF9D /* EnterNewRoomDetailsViewState.swift in Sources */,
 				B17982FF2119FED2001FD722 /* GDPRConsentViewController.swift in Sources */,
 				B1098BE121ECE09F000DDA48 /* Images.swift in Sources */,
+				72A77C7E253717C60030CF63 /* LocalContacts.m in Sources */,
 				ECF57A85250A64F0004BBF9D /* PlaceholderedTextView.swift in Sources */,
 				B1B4E9C424D47207004D5C33 /* BubbleReactionsViewModelBuilder.swift in Sources */,
 				EC85D72A2477DCF2002C44C9 /* KeyVerificationManuallyVerifyViewModel.swift in Sources */,
@@ -6656,6 +7090,7 @@
 				B1CE83E32422817200D07506 /* VerifyEmojiCollectionViewCell.swift in Sources */,
 				B1C562DB228C0BB00037F12A /* RoomContextualMenuAction.swift in Sources */,
 				B1B5574720EE6C4D00210D55 /* UsersDevicesViewController.m in Sources */,
+				7242736E25354BDF00F9C908 /* RecentCell.m in Sources */,
 				B1098BFF21ECFE65000DDA48 /* PasswordStrengthView.swift in Sources */,
 				ECFBD5D2250A7AAF00DD5F5A /* ShowDirectoryViewState.swift in Sources */,
 				B1B558D220EF768F00210D55 /* RoomEncryptedDataBubbleCell.m in Sources */,
@@ -6736,13 +7171,14 @@
 				324A2055225FC571004FE8B0 /* DeviceVerificationIncomingViewModelType.swift in Sources */,
 				B1B5572C20EE6C4D00210D55 /* RoomParticipantsViewController.m in Sources */,
 				B1B558EE20EF768F00210D55 /* RoomOutgoingAttachmentBubbleCell.m in Sources */,
-				72CD26DD253432B100D0B1B0 /* NSData+AES.m in Sources */,
+				724273B2253561C200F9C908 /* UIFont+FontAwesome.m in Sources */,
 				32BF994F21FA29A400698084 /* SettingsKeyBackupViewModel.swift in Sources */,
 				B190F55D22CE5A9700AEB493 /* EditHistorySection.swift in Sources */,
 				32DB557E22FDADE50016329E /* ServiceTermsModalScreenViewAction.swift in Sources */,
 				32A6002022C66FCF0042C1D9 /* EditHistoryMessage.swift in Sources */,
 				B1B5574920EE6C4D00210D55 /* RiotSplitViewController.m in Sources */,
 				B1B5574E20EE6C4D00210D55 /* DirectoryServerPickerViewController.m in Sources */,
+				7242737225354BE000F9C908 /* RecentCall.m in Sources */,
 				EC711B8824A63B37008F830C /* SecretsRecoveryWithPassphraseViewAction.swift in Sources */,
 				ECF57A6225093B04004BBF9D /* SectionHeaderView.m in Sources */,
 				ECF57A4A25090C23004BBF9D /* EnterNewRoomDetailsViewController.swift in Sources */,
@@ -6755,6 +7191,7 @@
 				B139C22521FF01C100BB68EC /* KeyBackupRecoverFromPassphraseCoordinator.swift in Sources */,
 				B1BEE71623DF2ACF0003A4CB /* UserVerificationCoordinatorBridgePresenter.swift in Sources */,
 				B1098BFD21ECFE65000DDA48 /* PasswordStrengthManager.swift in Sources */,
+				7242737025354BDF00F9C908 /* RecentDB.m in Sources */,
 				B1B558F520EF768F00210D55 /* RoomOutgoingTextMsgWithPaginationTitleBubbleCell.m in Sources */,
 				3232AB482256558300AD6A5C /* FlowTemplateCoordinatorType.swift in Sources */,
 				B1B9DEF122EB396B0065E677 /* ReactionHistoryViewData.swift in Sources */,
@@ -6779,6 +7216,7 @@
 				ECFBD5D6250A7AAF00DD5F5A /* ShowDirectoryViewAction.swift in Sources */,
 				EC711BB124A63B58008F830C /* SecureBackupBannerPreferences.swift in Sources */,
 				ECF57A4625090C23004BBF9D /* CreateRoomCoordinator.swift in Sources */,
+				724273B1253561C200F9C908 /* NSString+FontAwesome.m in Sources */,
 				ECFBD5DC250A82B200DD5F5A /* TextViewTableViewHeaderFooterView.swift in Sources */,
 				B1BEE73723DF44A60003A4CB /* UserVerificationSessionsStatusViewState.swift in Sources */,
 				B108932823ABEE6800802670 /* BubbleCellReadReceiptsDisplayable.swift in Sources */,
@@ -6939,7 +7377,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/SupportingFiles/RiotShareExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -7292,21 +7730,36 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Riot/SupportingFiles/Riot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Q828BG865;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PJ_AUTOCONF=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/pjsipLib-2.8/pjsip/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjlib/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjlib-util/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjmedia/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjnath/include",
+				);
 				INFOPLIST_FILE = Riot/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/pjsipLib-2.8/device",
+					"$(PROJECT_DIR)/pjsipLib-2.8/simulator",
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -7337,14 +7790,29 @@
 				DEVELOPMENT_TEAM = 9Q828BG865;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PJ_AUTOCONF=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/pjsipLib-2.8/pjsip/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjlib/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjlib-util/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjmedia/include",
+					"$(SRCROOT)/pjsipLib-2.8/pjnath/include",
+				);
 				INFOPLIST_FILE = Riot/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/pjsipLib-2.8/device",
+					"$(PROJECT_DIR)/pjsipLib-2.8/simulator",
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";

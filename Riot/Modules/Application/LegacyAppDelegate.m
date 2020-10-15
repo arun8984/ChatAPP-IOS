@@ -237,9 +237,15 @@ NSString *const AppDelegateUniversalLinkDidChangeNotification = @"AppDelegateUni
 @property (nonatomic, strong) MajorUpdateManager *majorUpdateManager;
 
 @end
-
+#define kDelayToCall 10.0
+typedef enum ConnectionState {
+    DISCONNECTED,
+    IN_PROGRESS,
+    CONNECTED,
+    ERROR
+} ConnectionState;
 @implementation LegacyAppDelegate
-
+@synthesize _sip_acc_id,call_id,hasPJSIPStarted;
 #pragma mark -
 
 + (void)initialize
@@ -379,7 +385,9 @@ NSString *const AppDelegateUniversalLinkDidChangeNotification = @"AppDelegateUni
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)messageSoundURL, &_messageSound);
     
     NSLog(@"[AppDelegate] willFinishLaunchingWithOptions: Done");
-
+    [self initUserDefaults];
+    _isConnected = FALSE;
+    _launchDefault = YES;
     return YES;
 }
 
@@ -4589,5 +4597,357 @@ NSString *const AppDelegateUniversalLinkDidChangeNotification = @"AppDelegateUni
         [self logoutWithConfirmation:NO completion:nil];
     }
 }
+
+#pragma mark -  SIP Functions
+
+- (void)MakeCall:(NSString *) PhoneNumber{
+    pj_status_t status = sip_dial(_sip_acc_id, [PhoneNumber UTF8String], &call_id);
+    if (status != PJ_SUCCESS)
+    {
+        NSLog(@"Call failed");
+    }
+    _isIncoming = NO;
+    _CalledNo = PhoneNumber;
+}
+-(void)setSIPRegStatus:(NSString *)Status{
+    
+    if ([Status isEqualToString:@"Registration successful"]) {
+        Status = @"Ready To Call";
+    }
+    
+    self.RegStatus= Status;
+    
+}
+/***** SIP ********/
+/* */
+- (BOOL)sipStartup
+{
+    if (_app_config.pool)
+        return YES;
+    
+    if (sip_startup(&_app_config) != PJ_SUCCESS)
+    {
+        return NO;
+    }
+    /** Call management **/
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(processCallState:)
+                                                 name: kSIPCallState object:nil];
+    
+    /** Registration management **/
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(processRegState:)
+                                                 name: kSIPRegState object:nil];
+    return YES;
+}
+
+/* */
+- (void)sipCleanup
+{
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name: kSIPRegState
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kSIPCallState
+                                                  object:nil];
+    [self sipDisconnect];
+    
+    if (_app_config.pool != NULL)
+    {
+        sip_cleanup(&_app_config);
+    }
+}
+
+/* */
+- (BOOL)sipConnect
+{
+    if(!hasPJSIPStarted){
+        pj_status_t status;
+        _sip_acc_id = PJSUA_INVALID_ID;
+        NSLog(@"sipconnect called");
+        if (![self sipStartup])
+            return FALSE;
+        //return TRUE;
+        // if ([self wakeUpNetwork] == NO)//Ashish
+        //return NO;
+        
+        if (_sip_acc_id == PJSUA_INVALID_ID)
+        {
+            // NSLog(@"inside _sip-acc_id");
+            if ((status = sip_connect(_app_config.pool, &_sip_acc_id)) != PJ_SUCCESS)
+            {
+                NSLog(@"inside sip_connect if loop");
+                return FALSE;
+            }
+        }
+    }
+    hasPJSIPStarted = TRUE;
+    return TRUE;
+}
+
+/* */
+- (BOOL)sipDisconnect
+{
+    if ((_sip_acc_id != PJSUA_INVALID_ID) &&
+        (sip_disconnect(&_sip_acc_id) != PJ_SUCCESS))
+    {
+        return FALSE;
+    }
+    
+    _sip_acc_id = PJSUA_INVALID_ID;
+    
+    _isConnected = FALSE;
+    
+    return TRUE;
+}
+
+- (void)initUserDefaults:(NSMutableDictionary *)dict fromSettings:(NSString *)settings
+{
+    NSDictionary *prefItem;
+    NSString *pathStr = [[NSBundle mainBundle] bundlePath];
+    NSString *settingsBundlePath = [pathStr stringByAppendingPathComponent:@"Settings.bundle"];
+    NSString *finalPath = [settingsBundlePath stringByAppendingPathComponent:settings];
+    NSDictionary *settingsDict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
+    NSArray *prefSpecifierArray = [settingsDict objectForKey:@"PreferenceSpecifiers"];
+    
+    for (prefItem in prefSpecifierArray)
+    {
+        NSString *keyValueStr = [prefItem objectForKey:@"Key"];
+        if (keyValueStr)
+        {
+            id defaultValue = [prefItem objectForKey:@"DefaultValue"];
+            if (defaultValue)
+            {
+                [dict setObject:defaultValue forKey: keyValueStr];
+            }
+        }
+    }
+}
+
+- (void)initUserDefaults
+{
+    //#if defined(CYDIA) && (CYDIA == 1)
+    // TODO Franchement pas beau ;-)
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [NSNumber numberWithInt: 1800], @"regTimeout",
+                          [NSNumber numberWithBool:NO], @"enableNat",
+                          [NSNumber numberWithBool:NO], @"enableMJ",
+                          [NSNumber numberWithInt: 5060], @"localPort",
+                          [NSNumber numberWithInt: 4000], @"rtpPort",
+                          [NSNumber numberWithInt: 15], @"kaInterval",
+                          [NSNumber numberWithBool:NO], @"enableEC",
+                          [NSNumber numberWithBool:YES], @"disableVad",
+                          [NSNumber numberWithInt: 0], @"codec",
+                          [NSNumber numberWithBool:NO], @"dtmfWithInfo",
+                          [NSNumber numberWithBool:NO], @"enableICE",
+                          [NSNumber numberWithInt: 0], @"logLevel",
+                          [NSNumber numberWithBool:YES],  @"enableG711u",
+                          [NSNumber numberWithBool:YES],  @"enableG711a",
+                          [NSNumber numberWithBool:YES],   @"enableG722",
+                          [NSNumber numberWithBool:NO],   @"enableG7221",
+                          [NSNumber numberWithBool:YES],   @"enableG729",
+                          [NSNumber numberWithBool:YES],  @"enableGSM",
+                          [NSNumber numberWithBool:NO], @"keepAwake",
+                          RiotSettings.shared.sipServer,@"SIP_SERVER",
+                          BuildSettings.pushKitAppIdProd,@"pushKitAppIdProd",
+                          BuildSettings.pushKitAppIdDev,@"pushKitAppIdDev",
+                          BuildSettings.pusherAppIdProd,@"pusherAppIdProd",
+                          BuildSettings.pusherAppIdDev,@"pusherAppIdDev",
+                          nil];
+    
+    [userDef registerDefaults:dict];
+    [userDef synchronize];
+    /*#else
+     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+     
+     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity: 10];
+     [self initUserDefaults:dict fromSettings:@"Advanced.plist"];
+     [self initUserDefaults:dict fromSettings:@"Network.plist"];
+     [self initUserDefaults:dict fromSettings:@"Phone.plist"];
+     [self initUserDefaults:dict fromSettings:@"Codec.plist"];
+     
+     [userDef registerDefaults:dict];
+     [userDef synchronize];
+     //[dict release];
+     #endif // CYDIA*/
+}
+
+- (void)initModel
+{
+    NSString *model = [[UIDevice currentDevice] model];
+    isIpod = [model hasPrefix:@"iPod"];
+    //NSLog(@"%@", model);
+}
+- (NSString *)normalizePhoneNumber:(NSString *)number
+{
+    const char *phoneDigits = "22233344455566677778889999",
+    *nb = [[number uppercaseString] UTF8String];
+    int i, len = [number length];
+    char *u, *c, *utf8String = (char *)calloc(sizeof(char), len+1);
+    c = (char *)nb; u = utf8String;
+    for (i = 0; i < len; ++c, ++i)
+    {
+        if (*c == ' ' || *c == '(' || *c == ')' || *c == '/' || *c == '-' || *c == '.')
+            continue;
+        /*    if (*c >= '0' && *c <= '9')
+         {
+         *u = *c;
+         u++;
+         }
+         else*/ if (*c >= 'A' && *c <= 'Z')
+         {
+             *u = phoneDigits[*c - 'A'];
+         }
+         else
+             *u = *c;
+        u++;
+    }
+    NSString * norm = [[NSString alloc] initWithUTF8String:utf8String];
+    free(utf8String);
+    return norm;
+}
+
+
+- (void)processCallState:(NSNotification *)notification
+{
+#if 0
+    NSNumber *value = [[ notification userInfo ] objectForKey: @"CallID"];
+    pjsua_call_id callId = [value intValue];
+#endif
+    int state = [[[ notification userInfo ] objectForKey: @"State"] intValue];
+    
+    switch(state)
+    {
+        case PJSIP_INV_STATE_NULL: // Before INVITE is sent or received.
+            return;
+        case PJSIP_INV_STATE_CALLING: // After INVITE is sent.
+#ifdef __IPHONE_3_0
+            [UIDevice currentDevice].proximityMonitoringEnabled = YES;
+#else
+            self.proximitySensingEnabled = YES;
+#endif
+        case PJSIP_INV_STATE_INCOMING: // After INVITE is received.
+            /*
+             self.idleTimerDisabled = YES;
+             self.statusBarStyle = UIStatusBarStyleBlackTranslucent;
+             if (pjsua_call_get_count() == 1)
+             {
+             [self.window addSubview:callViewController.view];
+             [callViewController retain];
+             //        [tabBarController presentModalViewController:callViewController animated:YES];
+             }
+             */
+        case PJSIP_INV_STATE_EARLY: // After response with To tag.
+        case PJSIP_INV_STATE_CONNECTING: // After 2xx is sent/received.
+            break;
+        case PJSIP_INV_STATE_CONFIRMED: // After ACK is sent/received.
+#ifdef __IPHONE_3_0
+            [UIDevice currentDevice].proximityMonitoringEnabled = YES;
+#else
+            self.proximitySensingEnabled = YES;
+#endif
+            break;
+        case PJSIP_INV_STATE_DISCONNECTED:
+#if 0
+            self.idleTimerDisabled = NO;
+#ifdef __IPHONE_3_0
+            [UIDevice currentDevice].proximityMonitoringEnabled = NO;
+#else
+            self.proximitySensingEnabled = NO;
+#endif
+            if (pjsua_call_get_count() <= 1)
+                [self performSelector:@selector(disconnected:)
+                           withObject:nil afterDelay:1.0];
+#endif
+            break;
+    }
+    //[callViewController processCall: [ notification userInfo ]];
+}
+
+- (void)callDisconnecting
+{
+    //self.idleTimerDisabled = NO;
+#ifdef __IPHONE_3_0
+    [UIDevice currentDevice].proximityMonitoringEnabled = NO;
+#else
+    self.proximitySensingEnabled = NO;
+#endif
+    if (pjsua_call_get_count() <= 1)
+        [self performSelector:@selector(disconnected:)
+                   withObject:nil afterDelay:1.0];
+}
+- (void)outOfTimeToCall
+{
+    _launchDefault = YES;
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"dateOfCall"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"callURL"];
+}
+- (void)processRegState:(NSNotification *)notification
+{
+    //  const pj_str_t *str;
+    //NSNumber *value = [[ notification userInfo ] objectForKey: @"AccountID"];
+    //pjsua_acc_id accId = [value intValue];
+    int status = [[[ notification userInfo ] objectForKey: @"Status"] intValue];
+    
+    switch(status)
+    {
+        case 200: // OK
+            _isConnected = TRUE;
+            if (_launchDefault == NO)
+            {
+                pjsua_call_id call_id;
+                NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"dateOfCall"];
+                NSString *url = [[NSUserDefaults standardUserDefaults] stringForKey:@"callURL"];
+                if (date && [date timeIntervalSinceNow] < kDelayToCall)
+                {
+                    sip_dial_with_uri(_sip_acc_id, [url UTF8String], &call_id);
+                }
+                [self outOfTimeToCall];
+            }
+            [[NSUserDefaults standardUserDefaults]setObject:@"200" forKey:@"unregistered"];
+            break;
+        case 403: // registration failed
+            [[NSUserDefaults standardUserDefaults]setObject:@"403" forKey:@"unregistered"];
+            break;
+        case 404: // not found
+            //sprintf(TheGlobalConfig.accountError, "SIP-AUTH-FAILED");
+            [[NSUserDefaults standardUserDefaults]setObject:@"403" forKey:@"unregistered"];
+            break;
+        case 503:
+        case PJSIP_ENOCREDENTIAL:
+            // This error is caused by the realm specified in the credential doesn't match the realm challenged by the server
+            //sprintf(TheGlobalConfig.accountError, "SIP-REGISTER-FAILED");
+            [[NSUserDefaults standardUserDefaults]setObject:@"403" forKey:@"unregistered"];
+            break;
+        default:
+            _isConnected = FALSE;
+            //      [self sipDisconnect];
+    }
+}
+
+- (void) disconnected:(id)fp8
+{
+    //self.statusBarStyle = UIStatusBarStyleDefault;
+    //[tabBarController dismissModalViewControllerAnimated: YES];
+    
+    
+    //[phoneViewController viewWillAppear:YES];
+    //[[callViewController view] removeFromSuperview];
+    //[callViewController release];
+}
+- (app_config_t *)pjsipConfig
+{
+    return &_app_config;
+}
+
+
+-(void)displayParameterError:(NSString *)error{
+    NSError *err = [NSError errorWithDomain:@"com.asif.buddy" code:5060 userInfo:@{NSLocalizedDescriptionKey:error}];
+    //[CrashlyticsKit recordError:err];
+}
+
+
 
 @end
