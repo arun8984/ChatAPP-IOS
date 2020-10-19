@@ -1,0 +1,6 @@
+framework module Pods_RiotPods_RiotNSE {
+  umbrella header "Pods-RiotPods-RiotNSE-umbrella.h"
+
+  export *
+  module * { export * }
+}

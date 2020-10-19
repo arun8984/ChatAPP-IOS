@@ -1,0 +1,6 @@
+framework module MatrixSDK {
+  umbrella header "MatrixSDK.common-JingleCallStack-umbrella.h"
+
+  export *
+  module * { export * }
+}
