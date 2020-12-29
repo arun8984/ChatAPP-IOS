@@ -1181,28 +1181,39 @@
 
 
 -(void)StartContactSync{
-    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
-    
-    __block BOOL accessGranted = NO;
-    
-    if (&ABAddressBookRequestAccessWithCompletion != NULL) { // We are on iOS 6
-        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSDate *date = [NSDate date]; // your NSDate object
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    NSString *lastContactSync = [[NSUserDefaults standardUserDefaults] stringForKey:@"lastContactSync"];
+    if([dateString isEqualToString:lastContactSync]){
+        NSLog(@"Sync Complete for today");
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject:dateString forKey:@"lastContactSync"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
         
-        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
-            accessGranted = granted;
-            dispatch_semaphore_signal(semaphore);
-        });
+        __block BOOL accessGranted = NO;
         
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    }
-    
-    else { // We are on iOS 5 or Older
-        accessGranted = YES;
-        [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
-    }
-    
-    if (accessGranted) {
-        [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
+        if (&ABAddressBookRequestAccessWithCompletion != NULL) { // We are on iOS 6
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            
+            ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+                accessGranted = granted;
+                dispatch_semaphore_signal(semaphore);
+            });
+            
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        }
+        
+        else { // We are on iOS 5 or Older
+            accessGranted = YES;
+            [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
+        }
+        
+        if (accessGranted) {
+            [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
+        }
     }
 }
 
