@@ -1410,7 +1410,7 @@ JKL</string>
                         <viewControllerLayoutGuide type="bottom" id="UaH-Bc-gQh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5uV-Dx-JGn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-ZP-fYM">
@@ -2106,7 +2106,7 @@ JKL</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepicture.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-tV-fsc">
-                                            <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                            <rect key="frame" x="5" y="5" width="50" height="50.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="8ro-t3-V4w"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Ul4-jH-fMV"/>

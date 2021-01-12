@@ -81,7 +81,26 @@ static sqlite3_stmt *statement = nil;
         sqlite3_close(database);
     }
 }
-
+-(void)DeleteAll{
+    const char *dbpath = [databasePath UTF8String];
+    //sqlite3_reset(statement);
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        NSString *insertSQL;
+        insertSQL = @"delete from contacts";
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2 (database, insert_stmt,-1, &statement, NULL);
+        sqlite3_step(statement);
+        /*
+        if(sqlite3_step(statement) == SQLITE_DONE){
+            NSLog(@"Ok");
+        }else{
+            NSLog(@"NotOk");
+        }
+         */
+        sqlite3_close(database);
+    }
+}
 -(NSArray*)GetLocalContacts{
     
     const char *dbpath = [databasePath UTF8String];

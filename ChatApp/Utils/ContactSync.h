@@ -18,4 +18,5 @@
 -(BOOL)createDB;
 -(void)AddContact:(NSString*)PhoneNumber ContactName:(NSString*)ContactName;
 -(NSArray*)GetLocalContacts;
+-(void)DeleteAll;
 @end

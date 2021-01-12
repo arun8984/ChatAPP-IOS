@@ -1213,6 +1213,7 @@
         
         if (accessGranted) {
             [self performSelectorInBackground:@selector(SyncContacts:) withObject:(__bridge id _Nullable)(addressBook)];
+            
         }
     }
 }

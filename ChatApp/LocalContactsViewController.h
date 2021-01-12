@@ -14,6 +14,10 @@
 {
     ABAddressBookRef UsersAddressBook;
     CFArrayRef ContactInfoArray;
+    NSArray *AllPhoneNos;
+    int LIMIT;
+    int TotalPages, CurrentPage;
+    UIActivityIndicatorView *pendingMaskSpinnerView;
     
 }
 @property(nonatomic,retain)NSArray *ContactsArray;
