@@ -1,7 +1,7 @@
 /*
  Copyright 2017 Vector Creations Ltd
  Copyright 2018 New Vector Ltd
-
+ 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -39,7 +39,7 @@
 @interface MasterTabBarController () <AuthenticationViewControllerDelegate>
 {
     // Array of `MXSession` instances.
-    NSMutableArray *mxSessionArray;    
+    NSMutableArray *mxSessionArray;
     
     // Tell whether the authentication screen is preparing.
     BOOL isAuthViewControllerPreparing;
@@ -93,18 +93,24 @@
     
     // Note: UITabBarViewController shoud not be embed in a UINavigationController (https://github.com/vector-im/riot-ios/issues/3086)
     [self vc_removeBackTitle];
-
+    
     // Retrieve the all view controllers
-    _homeViewController = self.viewControllers[TABBAR_HOME_INDEX];
+    _accountViewController = self.viewControllers[TABBAR_HOME_INDEX];
+    
+    _homeViewController = self.viewControllers[1];
+    _keypadController = self.viewControllers[2];
+    _contactsViewController = self.viewControllers[3];
+    _settingsViewController = self.viewControllers[4];
+
     //_favouritesViewController = self.viewControllers[TABBAR_FAVOURITES_INDEX];
     //_peopleViewController = self.viewControllers[TABBAR_PEOPLE_INDEX];
     //_roomsViewController = self.viewControllers[TABBAR_ROOMS_INDEX];
     //_groupsViewController = self.viewControllers[TABBAR_GROUPS_INDEX];
     
     // Set the accessibility labels for all buttons #1842
-    [_settingsBarButtonItem setAccessibilityLabel:NSLocalizedStringFromTable(@"settings_title", @"Vector", nil)];
-    [_searchBarButtonIem setAccessibilityLabel:NSLocalizedStringFromTable(@"search_default_placeholder", @"Vector", nil)];
-    [_homeViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_home", @"Vector", nil)];
+//    [_settingsBarButtonItem setAccessibilityLabel:NSLocalizedStringFromTable(@"settings_title", @"Vector", nil)];
+//    [_searchBarButtonIem setAccessibilityLabel:NSLocalizedStringFromTable(@"search_default_placeholder", @"Vector", nil)];
+//    [_homeViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_home", @"Vector", nil)];
     //[_favouritesViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_favourites", @"Vector", nil)];
     //[_peopleViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_people", @"Vector", nil)];
     //[_roomsViewController setAccessibilityLabel:NSLocalizedStringFromTable(@"title_rooms", @"Vector", nil)];
@@ -112,7 +118,7 @@
     
     // Sanity check
     //NSAssert(_homeViewController && _favouritesViewController && _peopleViewController && _roomsViewController && _groupsViewController, @"Something wrong in Main.storyboard");
-
+    
     // Adjust the display of the icons in the tabbar.
     for (UITabBarItem *tabBarItem in self.tabBar.items)
     {
@@ -120,7 +126,7 @@
         {
             // Fix iOS 13 misalignment tab bar images. Some titles are nil and other empty strings. Nil title behaves as if a non-empty title was set.
             // Note: However no need to modify imageInsets property on iOS 13.
-            tabBarItem.title = @"";            
+            tabBarItem.title = @"";
         }
         else
         {
@@ -145,7 +151,7 @@
 - (void)userInterfaceThemeDidChange
 {
     [ThemeService.shared.theme applyStyleOnNavigationBar:self.navigationController.navigationBar];
-
+    
     [ThemeService.shared.theme applyStyleOnTabBar:self.tabBar];
     
     self.view.backgroundColor = ThemeService.shared.theme.backgroundColor;
@@ -167,6 +173,22 @@
 {
     [super viewWillAppear:animated];
     
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed: 0.66 green: 0.84 blue: 0.93 alpha: 1.00]];
+    
+    [[UITabBar appearance] setUnselectedItemTintColor:[UIColor colorWithRed: 0.17 green: 0.36 blue: 0.56 alpha: 1.00]];
+    
+    [[self.tabBar.items objectAtIndex:0] setTitle:@"Home"];
+
+    [[self.tabBar.items objectAtIndex:1] setTitle:@"Chat"];
+
+    [[self.tabBar.items objectAtIndex:2] setTitle:@"Direct Call"];
+
+    [[self.tabBar.items objectAtIndex:3] setTitle:@"Contacts"];
+    
+    [[self.tabBar.items objectAtIndex:4] setTitle:@"Settings"];
+
     // Show the tab bar view controller content only when a user is logged in.
     self.hidden = ([MXKAccountManager sharedManager].accounts.count == 0);
 }
@@ -194,7 +216,7 @@
             authIsShown = YES;
         }
     }
-
+    
     if (!authIsShown)
     {
         
@@ -204,11 +226,11 @@
         // Check whether the user has been already prompted to send crash reports.
         // (Check whether 'enableCrashReport' flag has been set once)
         /*
-        if (!RiotSettings.shared.isEnableCrashReportHasBeenSetOnce)
-        {
-            [self promptUserBeforeUsingAnalytics];
-        }
-        */
+         if (!RiotSettings.shared.isEnableCrashReportHasBeenSetOnce)
+         {
+         [self promptUserBeforeUsingAnalytics];
+         }
+         */
         [self refreshTabBarBadges];
         
         // Release properly pushed and/or presented view controller
@@ -314,26 +336,26 @@
         id<MXKDataSourceDelegate> recentsDataSourceDelegate = _homeViewController;
         RecentsDataSourceMode recentsDataSourceMode = RecentsDataSourceModeHome;
         /*
-        switch (self.selectedIndex)
-        {
-            case TABBAR_HOME_INDEX:
-                break;
-            case TABBAR_FAVOURITES_INDEX:
-                recentsDataSourceDelegate = _favouritesViewController;
-                recentsDataSourceMode = RecentsDataSourceModeFavourites;
-                break;
-            case TABBAR_PEOPLE_INDEX:
-                recentsDataSourceDelegate = _peopleViewController;
-                recentsDataSourceMode = RecentsDataSourceModePeople;
-                break;
-            case TABBAR_ROOMS_INDEX:
-                recentsDataSourceDelegate = _roomsViewController;
-                recentsDataSourceMode = RecentsDataSourceModeRooms;
-                break;
-                
-            default:
-                break;
-        }
+         switch (self.selectedIndex)
+         {
+         case TABBAR_HOME_INDEX:
+         break;
+         case TABBAR_FAVOURITES_INDEX:
+         recentsDataSourceDelegate = _favouritesViewController;
+         recentsDataSourceMode = RecentsDataSourceModeFavourites;
+         break;
+         case TABBAR_PEOPLE_INDEX:
+         recentsDataSourceDelegate = _peopleViewController;
+         recentsDataSourceMode = RecentsDataSourceModePeople;
+         break;
+         case TABBAR_ROOMS_INDEX:
+         recentsDataSourceDelegate = _roomsViewController;
+         recentsDataSourceMode = RecentsDataSourceModeRooms;
+         break;
+         
+         default:
+         break;
+         }
          */
         [recentsDataSource setDelegate:recentsDataSourceDelegate andRecentsDataSourceMode:recentsDataSourceMode];
         
@@ -360,6 +382,11 @@
 
 - (void)addMatrixSession:(MXSession *)mxSession
 {
+    if (_homeViewController == nil) {
+        
+        _homeViewController = [[HomeViewController alloc] init];
+    }
+    
     // Check whether the controller's view is loaded into memory.
     if (_homeViewController)
     {
@@ -473,19 +500,19 @@
 - (void)showAuthenticationScreenAfterSoftLogout:(MXCredentials*)credentials;
 {
     NSLog(@"[MasterTabBarController] showAuthenticationScreenAfterSoftLogout");
-
+    
     softLogoutCredentials = credentials;
-
+    
     // Check whether an authentication screen is not already shown or preparing
     if (!self.authViewController && !isAuthViewControllerPreparing)
     {
         isAuthViewControllerPreparing = YES;
         _authenticationInProgress = YES;
-
+        
         [[AppDelegate theDelegate] restoreInitialDisplay:^{
-
+            
             [self performSegueWithIdentifier:@"showAuth" sender:self];
-
+            
         }];
     }
 }
@@ -760,7 +787,7 @@
 
 /**
  Load the data source of the room to open.
-
+ 
  @param onComplete a block providing the loaded room data source.
  */
 - (void)dataSourceOfRoomToDisplay:(void (^)(MXKRoomDataSource *roomDataSource))onComplete
@@ -768,14 +795,14 @@
     // Check whether an event has been selected from messages or files search tab.
     MXEvent *selectedSearchEvent = unifiedSearchViewController.selectedSearchEvent;
     MXSession *selectedSearchEventSession = unifiedSearchViewController.selectedSearchEventSession;
-
+    
     if (!selectedSearchEvent)
     {
         if (!_selectedEventId)
         {
             // LIVE: Show the room live timeline managed by MXKRoomDataSourceManager
             MXKRoomDataSourceManager *roomDataSourceManager = [MXKRoomDataSourceManager sharedManagerForMatrixSession:_selectedRoomSession];
-
+            
             [roomDataSourceManager roomDataSourceForRoom:_selectedRoomId create:YES onComplete:^(MXKRoomDataSource *roomDataSource) {
                 onComplete(roomDataSource);
             }];
@@ -784,12 +811,12 @@
         {
             // Open the room on the requested event
             [RoomDataSource loadRoomDataSourceWithRoomId:_selectedRoomId initialEventId:_selectedEventId andMatrixSession:_selectedRoomSession onComplete:^(id roomDataSource) {
-
+                
                 ((RoomDataSource*)roomDataSource).markTimelineInitialEvent = YES;
-
+                
                 // Give the data source ownership to the room view controller.
                 self.currentRoomViewController.hasRoomDataSourceOwnership = YES;
-
+                
                 onComplete(roomDataSource);
             }];
         }
@@ -798,14 +825,14 @@
     {
         // Search result: Create a temp timeline from the selected event
         [RoomDataSource loadRoomDataSourceWithRoomId:selectedSearchEvent.roomId initialEventId:selectedSearchEvent.eventId andMatrixSession:selectedSearchEventSession onComplete:^(id roomDataSource) {
-
+            
             [roomDataSource finalizeInitialization];
-
+            
             ((RoomDataSource*)roomDataSource).markTimelineInitialEvent = YES;
-
+            
             // Give the data source ownership to the room view controller.
             self.currentRoomViewController.hasRoomDataSourceOwnership = YES;
-
+            
             onComplete(roomDataSource);
         }];
     }
@@ -817,7 +844,7 @@
     {
         // Refresh selected cell without scrolling the selected cell (We suppose it's visible here)
         [self refreshCurrentSelectedCell:NO];
-
+        
         if (_currentRoomViewController)
         {
             _currentRoomViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -900,18 +927,18 @@
 - (void)refreshTabBarBadges
 {
     /*
-    // Use a middle dot to signal missed notif in favourites
-    [self setMissedDiscussionsMark:(recentsDataSource.missedFavouriteDiscussionsCount? @"\u00B7": nil)
-                      onTabBarItem:TABBAR_FAVOURITES_INDEX
-                    withBadgeColor:(recentsDataSource.missedHighlightFavouriteDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
-    
-    // Update the badge on People and Rooms tabs
-    [self setMissedDiscussionsCount:recentsDataSource.missedDirectDiscussionsCount
-                       onTabBarItem:TABBAR_PEOPLE_INDEX
-                     withBadgeColor:(recentsDataSource.missedHighlightDirectDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
-    [self setMissedDiscussionsCount:recentsDataSource.missedGroupDiscussionsCount
-                       onTabBarItem:TABBAR_ROOMS_INDEX
-                     withBadgeColor:(recentsDataSource.missedHighlightGroupDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
+     // Use a middle dot to signal missed notif in favourites
+     [self setMissedDiscussionsMark:(recentsDataSource.missedFavouriteDiscussionsCount? @"\u00B7": nil)
+     onTabBarItem:TABBAR_FAVOURITES_INDEX
+     withBadgeColor:(recentsDataSource.missedHighlightFavouriteDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
+     
+     // Update the badge on People and Rooms tabs
+     [self setMissedDiscussionsCount:recentsDataSource.missedDirectDiscussionsCount
+     onTabBarItem:TABBAR_PEOPLE_INDEX
+     withBadgeColor:(recentsDataSource.missedHighlightDirectDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
+     [self setMissedDiscussionsCount:recentsDataSource.missedGroupDiscussionsCount
+     onTabBarItem:TABBAR_ROOMS_INDEX
+     withBadgeColor:(recentsDataSource.missedHighlightGroupDiscussionsCount ? ThemeService.shared.theme.noticeColor : ThemeService.shared.theme.noticeSecondaryColor)];
      */
 }
 
@@ -926,8 +953,8 @@
         self.tabBar.items[index].badgeColor = badgeColor;
         
         [self.tabBar.items[index] setBadgeTextAttributes:@{
-                                                           NSForegroundColorAttributeName: ThemeService.shared.theme.baseTextPrimaryColor
-                                                           }
+            NSForegroundColorAttributeName: ThemeService.shared.theme.baseTextPrimaryColor
+        }
                                                 forState:UIControlStateNormal];
     }
     else
@@ -941,12 +968,12 @@
     if (mark)
     {
         self.tabBar.items[index].badgeValue = mark;
-                
+        
         self.tabBar.items[index].badgeColor = badgeColor;
         
         [self.tabBar.items[index] setBadgeTextAttributes:@{
-                                                           NSForegroundColorAttributeName: ThemeService.shared.theme.baseTextPrimaryColor
-                                                           }
+            NSForegroundColorAttributeName: ThemeService.shared.theme.baseTextPrimaryColor
+        }
                                                 forState:UIControlStateNormal];
     }
     else
@@ -989,32 +1016,32 @@
     [currentAlert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"]
                                                      style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
-                                                       
-                                                       RiotSettings.shared.enableCrashReport = NO;
-                                                       
-                                                       if (weakSelf)
-                                                       {
-                                                           typeof(self) self = weakSelf;
-                                                           self->currentAlert = nil;
-                                                       }
-                                                       
-                                                   }]];
+        
+        RiotSettings.shared.enableCrashReport = NO;
+        
+        if (weakSelf)
+        {
+            typeof(self) self = weakSelf;
+            self->currentAlert = nil;
+        }
+        
+    }]];
     
     [currentAlert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"yes"]
                                                      style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
-                                                                                                              
-                                                       RiotSettings.shared.enableCrashReport = YES;
-                                                       
-                                                       if (weakSelf)
-                                                       {
-                                                           typeof(self) self = weakSelf;
-                                                           self->currentAlert = nil;
-                                                       }
-
-                                                       [[Analytics sharedInstance] start];
-                                                       
-                                                   }]];
+        
+        RiotSettings.shared.enableCrashReport = YES;
+        
+        if (weakSelf)
+        {
+            typeof(self) self = weakSelf;
+            self->currentAlert = nil;
+        }
+        
+        [[Analytics sharedInstance] start];
+        
+    }]];
     
     [currentAlert mxk_setAccessibilityIdentifier: @"HomeVCUseAnalyticsAlert"];
     [self presentViewController:currentAlert animated:YES completion:nil];
@@ -1048,8 +1075,8 @@
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"key_verification_self_verify_current_session_alert_validate_action", @"Vector", nil)
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * action) {
-                                                [[AppDelegate theDelegate] presentCompleteSecurityForSession:session];
-                                            }]];
+        [[AppDelegate theDelegate] presentCompleteSecurityForSession:session];
+    }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"later", @"Vector", nil)
                                               style:UIAlertActionStyleCancel
@@ -1058,8 +1085,8 @@
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"do_not_ask_again", @"Vector", nil)
                                               style:UIAlertActionStyleDestructive
                                             handler:^(UIAlertAction * action) {
-                                                RiotSettings.shared.hideVerifyThisSessionAlert = YES;
-                                            }]];
+        RiotSettings.shared.hideVerifyThisSessionAlert = YES;
+    }]];
     
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -1107,8 +1134,8 @@
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"key_verification_self_verify_unverified_sessions_alert_validate_action", @"Vector", nil)
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * action) {
-                                                [self showSettingsSecurityScreenForSession:session];
-                                            }]];
+        [self showSettingsSecurityScreenForSession:session];
+    }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"later", @"Vector", nil)
                                               style:UIAlertActionStyleCancel
@@ -1117,8 +1144,8 @@
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"do_not_ask_again", @"Vector", nil)
                                               style:UIAlertActionStyleDestructive
                                             handler:^(UIAlertAction * action) {
-                                                RiotSettings.shared.hideReviewSessionsAlert = YES;
-                                            }]];
+        RiotSettings.shared.hideReviewSessionsAlert = YES;
+    }]];
     
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -1149,23 +1176,23 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     /*
-    // Detect multi-tap on the current selected tab.
-    if (item.tag == self.selectedIndex)
-    {
-        // Scroll to the next room with missed notifications.
-        if (item.tag == TABBAR_ROOMS_INDEX)
-        {
-            [self.roomsViewController scrollToNextRoomWithMissedNotifications];
-        }
-        else if (item.tag == TABBAR_PEOPLE_INDEX)
-        {
-            [self.peopleViewController scrollToNextRoomWithMissedNotifications];
-        }
-        else if (item.tag == TABBAR_FAVOURITES_INDEX)
-        {
-            [self.favouritesViewController scrollToNextRoomWithMissedNotifications];
-        }
-    }
+     // Detect multi-tap on the current selected tab.
+     if (item.tag == self.selectedIndex)
+     {
+     // Scroll to the next room with missed notifications.
+     if (item.tag == TABBAR_ROOMS_INDEX)
+     {
+     [self.roomsViewController scrollToNextRoomWithMissedNotifications];
+     }
+     else if (item.tag == TABBAR_PEOPLE_INDEX)
+     {
+     [self.peopleViewController scrollToNextRoomWithMissedNotifications];
+     }
+     else if (item.tag == TABBAR_FAVOURITES_INDEX)
+     {
+     [self.favouritesViewController scrollToNextRoomWithMissedNotifications];
+     }
+     }
      */
 }
 
@@ -1219,6 +1246,9 @@
 }
 
 -(void)SyncContacts:(ABAddressBookRef )addressBook {
+    
+    gotNumbers = false;
+    
     LIMIT = 100;
     AllPhoneNos = [self getContactsWithAddressBook:addressBook];
     
@@ -1228,19 +1258,29 @@
     CurrentPage = 0;
     //   DoSync([self LoadList:CurrentPage];
     [self DoSync:[self LoadList:CurrentPage]];
-    
 }
 
--(void)DoSync:(NSString *)PhoneNos{
-    
-    
+-(void)DoSync:(NSString *)PhoneNos {
     
     NSLocale *locale = [NSLocale currentLocale];
     NSString *isoCountryCode = [locale objectForKey: NSLocaleCountryCode];
     NSString *callingCode = [NSString stringWithFormat:@"%@", [[NBPhoneNumberUtil sharedInstance] getCountryCodeForRegion:isoCountryCode].stringValue];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",callingCode];
     NSArray *ModifiedPhoneNOS = [AllPhoneNos filteredArrayUsingPredicate:predicate];
-    NSString *PhoneNOs = [ModifiedPhoneNOS componentsJoinedByString:@","];
+    
+    NSMutableArray *newArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < ModifiedPhoneNOS.count; i++)
+    {
+        if (![[ModifiedPhoneNOS objectAtIndex:i] isEqualToString:@""] && ![[ModifiedPhoneNOS objectAtIndex:i] isKindOfClass:nil] && ![[ModifiedPhoneNOS objectAtIndex:i] isKindOfClass:NULL]) {
+            
+            NSString *newStr = [[ModifiedPhoneNOS objectAtIndex:i] substringWithRange:NSMakeRange(2, [[ModifiedPhoneNOS objectAtIndex:i] length]-2)];
+            [newArray addObject:newStr];
+        }
+    }
+    
+    NSString *PhoneNOs = [newArray componentsJoinedByString:@","];
+    //NSString *PhoneNOs = [ModifiedPhoneNOS componentsJoinedByString:@","];
     
     NSString *Username = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
     NSString *Password = [[NSUserDefaults standardUserDefaults] objectForKey:@"Password"];
@@ -1268,29 +1308,59 @@
     [request setHTTPBody:postData];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+   
     [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+       
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding];
+        
         NSLog(@"requestReply: %@", requestReply);
-        if(data!=nil)
+        
+        if (data != nil)
         {
-            if(requestReply!=nil||![requestReply isEqual:@""])
-            {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            //NSLog(@"json : %@",json);
+
+            NSDictionary *localDict = [json objectForKey:@"local"];
+
+            NSArray *ArrPhoneNos = [localDict objectForKey:@"phonenos"];
+          
+            if (ArrPhoneNos != nil) {
                 
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                NSArray *ArrPhoneNos = [json objectForKey:@"phonenos"];
-                if(ArrPhoneNos!=nil){
-                    ContactSync *contactSync = [ContactSync getSharedInstance];
-                    for(int i=0;i<ArrPhoneNos.count;i++){
-                        [contactSync AddContact:[ArrPhoneNos objectAtIndex:i] ContactName:[self getContactNameFromPhoneNumber:[ArrPhoneNos objectAtIndex:i]]];
-                    }
+                self->gotNumbers = true;
+                
+                ContactSync *contactSync = [ContactSync getSharedInstance];
+                
+                for (int i = 0 ; i < ArrPhoneNos.count; i++) {
                     
+                    [contactSync AddContact:[ArrPhoneNos objectAtIndex:i] ContactName:[self getContactNameFromPhoneNumber:[ArrPhoneNos objectAtIndex:i]]];
                 }
-                CurrentPage=CurrentPage+1;
-                if(CurrentPage<TotalPages)
-                    [self DoSync:[self LoadList:CurrentPage]];
-                
             }
+         
+            NSDictionary *interDict = [json objectForKey:@"international"];
+
+            NSArray *InterPhoneNos = [interDict objectForKey:@"phonenos"];
+          
+            if (InterPhoneNos != nil) {
+                
+                self->gotNumbers = true;
+
+                ContactSync *contactSync = [ContactSync getSharedInstance];
+                
+                for (int i = 0 ; i < InterPhoneNos.count; i++) {
+                    
+                    [contactSync AddContact:[InterPhoneNos objectAtIndex:i] ContactName:[self getContactNameFromPhoneNumber:[InterPhoneNos objectAtIndex:i]]];
+                }
+            }
+
+            CurrentPage = CurrentPage + 1;
             
+            if (CurrentPage < TotalPages) {
+                
+                if (self->gotNumbers == false) {
+                    
+                    [self DoSync:[self LoadList:CurrentPage]];
+                }
+            }
         }
     }] resume];
 }

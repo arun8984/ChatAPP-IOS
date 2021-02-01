@@ -40,9 +40,33 @@
     NSLocale *currentLocale = [NSLocale currentLocale];
     self.isoCountryCode = [currentLocale objectForKey:NSLocaleCountryCode];
     [self setIsoCountryCode:self.isoCountryCode];
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    // numberToolbar.barStyle =UIBarStyleBlackTranslucent;
     
+    [numberToolbar setTranslucent:NO];
+    [numberToolbar setBackgroundColor:[UIColor purpleColor]];
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(resignkeyboards)],
+                           nil];
+    [numberToolbar sizeToFit];
+    _phoneTextField.inputAccessoryView = numberToolbar;
+    _otpTextField.inputAccessoryView = numberToolbar;
     
 }
+
+- (IBAction)btnResendOnClick:(id)sender {
+    [self RequestOTP];
+}
+
+
+-(void)resignkeyboards
+{
+    [_phoneTextField resignFirstResponder];
+    [_otpTextField resignFirstResponder];
+   
+}
+
 
 -(void)customizeViewRendering
 {
@@ -144,7 +168,9 @@
     if (nbPhoneNumber)
     {
         NSString *formattedNumber = [[NBPhoneNumberUtil sharedInstance] format:nbPhoneNumber numberFormat:NBEPhoneNumberFormatINTERNATIONAL error:nil];
+        
         NSString *prefix = self.callingCodeLabel.text;
+       
         if ([formattedNumber hasPrefix:prefix])
         {
             // Format the display phone number
@@ -185,6 +211,8 @@
      [self.view addSubview:modalView];
      [self performSelectorInBackground:@selector(RequestOTP) withObject:nil];
      */
+    
+  
     [self RequestOTP];
 }
 
@@ -199,6 +227,10 @@
 #pragma mark - API Calls
 
 -(void)RequestOTP{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
+        self->_nextButton.userInteractionEnabled = false;
+    });
     
     [_phoneTextField resignFirstResponder];
     if([[NBPhoneNumberUtil sharedInstance] isPossibleNumber:nbPhoneNumber]){
@@ -244,6 +276,10 @@
         [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"requestReply: %@", requestReply);
+            dispatch_async(dispatch_get_main_queue(), ^{
+            
+                self->_nextButton.userInteractionEnabled = true;
+            });
             if(data==nil)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -344,14 +380,21 @@
     }
 }
 
--(void)VerifyOTP{
+-(void)VerifyOTP {
+    
     [_otpTextField resignFirstResponder];
-    if(_otpTextField.text.length>=4){
+   
+    if (_otpTextField.text.length >= 4) {
         
         NSString *ccode = [[[NBPhoneNumberUtil sharedInstance] getCountryCodeForRegion:self.isoCountryCode] stringValue];
         
         NSString *phone = [[NBPhoneNumberUtil sharedInstance] format:nbPhoneNumber numberFormat:NBEPhoneNumberFormatE164 error:nil];
+        
+        phone = [phone stringByReplacingOccurrencesOfString:@" " withString:@""];
+        phone = [phone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+
         NSString *prefix = self.callingCodeLabel.text;
+       
         if ([phone hasPrefix:prefix])
         {
             phone = [phone substringFromIndex:prefix.length];
@@ -374,7 +417,7 @@
         base64Encoded = [cipher base64EncodedStringWithOptions:0];
         NSString *hexotp = [base64Encoded stringToHex:base64Encoded];
         
-        NSString *post = [NSString stringWithFormat:@"ccode=%@&phone_user=%@&otp=%@",hexccode,hexphone,hexotp];
+        NSString *post = [NSString stringWithFormat:@"ccode=%@&phone_user=%@&otp=%@", hexccode, hexphone, hexotp];
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIView *OTPContainer;
 
 @property (nonatomic) NSString *isoCountryCode;
+@property (weak, nonatomic) IBOutlet UILabel *otpTextLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btnResend;
 
 @end
 

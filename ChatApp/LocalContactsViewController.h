@@ -18,8 +18,8 @@
     int LIMIT;
     int TotalPages, CurrentPage;
     UIActivityIndicatorView *pendingMaskSpinnerView;
-    
 }
+
 @property(nonatomic,retain)NSArray *ContactsArray;
 @property(nonatomic,retain)NSMutableArray *SelectedContacts;
 @property(nonatomic,retain)NSString *Username;
@@ -28,4 +28,5 @@
 
 -(IBAction)CancelButtonClicked:(id)sender;
 -(IBAction)StartChatButtonClicked:(id)sender;
+
 @end

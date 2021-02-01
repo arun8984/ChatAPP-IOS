@@ -26,21 +26,51 @@
 #import "LocalContacts.h"
 #import "NBPhoneNumberUtil.h"
 #import "Riot-Swift.h"
+#import "WebViewViewController.h"
 
 @implementation ContactsDetailsViewController
 
-@synthesize Contact,LocalContactsArray,LocalContactsCSV;
+@synthesize Contact, LocalContactsArray, LocalContactsCSV;
 
--(void)viewDidLoad{
-    self.title = @"Contact Details";
+-(void)viewDidLoad {
+    
+    nameContainerView.layer.cornerRadius = 10;
+    nameContainerView.layer.masksToBounds = true;
+    nameContainerView.backgroundColor = ThemeService.shared.theme.backgroundColor;
+    
+    optionsContainerView.layer.cornerRadius = 10;
+    optionsContainerView.layer.masksToBounds = true;
+    optionsContainerView.backgroundColor = ThemeService.shared.theme.backgroundColor;
+
+    _Name.textColor = ThemeService.shared.theme.textPrimaryColor;
+
+    [_Name setText: [self.Contact.givenName stringByAppendingFormat:@" %@",self.Contact.familyName]];
+    UIImage *image = [UIImage imageWithData:self.Contact.imageData];
+  
+    if (image == nil) {
+        _ContactimageView.image=[UIImage imageNamed: @"profilepicture.png"];
+    } else {
+        _ContactimageView.image=[self imageWithImage:image scaledToFillSize:CGSizeMake(75.0f, 75.0f)];
+    }
+        
+    _ContactimageView.layer.cornerRadius = _ContactimageView.frame.size.width / 2;
+    _ContactimageView.layer.masksToBounds = YES;
+    _ContactimageView.layer.borderColor = [UIColor whiteColor].CGColor;
 }
--(void)viewWillAppear:(BOOL)animated{
-    //[self.navigationController setNavigationBarHidden:YES animated:animated];   // Will hides Navigationbar
+
+-(void)viewWillAppear:(BOOL)animated {
+
     [super viewWillAppear:animated];
+    
+    self.title = @"Contact Details";
+
+    [ThemeService.shared.theme applyStyleOnNavigationBar:[AppDelegate theDelegate].masterTabBarController.navigationController.navigationBar];
+
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
+        [self->tblObj reloadData];
     });
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     //[self.navigationController setNavigationBarHidden:NO animated:animated]; // Will shows Navigationbar
     [super viewWillDisappear:animated];
@@ -49,14 +79,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section==0) {
-        return 1;
-    }
+   
     NSInteger count = 0;
+    
     for (CNLabeledValue *label in self.Contact.phoneNumbers) {
         if ([label.value stringValue].length > 0) {
             count++;
@@ -64,9 +93,7 @@
     }
     return count;
 }
-- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50.0f;
-}
+
 /*
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(100.0f, 100.0f, tableView.tableHeaderView.frame.size.width+100.0f, tableView.tableHeaderView.frame.size.height+100.0f)];
@@ -75,32 +102,17 @@
 }
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==0) {
-        LocalContactsTableViewCell *cell = (LocalContactsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"contactName"];
-        
-        cell.backgroundColor = ThemeService.shared.theme.backgroundColor;
-        // Configure the cell...
-        [cell.Name setText: [self.Contact.givenName stringByAppendingFormat:@" %@",self.Contact.familyName]];
-        UIImage *image = [UIImage imageWithData:self.Contact.imageData];
-        if(image == nil){
-            cell.ContactimageView.image=[UIImage imageNamed: @"profilepicture.png"];
-        }else{
-            cell.ContactimageView.image=[self imageWithImage:image scaledToFillSize:CGSizeMake(75.0f, 75.0f)];
-        }
-        cell.ContactSelectedImageView.image = NULL;
-            
-        cell.ContactimageView.layer.cornerRadius = cell.ContactimageView.frame.size.width / 2;
-        cell.ContactimageView.layer.masksToBounds = YES;
-        //cell.imageView.layer.borderWidth = 1.0f;
-        cell.ContactimageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    return cell;
-    }else{
-        ContactDetailsCell *cell = (ContactDetailsCell *)[tableView dequeueReusableCellWithIdentifier:@"contactNos"];
+    ContactDetailsCell *cell = (ContactDetailsCell *)[tableView dequeueReusableCellWithIdentifier:@"contactNos"];
         
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         cell.backgroundColor = ThemeService.shared.theme.backgroundColor;
         
+        cell.lable.textColor = ThemeService.shared.theme.textPrimaryColor;
+
+        cell.Number.textColor = ThemeService.shared.theme.textSecondaryColor;
+
         NSLocale *locale = [NSLocale currentLocale];
         NSString *isoCountryCode = [locale objectForKey: NSLocaleCountryCode];
         //NSString *callingCode = [NSString stringWithFormat:@"%@", [[NBPhoneNumberUtil sharedInstance] getCountryCodeForRegion:isoCountryCode].stringValue];
@@ -108,10 +120,14 @@
         NSError *anError = nil;
         
         NSInteger i = 0;
+        
         for (CNLabeledValue *label in self.Contact.phoneNumbers) {
+           
             NSString *phone = [label.value stringValue];
+            
             if ([phone length] > 0) {
-                if (i==indexPath.row) {
+               
+                if (i == indexPath.row) {
                     [cell.lable setText:[self GetLableString:label]];
                     [cell.Number setText:phone];
                     NBPhoneNumber *myNumber = [phoneUtil parse:phone defaultRegion:isoCountryCode error:&anError];
@@ -132,17 +148,32 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
-    }
-    
 }
--(IBAction)Call:(UIButton *)sender{
-    NSInteger i = 0;
-    NSArray <CNLabeledValue<CNPhoneNumber *> *> *phoneNumbers = self.Contact.phoneNumbers;
+
+-(IBAction)smsTapped:(UIButton *)sender {
     
+    NSString *Username = [[NSUserDefaults standardUserDefaults]objectForKey:@"Username"];
+    NSString *Password =[[NSUserDefaults standardUserDefaults]objectForKey:@"Password"];
+
+    WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithURL: [NSString stringWithFormat:@"https://www.goip2call.com/crm/customer/sendsms_app.php?pr_login=%@&pr_password=%@&mobiledone=submit_log", Username, Password]];
+    
+    webViewViewController.title = @"SMS"; //NSLocalizedStringFromTable(@"settings_term_conditions", @"Vector", nil);
+    [self.navigationController pushViewController:webViewViewController animated:true];
+}
+
+-(IBAction)DirectCall:(UIButton *)sender {
+
+    NSInteger i = 0;
+
+    NSArray <CNLabeledValue<CNPhoneNumber *> *> *phoneNumbers = self.Contact.phoneNumbers;
+
     for (CNLabeledValue *label in self.Contact.phoneNumbers) {
         NSString *phone = [label.value stringValue];
+
         if ([phone length] > 0) {
-            if (i==sender.tag) {
+
+            if (i == sender.tag) {
+
                 CNLabeledValue<CNPhoneNumber *> *firstPhone = [phoneNumbers objectAtIndex:i];
                 CNPhoneNumber *number = firstPhone.value;
                 NSString *PhoneNo = number.stringValue;
@@ -157,8 +188,21 @@
             i++;
         }
     }
+
 }
--(IBAction)Chat:(UIButton *)sender{
+
+-(IBAction)Video:(UIButton *)sender {
+    
+    [self Chat:sender];
+}
+
+-(IBAction)Call:(UIButton *)sender {
+    
+    [self Chat:sender];
+}
+
+-(IBAction)Chat:(UIButton *)sender {
+    
     [self addPendingActionMask];
     
     NSInteger i = 0;
@@ -183,6 +227,7 @@
     NSString *memberId = [NSString stringWithFormat:@"@%@:%@",PhoneNo,RiotSettings.shared.chatDomain];
     NSArray *directRoomIds = [AppDelegate theDelegate].mainSession.directRooms[memberId];
     NSMutableArray *directChatsArray =[[NSMutableArray alloc]init];
+    
     for (NSString* directRoomId in directRoomIds)
     {
         if ([[AppDelegate theDelegate].mainSession roomWithRoomId:directRoomId])
@@ -190,6 +235,7 @@
             [directChatsArray addObject:directRoomId];
         }
     }
+   
     if (directChatsArray.count==0) {
         [[AppDelegate theDelegate] createDirectChatWithUserId:memberId completion:^(void){
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -200,6 +246,7 @@
         }];
     }
 }
+
 - (UIImage *)imageWithImage:(UIImage *)image scaledToFillSize:(CGSize)size
 {
     CGFloat scale = MAX(size.width/image.size.width, size.height/image.size.height);
@@ -235,11 +282,11 @@
     pendingMaskSpinnerView.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.5];
     pendingMaskSpinnerView.frame = CGRectMake(0, 0, 50, 50);
     pendingMaskSpinnerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
-    pendingMaskSpinnerView.center = self.tableView.center;
+    pendingMaskSpinnerView.center = tblObj.center;
     pendingMaskSpinnerView.layer.cornerRadius = 5.0;
     
     // append it
-    [self.tableView.superview addSubview:pendingMaskSpinnerView];
+    [tblObj.superview addSubview:pendingMaskSpinnerView];
     
     // animate it
     [pendingMaskSpinnerView startAnimating];

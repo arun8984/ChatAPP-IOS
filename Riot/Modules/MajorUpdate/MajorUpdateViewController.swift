@@ -119,7 +119,7 @@ final class MajorUpdateViewController: UIViewController {
         
         self.oldLogoImageView.image = Asset.Images.oldLogo.image
         self.disclosureImageView.image = Asset.Images.disclosureIcon.image
-        self.newLogoImageView.image = Asset.Images.launchScreenLogo.image
+     //   self.newLogoImageView.image = Asset.Images.launchScreenLogo.image
         
         self.titleLabel.text = VectorL10n.majorUpdateTitle
         self.informationLabel.text = VectorL10n.majorUpdateInformation

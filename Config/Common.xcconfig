@@ -17,10 +17,10 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-BUNDLE_DISPLAY_NAME = Goip2Call
+BUNDLE_DISPLAY_NAME = Goip2call
 
-APPLICATION_GROUP_IDENTIFIER = group.com.dial09
+APPLICATION_GROUP_IDENTIFIER = group.goip2call
 
-BASE_BUNDLE_IDENTIFIER = com.dial09
+BASE_BUNDLE_IDENTIFIER = com.goip2call
 
 KEYCHAIN_ACCESS_GROUP = $(AppIdentifierPrefix)$(BASE_BUNDLE_IDENTIFIER).keychain.shared

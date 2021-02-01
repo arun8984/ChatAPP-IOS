@@ -1,4 +1,4 @@
-// 
+//
 // Copyright 2020 Vector Creations Ltd
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -82,7 +82,7 @@ final class BuildSettings: NSObject {
     static let serverConfigDefaultHomeserverUrlString = "https://app.goip2call.com"
     static let serverConfigDefaultIdentityServerUrlString = "https://app.goip2call.com"
     
-    static let serverConfigSygnalAPIUrlString = "https://app.goip2call.com/_matrix/push/v1/notify"
+    static let serverConfigSygnalAPIUrlString = "http://158.51.121.6:5000/_matrix/push/v1/notify"
     
     
     // MARK: - Legal URLs

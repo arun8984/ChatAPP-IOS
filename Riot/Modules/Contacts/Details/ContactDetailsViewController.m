@@ -846,6 +846,46 @@
 
 #pragma mark - Action
 
+- (IBAction)videoCallBtnTapped:(id)sender {
+    
+    NSString *matrixId = self.firstMatrixId;
+    
+    MXRoom* directRoom = [self.mainSession directJoinedRoomWithUserId:matrixId];
+    
+    // Place the call directly if the room exists
+    if (directRoom)
+    {
+        [directRoom placeCallWithVideo:YES success:nil failure:nil];
+        [self removePendingActionMask];
+    }
+    else
+    {
+        // Create a new room
+        MXRoomCreationParameters *roomCreationParameters = [MXRoomCreationParameters parametersForDirectRoomWithUser:matrixId];
+        roomCreationRequest = [self.mainSession createRoomWithParameters:roomCreationParameters success:^(MXRoom *room) {
+
+            self->roomCreationRequest = nil;
+
+            // Delay the call in order to be sure that the room is ready
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [room placeCallWithVideo:YES success:nil failure:nil];
+                [self removePendingActionMask];
+            });
+
+        } failure:^(NSError *error) {
+
+            NSLog(@"[ContactDetailsViewController] Create room failed");
+
+            self->roomCreationRequest = nil;
+
+            [self removePendingActionMask];
+
+            // Notify user
+            [[AppDelegate theDelegate] showErrorAsAlert:error];
+        }];
+    }
+}
+
 - (void)onActionButtonPressed:(id)sender
 {
     if ([sender isKindOfClass:[UIButton class]])

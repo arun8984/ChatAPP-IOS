@@ -51,10 +51,11 @@ end
 
 abstract_target 'RiotPods' do
 
+  pod 'VeeContactPicker', :path => '../'
   pod 'GBDeviceInfo', '~> 6.3.0'
   pod 'Reusable', '~> 4.1'
   pod 'KeychainAccess', '~> 4.2'
- 
+
   # Piwik for analytics
   pod 'MatomoTracker', '~> 7.2.0'
 
@@ -70,6 +71,7 @@ abstract_target 'RiotPods' do
 
   target "Riot" do
     import_MatrixKit
+    
     pod 'DGCollectionViewLeftAlignFlowLayout', '~> 1.0.4'
     pod 'KTCenterFlowLayout', '~> 1.3.1'
     pod 'ZXingObjC', '~> 3.6.5'

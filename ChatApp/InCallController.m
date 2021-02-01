@@ -13,8 +13,10 @@
 @implementation InCallController
 
 @synthesize lblNumber,lblDuration,callStatusLabel,ContactimageView,btnEndCall,btnSpeaker,btnMic,btnBluetooth,btnInEndCall,btnInAnswerCall,btnShowHideDialPad,DialPadView,lblDialPadNumber;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     

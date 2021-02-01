@@ -76,6 +76,6 @@ final class PlaceholderDetailViewController: UIViewController, Themable {
     }
     
     private func setupViews() {
-        self.logoImageView.image = Asset.Images.launchScreenLogo.image
+       // self.logoImageView.image = Asset.Images.launchScreenLogo.image
     }
 }

@@ -25,6 +25,7 @@
 #import "RoomCollectionViewCell.h"
 
 #import "MXRoom+Riot.h"
+#import "ContactSync.h"
 
 @interface HomeViewController () <SecureBackupSetupCoordinatorBridgePresenterDelegate>
 {
@@ -80,17 +81,21 @@
 
     // Change the table data source. It must be the home view controller itself.
     self.recentsTableView.dataSource = self;
+    
+    [[ContactSync getSharedInstance] DeleteAll];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [AppDelegate theDelegate].masterTabBarController.navigationItem.title = NSLocalizedStringFromTable(@"title_home", @"Vector", nil);
+        
+    [[self tabBarItem] setTitle:@"Chat"];
+
+    [AppDelegate theDelegate].masterTabBarController.navigationItem.title = @"Chat";
 
     [ThemeService.shared.theme applyStyleOnNavigationBar:[AppDelegate theDelegate].masterTabBarController.navigationController.navigationBar];
 
-    [AppDelegate theDelegate].masterTabBarController.tabBar.tintColor = ThemeService.shared.theme.tintColor;
+    //[AppDelegate theDelegate].masterTabBarController.tabBar.tintColor = ThemeService.shared.theme.tintColor;
     
     if (recentsDataSource)
     {

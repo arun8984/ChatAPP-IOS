@@ -29,6 +29,11 @@
 #import "ContactDetailsViewController.h"
 #import "GroupDetailsViewController.h"
 
+#import "NewAccountViewController.h"
+#import "KeypadController.h"
+#import "ContactsViewController.h"
+#import "SettingsViewController.h"
+
 #define TABBAR_HOME_INDEX         0
 #define TABBAR_FAVOURITES_INDEX   1
 #define TABBAR_PEOPLE_INDEX       2
@@ -40,7 +45,12 @@
 @protocol MasterTabBarControllerDelegate;
 
 
-@interface MasterTabBarController : UITabBarController
+@interface MasterTabBarController : UITabBarController {
+    
+    BOOL gotNumbers;
+}
+
+-(void)SyncContacts:(ABAddressBookRef )addressBook;
 
 // UITabBarController already have a `delegate` property
 @property (weak, nonatomic) id<MasterTabBarControllerDelegate> masterTabBarDelegate;
@@ -162,7 +172,12 @@
 // Reference to the current auth VC. It is not nil only when the auth screen is displayed.
 @property (nonatomic, readonly) LoginViewController *authViewController;
 
+@property (strong, nonatomic)  NewAccountViewController *accountViewController;
 @property (nonatomic, readonly) HomeViewController *homeViewController;
+@property (nonatomic, readonly) KeypadController *keypadController;
+@property (nonatomic, readonly) ContactsViewController *contactsViewController;
+@property (nonatomic, readonly) SettingsViewController *settingsViewController;
+
 @property (nonatomic, readonly) FavouritesViewController *favouritesViewController;
 @property (nonatomic, readonly) PeopleViewController *peopleViewController;
 @property (nonatomic, readonly) RoomsViewController *roomsViewController;

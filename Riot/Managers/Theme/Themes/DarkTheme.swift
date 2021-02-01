@@ -83,10 +83,10 @@ class DarkTheme: NSObject, Theme {
     var matrixSearchBackgroundImageTintColor: UIColor = UIColor(rgb: 0x7E7E7E)
     
     func applyStyle(onTabBar tabBar: UITabBar) {
-        tabBar.unselectedItemTintColor = self.tabBarUnselectedItemTintColor
-        tabBar.tintColor = self.tintColor
-        tabBar.barTintColor = self.baseColor
-        tabBar.isTranslucent = false
+//        tabBar.unselectedItemTintColor = self.tabBarUnselectedItemTintColor
+//        tabBar.tintColor = self.tintColor
+//        tabBar.barTintColor = self.baseColor
+//        tabBar.isTranslucent = false
     }
     
     // Note: We are not using UINavigationBarAppearance on iOS 13+ atm because of UINavigationBar directly include UISearchBar on their titleView that cause crop issues with UINavigationController pop.

@@ -222,9 +222,11 @@ final class RiotSettings: NSObject {
         }
     }
     
+    //"https://www.goip2call.com/crm/goip_api/billing_auto_register/sync_contacts.php"
+    
     var contactSyncUrl: String {
         get {
-            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/sync_contacts.php"
+            return "https://www.goip2call.com/crm/goip_api/billing_auto_register/sync_contacts_ios.php"
         }
     }
     

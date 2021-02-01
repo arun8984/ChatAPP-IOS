@@ -18,13 +18,27 @@
 #import <Contacts/CNContactStore.h>
 #import <Contacts/CNContactFetchRequest.h>
 #import "MXSession+Riot.h"
-@interface ContactsViewController:UITableViewController
+
+@interface ContactsViewController : UIViewController <UISearchBarDelegate>
 {
-    
+    IBOutlet UITableView *tblObj;
+    UIActivityIndicatorView *pendingMaskSpinnerView;
 }
+
+@property (weak, nonatomic) IBOutlet UIButton *allContacts;
+@property (weak, nonatomic) IBOutlet UIButton *goip2callContacts;
+
+@property(nonatomic,retain)NSArray *mainContactsArray;
 @property(nonatomic,retain)NSArray *LocalContactsArray;
 @property(nonatomic,retain)NSString *LocalContactsCSV;
 @property(nonatomic,retain)NSArray *ContactsArray;
 @property(nonatomic,retain)CNContact *Contact;
+@property(nonatomic,retain)NSMutableArray *FilterContactsArray;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBarView;
+@property (nonatomic) BOOL isAddParticipantSearchBarEditing;
+
+@property(nonatomic,retain) IBOutlet UIBarButtonItem *SyncButton;
+
 @end
 

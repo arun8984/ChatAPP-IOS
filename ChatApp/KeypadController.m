@@ -15,19 +15,25 @@
 #import "Reachability.h"
 #import "NSString+FontAwesome.h"
 #import "RecentDB.h"
+#import "NSData+AES.h"
+#import "NSString+hex.h"
 
 @implementation KeypadController
 @synthesize txtPhoneNo,lblStatus,btndel,btn0;
 
 - (void)viewDidLoad {
     
-    txtPhoneNo.text=@"";
+    MXKAccount* account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
+    MXMyUser* myUser = account.mxSession.myUser;
+
+    _lblRegistered.text = [NSString stringWithFormat:@"Registered (%@)", myUser.displayname];
+        
+    txtPhoneNo.text = @"";
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     [txtPhoneNo setInputView:dummyView];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDel:)];
     [btndel addGestureRecognizer:longPress];
@@ -50,8 +56,13 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [AppDelegate theDelegate].masterTabBarController.navigationItem.title =@"Keypad";
+-(void)viewWillAppear:(BOOL)animated {
+    [self GetBalance];
+
+    [AppDelegate theDelegate].masterTabBarController.navigationItem.title = @"Direct Call";
+    
+    [[self tabBarItem] setTitle:@"Direct Call"];
+
     [self statusDidChange];
     timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(statusDidChange) userInfo:nil repeats:YES];
 }
@@ -266,7 +277,12 @@
      txtPhoneNo.text = [txtPhoneNo.text substringToIndex:(txtPhoneNo.text.length-1)];
      */
 }
-
+ 
+-(IBAction)RecentPressed:(id)sender {
+ 
+//    RecentsViewController *obj = [[RecentsViewController alloc] init];
+//    [self.navigationController pushViewController:obj animated:YES];
+}
 
 #pragma mark - ABPeoplePickerNavigationControllerDelegate
 
@@ -403,6 +419,115 @@
 }
 
 */
+
+-(void)GetBalance {
+    
+    NSString *cust_id = [[NSUserDefaults standardUserDefaults]objectForKey:@"Username"];
+    
+    NSString *cust_pass = [[NSUserDefaults standardUserDefaults]objectForKey:@"Password"];
+
+    if(!(([cust_id isEqualToString:@"919362222111"]) || ([cust_id isEqualToString:@"919999569605"]))){
+        
+    [_balanceIndicator startAnimating];
+    
+    _lblBalance.hidden=YES;
+        
+    NSString *key = RiotSettings.shared.encKey;
+    NSData *plain = [cust_id dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *cipher = [plain AES128EncryptedDataWithKey:key];
+    NSString *base64Encoded = [cipher base64EncodedStringWithOptions:0];
+    NSString *hexcust_id = [base64Encoded stringToHex:base64Encoded];
+    
+    plain = [cust_pass dataUsingEncoding:NSUTF8StringEncoding];
+    cipher = [plain AES128EncryptedDataWithKey:key];
+    base64Encoded = [cipher base64EncodedStringWithOptions:0];
+    NSString *hexcust_pass = [base64Encoded stringToHex:base64Encoded];
+    
+    NSString *post = [NSString stringWithFormat:@"cust_id=%@&cust_pass=%@",hexcust_id,hexcust_pass];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+   
+    NSString *url_string = @"https://www.goip2call.com/crm/goip_api/billing_balance/get_balance.php";
+    
+    [request setURL:[NSURL URLWithString:url_string]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+   
+        [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+      
+        if (data == nil)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert78 = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                                  message:@"Please Make sure you have a Working Internet Connection."
+                                                                 delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: Nil];
+                
+                
+                [alert78 show];
+            });
+        }
+        else
+        {
+            if (requestReply!=nil||![requestReply isEqual:@""])
+            {
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+               
+                if(json!=nil)
+                {
+                    NSString *balance =[json objectForKey:@"credit"];
+                    NSString *currency = [json objectForKey:@"currency"];
+                    currency = [currency componentsSeparatedByString:@"%"][0];
+                    UserCurrency = currency;
+                    
+                    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+                    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+                    NSNumber *bal = [formatter numberFromString:balance];
+                    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+                    [formatter setCurrencyCode:currency];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        _lblBalance.text = [formatter stringFromNumber:bal];//67
+                        [_balanceIndicator stopAnimating];
+                        _balanceIndicator.hidden = YES;
+                        _lblBalance.hidden = NO;
+                    });
+                }
+                else
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIAlertView *alert78 = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                                          message:@"An error occured please try again later."
+                                                                         delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: Nil];
+                        
+                        
+                        [alert78 show];
+                    });
+                    
+                }
+            }
+            else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alert78 = [[UIAlertView alloc]  initWithTitle:@"Alert"
+                                                                       message:@"Please Make sure you have a Working Internet Connection."
+                                                                      delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: Nil];
+                    
+                    
+                    [alert78 show];
+                });
+            }
+        }
+    }] resume];
+    }
+}
+
 - (void)statusDidChange {
     
     if ([AppDelegate theDelegate].isConnected) {

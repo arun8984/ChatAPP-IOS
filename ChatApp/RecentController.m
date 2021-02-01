@@ -19,8 +19,8 @@
 
 -(void)viewDidLoad{
     
-   // [self.tabBarController setSelectedIndex:1];
     self.view.backgroundColor = ThemeService.shared.theme.backgroundColor;
+   
     ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
         if (granted){
             
@@ -35,8 +35,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     
-    [AppDelegate theDelegate].masterTabBarController.navigationItem.title =@"Recents";
-    
+    [AppDelegate theDelegate].masterTabBarController.navigationItem.title = @"Recents";
     
     CDRData = [[RecentDB getSharedInstance]GetRecentCalls];
     

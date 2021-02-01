@@ -290,29 +290,29 @@ TableViewSectionsDelegate>
     {
         [sectionUserSettings addRowWithTag:USER_SETTINGS_SURNAME_INDEX];
     }
-    MXKAccount* account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
-    //  add linked emails
-    for (NSInteger index = 0; index < account.linkedEmails.count; index++)
-    {
-        [sectionUserSettings addRowWithTag: USER_SETTINGS_EMAILS_OFFSET + index];
-    }
-    //  add linked phone numbers
-    for (NSInteger index = 0; index < account.linkedPhoneNumbers.count; index++)
-    {
-        [sectionUserSettings addRowWithTag: USER_SETTINGS_PHONENUMBERS_OFFSET + index];
-    }
-    if (BuildSettings.settingsScreenAllowAddingEmailThreepids)
-    {
-        [sectionUserSettings addRowWithTag:USER_SETTINGS_ADD_EMAIL_INDEX];
-    }
-    if (BuildSettings.settingsScreenAllowAddingPhoneThreepids)
-    {
-        [sectionUserSettings addRowWithTag:USER_SETTINGS_ADD_PHONENUMBER_INDEX];
-    }
-    if (BuildSettings.settingsScreenShowThreepidExplanatory)
-    {
-        [sectionUserSettings addRowWithTag:USER_SETTINGS_THREEPIDS_INFORMATION_INDEX];
-    }
+//    MXKAccount* account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
+//    //  add linked emails
+//    for (NSInteger index = 0; index < account.linkedEmails.count; index++)
+//    {
+//        [sectionUserSettings addRowWithTag: USER_SETTINGS_EMAILS_OFFSET + index];
+//    }
+//    //  add linked phone numbers
+//    for (NSInteger index = 0; index < account.linkedPhoneNumbers.count; index++)
+//    {
+//        [sectionUserSettings addRowWithTag: USER_SETTINGS_PHONENUMBERS_OFFSET + index];
+//    }
+//    if (BuildSettings.settingsScreenAllowAddingEmailThreepids)
+//    {
+//        [sectionUserSettings addRowWithTag:USER_SETTINGS_ADD_EMAIL_INDEX];
+//    }
+//    if (BuildSettings.settingsScreenAllowAddingPhoneThreepids)
+//    {
+//        [sectionUserSettings addRowWithTag:USER_SETTINGS_ADD_PHONENUMBER_INDEX];
+//    }
+//    if (BuildSettings.settingsScreenShowThreepidExplanatory)
+//    {
+//        [sectionUserSettings addRowWithTag:USER_SETTINGS_THREEPIDS_INFORMATION_INDEX];
+//    }
     sectionUserSettings.headerTitle = NSLocalizedStringFromTable(@"settings_user_settings", @"Vector", nil);
     [tmpSections addObject:sectionUserSettings];
     
@@ -330,35 +330,35 @@ TableViewSectionsDelegate>
     sectionNotificationSettings.headerTitle = NSLocalizedStringFromTable(@"settings_notifications_settings", @"Vector", nil);
     [tmpSections addObject:sectionNotificationSettings];
     
-    if (BuildSettings.allowVoIPUsage && BuildSettings.stunServerFallbackUrlString)
-    {
-        Section *sectionCalls = [Section sectionWithTag:SECTION_TAG_CALLS];
-        [sectionCalls addRowWithTag:CALLS_ENABLE_STUN_SERVER_FALLBACK_INDEX];
-        [sectionCalls addRowWithTag:CALLS_STUN_SERVER_FALLBACK_DESCRIPTION_INDEX];
-        sectionCalls.headerTitle = NSLocalizedStringFromTable(@"settings_calls_settings", @"Vector", nil);
-        [tmpSections addObject:sectionCalls];
-    }
+//    if (BuildSettings.allowVoIPUsage && BuildSettings.stunServerFallbackUrlString)
+//    {
+//        Section *sectionCalls = [Section sectionWithTag:SECTION_TAG_CALLS];
+//        [sectionCalls addRowWithTag:CALLS_ENABLE_STUN_SERVER_FALLBACK_INDEX];
+//        [sectionCalls addRowWithTag:CALLS_STUN_SERVER_FALLBACK_DESCRIPTION_INDEX];
+//        sectionCalls.headerTitle = NSLocalizedStringFromTable(@"settings_calls_settings", @"Vector", nil);
+//        [tmpSections addObject:sectionCalls];
+//    }
     
-    if (BuildSettings.settingsScreenShowDiscoverySettings)
-    {
-        Section *sectionDiscovery = [Section sectionWithTag:SECTION_TAG_DISCOVERY];
-        NSInteger count = self.settingsDiscoveryTableViewSection.numberOfRows;
-        for (NSInteger index = 0; index < count; index++)
-        {
-            [sectionDiscovery addRowWithTag:index];
-        }
-        sectionDiscovery.headerTitle = NSLocalizedStringFromTable(@"settings_discovery_settings", @"Vector", nil);
-        [tmpSections addObject:sectionDiscovery];
-    }
+//    if (BuildSettings.settingsScreenShowDiscoverySettings)
+//    {
+//        Section *sectionDiscovery = [Section sectionWithTag:SECTION_TAG_DISCOVERY];
+//        NSInteger count = self.settingsDiscoveryTableViewSection.numberOfRows;
+//        for (NSInteger index = 0; index < count; index++)
+//        {
+//            [sectionDiscovery addRowWithTag:index];
+//        }
+//        sectionDiscovery.headerTitle = NSLocalizedStringFromTable(@"settings_discovery_settings", @"Vector", nil);
+//        [tmpSections addObject:sectionDiscovery];
+//    }
     
-    if (BuildSettings.settingsScreenAllowIdentityServerConfig)
-    {
-        Section *sectionIdentityServer = [Section sectionWithTag:SECTION_TAG_IDENTITY_SERVER];
-        [sectionIdentityServer addRowWithTag:IDENTITY_SERVER_INDEX];
-        [sectionIdentityServer addRowWithTag:IDENTITY_SERVER_DESCRIPTION_INDEX];
-        sectionIdentityServer.headerTitle = NSLocalizedStringFromTable(@"settings_identity_server_settings", @"Vector", nil);
-        [tmpSections addObject:sectionIdentityServer];
-    }
+//    if (BuildSettings.settingsScreenAllowIdentityServerConfig)
+//    {
+//        Section *sectionIdentityServer = [Section sectionWithTag:SECTION_TAG_IDENTITY_SERVER];
+//        [sectionIdentityServer addRowWithTag:IDENTITY_SERVER_INDEX];
+//        [sectionIdentityServer addRowWithTag:IDENTITY_SERVER_DESCRIPTION_INDEX];
+//        sectionIdentityServer.headerTitle = NSLocalizedStringFromTable(@"settings_identity_server_settings", @"Vector", nil);
+//        [tmpSections addObject:sectionIdentityServer];
+//    }
     
     if (BuildSettings.allowLocalContactsAccess)
     {
@@ -373,6 +373,7 @@ TableViewSectionsDelegate>
     }
     
     MXSession *session = [AppDelegate theDelegate].mxSessions.firstObject;
+  
     if (session.ignoredUsers.count)
     {
         Section *sectionIgnoredUsers = [Section sectionWithTag:SECTION_TAG_IGNORED_USERS];
@@ -399,45 +400,45 @@ TableViewSectionsDelegate>
     sectionUserInterface.headerTitle = NSLocalizedStringFromTable(@"settings_user_interface", @"Vector", nil);
     [tmpSections addObject: sectionUserInterface];
     
-    if (BuildSettings.settingsScreenShowAdvancedSettings)
-    {
-        Section *sectionAdvanced = [Section sectionWithTag:SECTION_TAG_ADVANCED];
-        [sectionAdvanced addRowWithTag:0];
-        sectionAdvanced.headerTitle = NSLocalizedStringFromTable(@"settings_advanced", @"Vector", nil);
-        [tmpSections addObject:sectionAdvanced];
-    }
+//    if (BuildSettings.settingsScreenShowAdvancedSettings)
+//    {
+//        Section *sectionAdvanced = [Section sectionWithTag:SECTION_TAG_ADVANCED];
+//        [sectionAdvanced addRowWithTag:0];
+//        sectionAdvanced.headerTitle = NSLocalizedStringFromTable(@"settings_advanced", @"Vector", nil);
+//        [tmpSections addObject:sectionAdvanced];
+//    }
     
-    Section *sectionOther = [Section sectionWithTag:SECTION_TAG_OTHER];
-    [sectionOther addRowWithTag:OTHER_VERSION_INDEX];
-    [sectionOther addRowWithTag:OTHER_OLM_VERSION_INDEX];
-    [sectionOther addRowWithTag:OTHER_COPYRIGHT_INDEX];
-    [sectionOther addRowWithTag:OTHER_TERM_CONDITIONS_INDEX];
-    [sectionOther addRowWithTag:OTHER_PRIVACY_INDEX];
-    [sectionOther addRowWithTag:OTHER_THIRD_PARTY_INDEX];
-    if (BuildSettings.settingsScreenAllowChangingCrashUsageDataSettings)
-    {
-        [sectionOther addRowWithTag:OTHER_CRASH_REPORT_INDEX];
-    }
-    if (BuildSettings.settingsScreenAllowChangingRageshakeSettings)
-    {
-        [sectionOther addRowWithTag:OTHER_ENABLE_RAGESHAKE_INDEX];
-    }
-    [sectionOther addRowWithTag:OTHER_MARK_ALL_AS_READ_INDEX];
-    [sectionOther addRowWithTag:OTHER_CLEAR_CACHE_INDEX];
-    if (BuildSettings.settingsScreenAllowBugReportingManually)
-    {
-        [sectionOther addRowWithTag:OTHER_REPORT_BUG_INDEX];
-    }
-    sectionOther.headerTitle = NSLocalizedStringFromTable(@"settings_other", @"Vector", nil);
-    [tmpSections addObject:sectionOther];
+//    Section *sectionOther = [Section sectionWithTag:SECTION_TAG_OTHER];
+//    [sectionOther addRowWithTag:OTHER_VERSION_INDEX];
+//    [sectionOther addRowWithTag:OTHER_OLM_VERSION_INDEX];
+//    [sectionOther addRowWithTag:OTHER_COPYRIGHT_INDEX];
+//    [sectionOther addRowWithTag:OTHER_TERM_CONDITIONS_INDEX];
+//    [sectionOther addRowWithTag:OTHER_PRIVACY_INDEX];
+//    [sectionOther addRowWithTag:OTHER_THIRD_PARTY_INDEX];
+//    if (BuildSettings.settingsScreenAllowChangingCrashUsageDataSettings)
+//    {
+//        [sectionOther addRowWithTag:OTHER_CRASH_REPORT_INDEX];
+//    }
+//    if (BuildSettings.settingsScreenAllowChangingRageshakeSettings)
+//    {
+//        [sectionOther addRowWithTag:OTHER_ENABLE_RAGESHAKE_INDEX];
+//    }
+//    [sectionOther addRowWithTag:OTHER_MARK_ALL_AS_READ_INDEX];
+//    [sectionOther addRowWithTag:OTHER_CLEAR_CACHE_INDEX];
+//    if (BuildSettings.settingsScreenAllowBugReportingManually)
+//    {
+//        [sectionOther addRowWithTag:OTHER_REPORT_BUG_INDEX];
+//    }
+//    sectionOther.headerTitle = NSLocalizedStringFromTable(@"settings_other", @"Vector", nil);
+//    [tmpSections addObject:sectionOther];
     
-    if (BuildSettings.settingsScreenShowLabSettings)
-    {
-        Section *sectionLabs = [Section sectionWithTag:SECTION_TAG_LABS];
-        [sectionLabs addRowWithTag:LABS_USE_JITSI_WIDGET_INDEX];
-        sectionLabs.headerTitle = NSLocalizedStringFromTable(@"settings_labs", @"Vector", nil);
-        [tmpSections addObject:sectionLabs];
-    }
+//    if (BuildSettings.settingsScreenShowLabSettings)
+//    {
+//        Section *sectionLabs = [Section sectionWithTag:SECTION_TAG_LABS];
+//        [sectionLabs addRowWithTag:LABS_USE_JITSI_WIDGET_INDEX];
+//        sectionLabs.headerTitle = NSLocalizedStringFromTable(@"settings_labs", @"Vector", nil);
+//        [tmpSections addObject:sectionLabs];
+//    }
     
     if ([groupsDataSource numberOfSectionsInTableView:self.tableView] && groupsDataSource.joinedGroupsSection != -1)
     {
@@ -642,6 +643,8 @@ TableViewSectionsDelegate>
 {
     [super viewWillAppear:animated];
 
+    [AppDelegate theDelegate].masterTabBarController.navigationItem.title = @"Settings";
+
     // Screen tracking
     [[Analytics sharedInstance] trackScreen:@"Settings"];
     
@@ -665,6 +668,10 @@ TableViewSectionsDelegate>
 {
     [super viewDidAppear:animated];
     
+    [[self tabBarItem] setTitle:@"Settings"];
+
+    [AppDelegate theDelegate].masterTabBarController.navigationItem.title = @"Settings";
+
     // Release the potential pushed view controller
     [self releasePushedViewController];
     
@@ -1525,7 +1532,7 @@ TableViewSectionsDelegate>
             displaynameCell.mxkTextField.delegate = self;
             [displaynameCell.mxkTextField removeTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
             [displaynameCell.mxkTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-            displaynameCell.mxkTextField.accessibilityIdentifier=@"SettingsVCDisplayNameTextField";
+            displaynameCell.mxkTextField.accessibilityIdentifier = @"SettingsVCDisplayNameTextField";
             
             cell = displaynameCell;
         }
@@ -3973,19 +3980,7 @@ TableViewSectionsDelegate>
     self.view.userInteractionEnabled = NO;
     self.signOutButton.enabled = NO;
     
-    [self startActivityIndicator];
-    
-    MXWeakify(self);
-    
-    [[AppDelegate theDelegate] logoutWithConfirmation:NO completion:^(BOOL isLoggedOut) {
-        MXStrongifyAndReturnIfNil(self);
-        
-        [self stopActivityIndicator];
-        
-        self.view.userInteractionEnabled = YES;
-        self.signOutButton.enabled = YES;
-    }];
-}
+ }
 
 - (void)setupCrossSigningWithTitle:(NSString*)title
                            message:(NSString*)message

@@ -139,6 +139,44 @@
 		32FD757A24D2C9BA00BA7B37 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD757524D2C9BA00BA7B37 /* Bundle.swift */; };
 		32FDC1CD2386CD390084717A /* RiotSettingIntegrationProvisioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FDC1CC2386CD390084717A /* RiotSettingIntegrationProvisioning.swift */; };
 		36D49CB2A40356B7A4C777FD /* Pods_RiotPods_RiotNSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D17C1E14498CAD8DE7537AD /* Pods_RiotPods_RiotNSE.framework */; };
+		4123AB21259B820F00B4F012 /* NewAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4123AB19259B820C00B4F012 /* NewAccountViewController.m */; };
+		4123AB22259B820F00B4F012 /* TransferHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4123AB1C259B820C00B4F012 /* TransferHistoryViewController.m */; };
+		4123AB23259B820F00B4F012 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4123AB1F259B820E00B4F012 /* MyAccountViewController.m */; };
+		4123AB24259B820F00B4F012 /* TransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4123AB20259B820E00B4F012 /* TransferCell.m */; };
+		4123AB3B259B826600B4F012 /* back_Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB27259B825D00B4F012 /* back_Orange.png */; };
+		4123AB3C259B826600B4F012 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB28259B825E00B4F012 /* call.png */; };
+		4123AB3D259B826600B4F012 /* ShowDialPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB29259B825E00B4F012 /* ShowDialPad.png */; };
+		4123AB3F259B826600B4F012 /* missed-call.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB2B259B825F00B4F012 /* missed-call.png */; };
+		4123AB40259B826600B4F012 /* camera_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB2C259B825F00B4F012 /* camera_record.png */; };
+		4123AB42259B826600B4F012 /* end-call.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB2E259B826000B4F012 /* end-call.png */; };
+		4123AB43259B826600B4F012 /* HideDialPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB2F259B826100B4F012 /* HideDialPad.png */; };
+		4123AB44259B826600B4F012 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB30259B826100B4F012 /* settings.png */; };
+		4123AB45259B826600B4F012 /* incoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB31259B826200B4F012 /* incoming.png */; };
+		4123AB48259B826600B4F012 /* profilepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB34259B826300B4F012 /* profilepicture.png */; };
+		4123AB49259B826600B4F012 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB35259B826400B4F012 /* account.png */; };
+		4123AB4A259B826600B4F012 /* outgoing.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB36259B826400B4F012 /* outgoing.png */; };
+		4123AB4B259B826600B4F012 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB37259B826400B4F012 /* delete.png */; };
+		4123AB4D259B826600B4F012 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB39259B826500B4F012 /* save.png */; };
+		4123AB63259B829900B4F012 /* smsb.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB4F259B829000B4F012 /* smsb.png */; };
+		4123AB64259B829900B4F012 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB50259B829000B4F012 /* logout.png */; };
+		4123AB65259B829900B4F012 /* transfer-history.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB51259B829000B4F012 /* transfer-history.png */; };
+		4123AB66259B829900B4F012 /* airtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB52259B829100B4F012 /* airtime.png */; };
+		4123AB67259B829900B4F012 /* buy-credit1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB53259B829100B4F012 /* buy-credit1.png */; };
+		4123AB68259B829900B4F012 /* pbx.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB54259B829100B4F012 /* pbx.png */; };
+		4123AB69259B829900B4F012 /* interswitch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB55259B829200B4F012 /* interswitch.png */; };
+		4123AB6A259B829900B4F012 /* smsa.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB56259B829200B4F012 /* smsa.png */; };
+		4123AB6B259B829900B4F012 /* wallet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB57259B829300B4F012 /* wallet.png */; };
+		4123AB6C259B829900B4F012 /* direct-call.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB58259B829300B4F012 /* direct-call.png */; };
+		4123AB6D259B829900B4F012 /* tv-bill.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB59259B829400B4F012 /* tv-bill.png */; };
+		4123AB6E259B829900B4F012 /* video-bill.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB5A259B829400B4F012 /* video-bill.png */; };
+		4123AB6F259B829900B4F012 /* chat-video-conferencing.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB5B259B829500B4F012 /* chat-video-conferencing.png */; };
+		4123AB70259B829900B4F012 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB5C259B829600B4F012 /* profile.png */; };
+		4123AB71259B829900B4F012 /* electricy-bill-pay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB5D259B829600B4F012 /* electricy-bill-pay.png */; };
+		4123AB72259B829900B4F012 /* transfer-credit.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB5E259B829600B4F012 /* transfer-credit.png */; };
+		4123AB73259B829900B4F012 /* voucher-recharge.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB5F259B829700B4F012 /* voucher-recharge.png */; };
+		4123AB74259B829900B4F012 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB60259B829700B4F012 /* settings.png */; };
+		4123AB75259B829900B4F012 /* invite-friends1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB61259B829800B4F012 /* invite-friends1.png */; };
+		4123AB76259B829900B4F012 /* data-bundle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4123AB62259B829800B4F012 /* data-bundle.png */; };
 		722B0803258E014C0073CE8D /* libg729codec-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B07FA258E012A0073CE8D /* libg729codec-apple-darwin_ios.a */; };
 		722B0804258E014C0073CE8D /* libg7221codec-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B07F0258E01270073CE8D /* libg7221codec-apple-darwin_ios.a */; };
 		722B0805258E014C0073CE8D /* libgsmcodec-apple-darwin_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B07F3258E01280073CE8D /* libgsmcodec-apple-darwin_ios.a */; };
@@ -1225,6 +1263,52 @@
 		3D78489321ACA25200B98A7D /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D78489421ACA25300B98A7D /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D78489521ACA25300B98A7D /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Vector.strings; sourceTree = "<group>"; };
+		4123AB19259B820C00B4F012 /* NewAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAccountViewController.m; sourceTree = "<group>"; };
+		4123AB1A259B820C00B4F012 /* TransferCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferCell.h; sourceTree = "<group>"; };
+		4123AB1B259B820C00B4F012 /* NewAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAccountViewController.h; sourceTree = "<group>"; };
+		4123AB1C259B820C00B4F012 /* TransferHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferHistoryViewController.m; sourceTree = "<group>"; };
+		4123AB1D259B820D00B4F012 /* TransferHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferHistoryViewController.h; sourceTree = "<group>"; };
+		4123AB1E259B820D00B4F012 /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
+		4123AB1F259B820E00B4F012 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
+		4123AB20259B820E00B4F012 /* TransferCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferCell.m; sourceTree = "<group>"; };
+		4123AB27259B825D00B4F012 /* back_Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_Orange.png; path = NewAccount/newImages/back_Orange.png; sourceTree = SOURCE_ROOT; };
+		4123AB28259B825E00B4F012 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = call.png; path = NewAccount/newImages/call.png; sourceTree = SOURCE_ROOT; };
+		4123AB29259B825E00B4F012 /* ShowDialPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShowDialPad.png; path = NewAccount/newImages/ShowDialPad.png; sourceTree = SOURCE_ROOT; };
+		4123AB2B259B825F00B4F012 /* missed-call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "missed-call.png"; path = "NewAccount/newImages/missed-call.png"; sourceTree = SOURCE_ROOT; };
+		4123AB2C259B825F00B4F012 /* camera_record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_record.png; path = NewAccount/newImages/camera_record.png; sourceTree = SOURCE_ROOT; };
+		4123AB2E259B826000B4F012 /* end-call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "end-call.png"; path = "NewAccount/newImages/end-call.png"; sourceTree = SOURCE_ROOT; };
+		4123AB2F259B826100B4F012 /* HideDialPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HideDialPad.png; path = NewAccount/newImages/HideDialPad.png; sourceTree = SOURCE_ROOT; };
+		4123AB30259B826100B4F012 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = NewAccount/newImages/settings.png; sourceTree = SOURCE_ROOT; };
+		4123AB31259B826200B4F012 /* incoming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incoming.png; path = NewAccount/newImages/incoming.png; sourceTree = SOURCE_ROOT; };
+		4123AB34259B826300B4F012 /* profilepicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profilepicture.png; path = NewAccount/newImages/profilepicture.png; sourceTree = SOURCE_ROOT; };
+		4123AB35259B826400B4F012 /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = account.png; path = NewAccount/newImages/account.png; sourceTree = SOURCE_ROOT; };
+		4123AB36259B826400B4F012 /* outgoing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = outgoing.png; path = NewAccount/newImages/outgoing.png; sourceTree = SOURCE_ROOT; };
+		4123AB37259B826400B4F012 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = NewAccount/newImages/delete.png; sourceTree = SOURCE_ROOT; };
+		4123AB39259B826500B4F012 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = NewAccount/newImages/save.png; sourceTree = SOURCE_ROOT; };
+		4123AB4F259B829000B4F012 /* smsb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smsb.png; path = NewAccount/Icons/smsb.png; sourceTree = SOURCE_ROOT; };
+		4123AB50259B829000B4F012 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = NewAccount/Icons/logout.png; sourceTree = SOURCE_ROOT; };
+		4123AB51259B829000B4F012 /* transfer-history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "transfer-history.png"; path = "NewAccount/Icons/transfer-history.png"; sourceTree = SOURCE_ROOT; };
+		4123AB52259B829100B4F012 /* airtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = airtime.png; path = NewAccount/Icons/airtime.png; sourceTree = SOURCE_ROOT; };
+		4123AB53259B829100B4F012 /* buy-credit1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "buy-credit1.png"; path = "NewAccount/Icons/buy-credit1.png"; sourceTree = SOURCE_ROOT; };
+		4123AB54259B829100B4F012 /* pbx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pbx.png; path = NewAccount/Icons/pbx.png; sourceTree = SOURCE_ROOT; };
+		4123AB55259B829200B4F012 /* interswitch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = interswitch.png; path = NewAccount/Icons/interswitch.png; sourceTree = SOURCE_ROOT; };
+		4123AB56259B829200B4F012 /* smsa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smsa.png; path = NewAccount/Icons/smsa.png; sourceTree = SOURCE_ROOT; };
+		4123AB57259B829300B4F012 /* wallet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wallet.png; path = NewAccount/Icons/wallet.png; sourceTree = SOURCE_ROOT; };
+		4123AB58259B829300B4F012 /* direct-call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "direct-call.png"; path = "NewAccount/Icons/direct-call.png"; sourceTree = SOURCE_ROOT; };
+		4123AB59259B829400B4F012 /* tv-bill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tv-bill.png"; path = "NewAccount/Icons/tv-bill.png"; sourceTree = SOURCE_ROOT; };
+		4123AB5A259B829400B4F012 /* video-bill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "video-bill.png"; path = "NewAccount/Icons/video-bill.png"; sourceTree = SOURCE_ROOT; };
+		4123AB5B259B829500B4F012 /* chat-video-conferencing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chat-video-conferencing.png"; path = "NewAccount/Icons/chat-video-conferencing.png"; sourceTree = SOURCE_ROOT; };
+		4123AB5C259B829600B4F012 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = NewAccount/Icons/profile.png; sourceTree = SOURCE_ROOT; };
+		4123AB5D259B829600B4F012 /* electricy-bill-pay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "electricy-bill-pay.png"; path = "NewAccount/Icons/electricy-bill-pay.png"; sourceTree = SOURCE_ROOT; };
+		4123AB5E259B829600B4F012 /* transfer-credit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "transfer-credit.png"; path = "NewAccount/Icons/transfer-credit.png"; sourceTree = SOURCE_ROOT; };
+		4123AB5F259B829700B4F012 /* voucher-recharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "voucher-recharge.png"; path = "NewAccount/Icons/voucher-recharge.png"; sourceTree = SOURCE_ROOT; };
+		4123AB60259B829700B4F012 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = NewAccount/Icons/settings.png; sourceTree = SOURCE_ROOT; };
+		4123AB61259B829800B4F012 /* invite-friends1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "invite-friends1.png"; path = "NewAccount/Icons/invite-friends1.png"; sourceTree = SOURCE_ROOT; };
+		4123AB62259B829800B4F012 /* data-bundle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "data-bundle.png"; path = "NewAccount/Icons/data-bundle.png"; sourceTree = SOURCE_ROOT; };
+		419CE66C25A1ABCC00EDEB94 /* Dial09Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dial09Debug.entitlements; sourceTree = "<group>"; };
+		41F5A34525A4519900236143 /* RiotShareExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiotShareExtensionDebug.entitlements; sourceTree = "<group>"; };
+		41F5A34625A451A100236143 /* SiriIntentsDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SiriIntentsDebug.entitlements; sourceTree = "<group>"; };
+		41F5A34725A451AA00236143 /* RiotNSEDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiotNSEDebug.entitlements; sourceTree = "<group>"; };
 		44C0F0316A919EAD1835231E /* Pods-RiotPods-RiotNSE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiotPods-RiotNSE.debug.xcconfig"; path = "Target Support Files/Pods-RiotPods-RiotNSE/Pods-RiotPods-RiotNSE.debug.xcconfig"; sourceTree = "<group>"; };
 		5D17C1E14498CAD8DE7537AD /* Pods_RiotPods_RiotNSE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiotPods_RiotNSE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		722B07ED258E01260073CE8D /* libpjsua-apple-darwin_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsua-apple-darwin_ios.a"; path = "pjsipLib-2.8/lib/libpjsua-apple-darwin_ios.a"; sourceTree = "<group>"; };
@@ -2522,6 +2606,7 @@
 		24CBEC4F1F0EAD310093EABB /* RiotShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				41F5A34525A4519900236143 /* RiotShareExtensionDebug.entitlements */,
 				B1664BC220F4E67600808783 /* Managers */,
 				B1664BAB20F4E67500808783 /* Modules */,
 				B1664BD020F4E80000808783 /* SupportingFiles */,
@@ -2849,6 +2934,71 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		4123AB18259B81AC00B4F012 /* NewAccount */ = {
+			isa = PBXGroup;
+			children = (
+				4123AB4E259B826F00B4F012 /* MoreIcons */,
+				4123AB25259B821900B4F012 /* NewAssets */,
+				4123AB1E259B820D00B4F012 /* MyAccountViewController.h */,
+				4123AB1F259B820E00B4F012 /* MyAccountViewController.m */,
+				4123AB1B259B820C00B4F012 /* NewAccountViewController.h */,
+				4123AB19259B820C00B4F012 /* NewAccountViewController.m */,
+				4123AB1A259B820C00B4F012 /* TransferCell.h */,
+				4123AB20259B820E00B4F012 /* TransferCell.m */,
+				4123AB1D259B820D00B4F012 /* TransferHistoryViewController.h */,
+				4123AB1C259B820C00B4F012 /* TransferHistoryViewController.m */,
+			);
+			path = NewAccount;
+			sourceTree = "<group>";
+		};
+		4123AB25259B821900B4F012 /* NewAssets */ = {
+			isa = PBXGroup;
+			children = (
+				4123AB35259B826400B4F012 /* account.png */,
+				4123AB27259B825D00B4F012 /* back_Orange.png */,
+				4123AB28259B825E00B4F012 /* call.png */,
+				4123AB2C259B825F00B4F012 /* camera_record.png */,
+				4123AB37259B826400B4F012 /* delete.png */,
+				4123AB2E259B826000B4F012 /* end-call.png */,
+				4123AB2F259B826100B4F012 /* HideDialPad.png */,
+				4123AB31259B826200B4F012 /* incoming.png */,
+				4123AB2B259B825F00B4F012 /* missed-call.png */,
+				4123AB36259B826400B4F012 /* outgoing.png */,
+				4123AB34259B826300B4F012 /* profilepicture.png */,
+				4123AB39259B826500B4F012 /* save.png */,
+				4123AB30259B826100B4F012 /* settings.png */,
+				4123AB29259B825E00B4F012 /* ShowDialPad.png */,
+			);
+			path = NewAssets;
+			sourceTree = "<group>";
+		};
+		4123AB4E259B826F00B4F012 /* MoreIcons */ = {
+			isa = PBXGroup;
+			children = (
+				4123AB52259B829100B4F012 /* airtime.png */,
+				4123AB53259B829100B4F012 /* buy-credit1.png */,
+				4123AB5B259B829500B4F012 /* chat-video-conferencing.png */,
+				4123AB62259B829800B4F012 /* data-bundle.png */,
+				4123AB58259B829300B4F012 /* direct-call.png */,
+				4123AB5D259B829600B4F012 /* electricy-bill-pay.png */,
+				4123AB55259B829200B4F012 /* interswitch.png */,
+				4123AB61259B829800B4F012 /* invite-friends1.png */,
+				4123AB50259B829000B4F012 /* logout.png */,
+				4123AB54259B829100B4F012 /* pbx.png */,
+				4123AB5C259B829600B4F012 /* profile.png */,
+				4123AB60259B829700B4F012 /* settings.png */,
+				4123AB56259B829200B4F012 /* smsa.png */,
+				4123AB4F259B829000B4F012 /* smsb.png */,
+				4123AB5E259B829600B4F012 /* transfer-credit.png */,
+				4123AB51259B829000B4F012 /* transfer-history.png */,
+				4123AB59259B829400B4F012 /* tv-bill.png */,
+				4123AB5A259B829400B4F012 /* video-bill.png */,
+				4123AB5F259B829700B4F012 /* voucher-recharge.png */,
+				4123AB57259B829300B4F012 /* wallet.png */,
+			);
+			path = MoreIcons;
+			sourceTree = "<group>";
+		};
 		4220F60B660591FD80AF3428 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3090,6 +3240,7 @@
 		92726A441F58737A004AD26F /* SiriIntents */ = {
 			isa = PBXGroup;
 			children = (
+				41F5A34625A451A100236143 /* SiriIntentsDebug.entitlements */,
 				92726A4F1F587393004AD26F /* SiriIntents.entitlements */,
 				92726A451F58737A004AD26F /* IntentHandler.h */,
 				92726A461F58737A004AD26F /* IntentHandler.m */,
@@ -5599,6 +5750,7 @@
 		EC85D7442477E5F7002C44C9 /* RiotNSE */ = {
 			isa = PBXGroup;
 			children = (
+				41F5A34725A451AA00236143 /* RiotNSEDebug.entitlements */,
 				EC85D74E2477E614002C44C9 /* RiotNSE.entitlements */,
 				EC85D7452477E5F7002C44C9 /* NotificationService.swift */,
 				EC85D756247E700F002C44C9 /* NSEMemoryStore.swift */,
@@ -5777,6 +5929,7 @@
 		F083BB081E7009EC00A9B29C /* Riot */ = {
 			isa = PBXGroup;
 			children = (
+				419CE66C25A1ABCC00EDEB94 /* Dial09Debug.entitlements */,
 				B1098BD921ECE09E000DDA48 /* Generated */,
 				F083BBE41E7009EC00A9B29C /* Categories */,
 				B1098BE621ECFE51000DDA48 /* Coordinators */,
@@ -5915,6 +6068,7 @@
 		F094A9991B78D8F000B1FBBF = {
 			isa = PBXGroup;
 			children = (
+				4123AB18259B81AC00B4F012 /* NewAccount */,
 				7242733025354AD200F9C908 /* ChatApp */,
 				B1B7F22824F3F8E900FD567B /* README.md */,
 				3267EFB320E379FD00FF1CAA /* CHANGES.rst */,
@@ -6163,6 +6317,7 @@
 				B1B5574620EE6C4D00210D55 /* StartChatViewController.xib in Resources */,
 				B1B5590A20EF768F00210D55 /* RoomOutgoingAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1A6C113238BD245002882FD /* SlidingModalContainerView.xib in Resources */,
+				4123AB3C259B826600B4F012 /* call.png in Resources */,
 				B1B5594420EF7BD000210D55 /* TableViewCellWithCollectionView.xib in Resources */,
 				ECFBD5CA250A7AAF00DD5F5A /* ShowDirectoryViewController.storyboard in Resources */,
 				B1B558D520EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithPaginationTitleWithoutSenderNameBubbleCell.xib in Resources */,
@@ -6175,12 +6330,16 @@
 				EC51E7AA2514D2E100AAE7DB /* RoomInfoListViewController.storyboard in Resources */,
 				B1B558BC20EF768F00210D55 /* RoomMembershipBubbleCell.xib in Resources */,
 				B1B5571F20EE6C4D00210D55 /* ContactDetailsViewController.xib in Resources */,
+				4123AB69259B829900B4F012 /* interswitch.png in Resources */,
+				4123AB73259B829900B4F012 /* voucher-recharge.png in Resources */,
 				B157FAA423264AE900EBFBD4 /* SettingsDiscoveryThreePidDetailsViewController.storyboard in Resources */,
 				B1B558E220EF768F00210D55 /* RoomIncomingTextMsgBubbleCell.xib in Resources */,
 				B105778B221304FA00334B1E /* KeyBackupSetupSuccessFromPassphraseViewController.storyboard in Resources */,
+				4123AB4D259B826600B4F012 /* save.png in Resources */,
 				B1664DA220F4F95800808783 /* Localizable.strings in Resources */,
 				B169328720F3954A00746532 /* SharedImages.xcassets in Resources */,
 				72A77C4B2536EADF0030CF63 /* HideDialPad.png in Resources */,
+				4123AB6B259B829900B4F012 /* wallet.png in Resources */,
 				B1664DA120F4F94F00808783 /* InfoPlist.strings in Resources */,
 				B1B5579B20EF575B00210D55 /* AuthInputsView.xib in Resources */,
 				B1B5594620EF7BD000210D55 /* RoomCollectionViewCell.xib in Resources */,
@@ -6188,6 +6347,7 @@
 				F083BDE71E7009ED00A9B29C /* callend.mp3 in Resources */,
 				B1B558EF20EF768F00210D55 /* RoomMembershipCollapsedWithPaginationTitleBubbleCell.xib in Resources */,
 				EC711B7C24A63B37008F830C /* SecretsSetupRecoveryPassphraseViewController.storyboard in Resources */,
+				4123AB44259B826600B4F012 /* settings.png in Resources */,
 				B1B5573420EE6C4D00210D55 /* GroupDetailsViewController.xib in Resources */,
 				B1B557E420EF60B900210D55 /* MessagesSearchResultAttachmentBubbleCell.xib in Resources */,
 				B1B336C2242B933700F95EC4 /* KeyVerificationSelfVerifyStartViewController.storyboard in Resources */,
@@ -6197,6 +6357,7 @@
 				B1B558CD20EF768F00210D55 /* RoomOutgoingEncryptedAttachmentWithPaginationTitleBubbleCell.xib in Resources */,
 				B1B9DEEA22EB34EF0065E677 /* ReactionHistoryViewController.storyboard in Resources */,
 				B1B9194C2118984300FE25B5 /* RoomPredecessorBubbleCell.xib in Resources */,
+				4123AB4B259B826600B4F012 /* delete.png in Resources */,
 				EC51E7942510C0D000AAE7DB /* SpanningSlidingModalContainerView.xib in Resources */,
 				B1C562E9228C7CF20037F12A /* ContextualMenuItemView.xib in Resources */,
 				B1560DA424B65B3700490F50 /* LaunchLoadingView.xib in Resources */,
@@ -6210,6 +6371,7 @@
 				B190F55B22CE35FD00AEB493 /* EditHistoryHeaderView.xib in Resources */,
 				EC31F016251B53BC00D407DA /* RoomInfoBasicView.xib in Resources */,
 				72A77C6C2536ECF50030CF63 /* settings.png in Resources */,
+				4123AB45259B826600B4F012 /* incoming.png in Resources */,
 				EC1CA86524C1DEC400DE9EBF /* EnterPinCodeViewController.storyboard in Resources */,
 				B1B5579020EF568D00210D55 /* GroupTableViewCell.xib in Resources */,
 				B142317B22CCFA2000FFA96A /* EditHistoryCell.xib in Resources */,
@@ -6220,6 +6382,7 @@
 				B1B5574D20EE6C4D00210D55 /* MediaPickerViewController.xib in Resources */,
 				B1B5575020EE6C4D00210D55 /* AuthenticationViewController.xib in Resources */,
 				B1C45A85232A8C2600165425 /* SettingsIdentityServerViewController.storyboard in Resources */,
+				4123AB42259B826600B4F012 /* end-call.png in Resources */,
 				B14F142E22144F6500FA0595 /* KeyBackupRecoverFromRecoveryKeyViewController.storyboard in Resources */,
 				32DB557B22FDADE50016329E /* ServiceTermsModalScreenViewController.storyboard in Resources */,
 				B1B5574320EE6C4D00210D55 /* CallViewController.xib in Resources */,
@@ -6244,6 +6407,7 @@
 				B1107ECA2200B09F0038014B /* KeyBackupRecoverSuccessViewController.storyboard in Resources */,
 				B1B9DEF522EB426D0065E677 /* ReactionHistoryViewCell.xib in Resources */,
 				7242737125354BE000F9C908 /* recent.db in Resources */,
+				4123AB43259B826600B4F012 /* HideDialPad.png in Resources */,
 				B1550FCA2420E8F500CE097B /* QRCodeReaderViewController.storyboard in Resources */,
 				B1B5579C20EF575B00210D55 /* ForgotPasswordInputsView.xib in Resources */,
 				F083BE011E7009ED00A9B29C /* third_party_licenses.html in Resources */,
@@ -6256,9 +6420,12 @@
 				B1B5573320EE6C4D00210D55 /* GroupHomeViewController.xib in Resources */,
 				3291DC8A23E0BE820009732F /* Security.storyboard in Resources */,
 				B1B5593920EF7BAC00210D55 /* TableViewCellWithCheckBoxes.xib in Resources */,
+				4123AB3B259B826600B4F012 /* back_Orange.png in Resources */,
 				B1B557C120EF5B4500210D55 /* DisabledRoomInputToolbarView.xib in Resources */,
 				B1DCC61722E5E17100625807 /* EmojiPickerViewController.storyboard in Resources */,
+				4123AB76259B829900B4F012 /* data-bundle.png in Resources */,
 				32891D6C2264CBA300C82226 /* SimpleScreenTemplateViewController.storyboard in Resources */,
+				4123AB66259B829900B4F012 /* airtime.png in Resources */,
 				32D5D16123E1EE2700E3E37C /* ManageSession.storyboard in Resources */,
 				ECF57A5B250925AC004BBF9D /* TextFieldTableViewCell.xib in Resources */,
 				B1963B2C228F1C4900CBA17F /* BubbleReactionViewCell.xib in Resources */,
@@ -6266,7 +6433,9 @@
 				B1B557C720EF5CD400210D55 /* DirectoryServerDetailTableViewCell.xib in Resources */,
 				B1B5582620EF638A00210D55 /* RoomMemberTitleView.xib in Resources */,
 				3232AB1522564D9100AD6A5C /* flat-swift4-vector.stencil in Resources */,
+				4123AB3F259B826600B4F012 /* missed-call.png in Resources */,
 				F083BDE61E7009ED00A9B29C /* busy.mp3 in Resources */,
+				4123AB70259B829900B4F012 /* profile.png in Resources */,
 				EC711BB324A63B58008F830C /* SecureBackupBannerCell.xib in Resources */,
 				B1B5574C20EE6C4D00210D55 /* MediaAlbumContentViewController.xib in Resources */,
 				32607D6F243E0A55006674CC /* KeyBackupRecoverFromPrivateKeyViewController.storyboard in Resources */,
@@ -6281,10 +6450,13 @@
 				3232AB4B2256558300AD6A5C /* TemplateScreenViewController.storyboard in Resources */,
 				72A77C522536EADF0030CF63 /* incoming.png in Resources */,
 				B1D1BDA822BBAFC900831367 /* ReactionsMenuView.xib in Resources */,
+				4123AB6F259B829900B4F012 /* chat-video-conferencing.png in Resources */,
 				32B1FEDB21A46F2C00637127 /* TermsView.xib in Resources */,
+				4123AB72259B829900B4F012 /* transfer-credit.png in Resources */,
 				B1BD71BF238EA56700BA92E2 /* WidgetPermissionViewController.storyboard in Resources */,
 				72A77C4C2536EADF0030CF63 /* directChatOff@2x.png in Resources */,
 				72A77C5D2536EB190030CF63 /* directChatOn.png in Resources */,
+				4123AB65259B829900B4F012 /* transfer-history.png in Resources */,
 				B1DCC63222E7026F00625807 /* EmojiPickerHeaderView.xib in Resources */,
 				B1B5578E20EF568D00210D55 /* GroupInviteTableViewCell.xib in Resources */,
 				B1B5582020EF625800210D55 /* SimpleRoomTitleView.xib in Resources */,
@@ -6293,11 +6465,15 @@
 				B1B558D120EF768F00210D55 /* RoomIncomingEncryptedAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B558FE20EF768F00210D55 /* RoomMembershipExpandedWithPaginationTitleBubbleCell.xib in Resources */,
 				B1B5581D20EF625800210D55 /* RoomAvatarTitleView.xib in Resources */,
+				4123AB6C259B829900B4F012 /* direct-call.png in Resources */,
 				B1BEE74923E093260003A4CB /* UserVerificationSessionStatusViewController.storyboard in Resources */,
 				B1B5590B20EF768F00210D55 /* RoomMembershipExpandedBubbleCell.xib in Resources */,
 				B1B558E720EF768F00210D55 /* RoomIncomingTextMsgWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B558DC20EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithPaginationTitleBubbleCell.xib in Resources */,
+				4123AB49259B826600B4F012 /* account.png in Resources */,
+				4123AB75259B829900B4F012 /* invite-friends1.png in Resources */,
 				B1B5572E20EE6C4D00210D55 /* ReadReceiptsViewController.xib in Resources */,
+				4123AB6D259B829900B4F012 /* tv-bill.png in Resources */,
 				B1BEE72B23DF38B20003A4CB /* UserVerificationSessionStatusCell.xib in Resources */,
 				B1B5574220EE6C4D00210D55 /* RecentsViewController.xib in Resources */,
 				B1B5571C20EE6C4D00210D55 /* DeactivateAccountViewController.storyboard in Resources */,
@@ -6312,27 +6488,33 @@
 				B1B5577220EE702800210D55 /* JitsiViewController.xib in Resources */,
 				B1B557D720EF5EA900210D55 /* RoomActivitiesView.xib in Resources */,
 				B1098BF821ECFE65000DDA48 /* KeyBackupSetupPassphraseViewController.storyboard in Resources */,
+				4123AB4A259B826600B4F012 /* outgoing.png in Resources */,
 				F083BDF31E7009ED00A9B29C /* Images.xcassets in Resources */,
 				B1C562E4228C7C8D0037F12A /* RoomContextualMenuToolbarView.xib in Resources */,
 				B1DCC62E22E61EAF00625807 /* EmojiPickerViewCell.xib in Resources */,
 				B1B5590720EF768F00210D55 /* RoomOutgoingTextMsgWithPaginationTitleWithoutSenderNameBubbleCell.xib in Resources */,
+				4123AB6A259B829900B4F012 /* smsa.png in Resources */,
 				B169329920F39E6300746532 /* LaunchScreen.storyboard in Resources */,
 				B1B5595320EF9A8700210D55 /* RecentTableViewCell.xib in Resources */,
 				B1B557AD20EF5A6D00210D55 /* DeviceView.xib in Resources */,
 				B1B5573920EE6C4D00210D55 /* GroupRoomsViewController.xib in Resources */,
+				4123AB40259B826600B4F012 /* camera_record.png in Resources */,
 				B1B5597620EFB02A00210D55 /* InviteRecentTableViewCell.xib in Resources */,
 				7242736D25354BDF00F9C908 /* ringtone.m4r in Resources */,
 				B1B558FB20EF768F00210D55 /* RoomIncomingAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				EC711B8C24A63B37008F830C /* SecretsRecoveryWithPassphraseViewController.storyboard in Resources */,
 				EC85D7192477DCD7002C44C9 /* KeyVerificationScanConfirmationViewController.storyboard in Resources */,
+				4123AB71259B829900B4F012 /* electricy-bill-pay.png in Resources */,
 				B1B558BB20EF768F00210D55 /* RoomOutgoingTextMsgWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B557A720EF5A1B00210D55 /* DeviceTableViewCell.xib in Resources */,
 				B14084C823BF76CB0010F692 /* BubbleCellContentView.xib in Resources */,
+				4123AB48259B826600B4F012 /* profilepicture.png in Resources */,
 				72A77C5C2536EB190030CF63 /* directChatOn@3x.png in Resources */,
 				B1B557D220EF5E3500210D55 /* MediaAlbumTableCell.xib in Resources */,
 				B1B558C520EF768F00210D55 /* RoomOutgoingEncryptedTextMsgBubbleCell.xib in Resources */,
 				B1B5582B20EF666100210D55 /* DirectoryRecentTableViewCell.xib in Resources */,
 				B105778F2213052A00334B1E /* KeyBackupSetupSuccessFromRecoveryKeyViewController.storyboard in Resources */,
+				4123AB63259B829900B4F012 /* smsb.png in Resources */,
 				72A77C692536ECF50030CF63 /* profilepicture.png in Resources */,
 				EC1CA89924C9C9A200DE9EBF /* SetupBiometricsViewController.storyboard in Resources */,
 				72A77C6A2536ECF50030CF63 /* save.png in Resources */,
@@ -6341,6 +6523,7 @@
 				B1B557B320EF5AEF00210D55 /* EventDetailsView.xib in Resources */,
 				ECF57A4725090C23004BBF9D /* EnterNewRoomDetailsViewController.storyboard in Resources */,
 				B1963B30228F1C4900CBA17F /* BubbleReactionsView.xib in Resources */,
+				4123AB68259B829900B4F012 /* pbx.png in Resources */,
 				B1B557DD20EF5FBB00210D55 /* FilesSearchTableViewCell.xib in Resources */,
 				B1B5590320EF768F00210D55 /* RoomSelectedStickerBubbleCell.xib in Resources */,
 				B1B5573F20EE6C4D00210D55 /* SegmentedViewController.xib in Resources */,
@@ -6349,10 +6532,12 @@
 				B1B558C020EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithoutSenderInfoBubbleCell.xib in Resources */,
 				B1B5572420EE6C4D00210D55 /* RoomViewController.xib in Resources */,
 				B169331520F3CAFC00746532 /* PublicRoomTableViewCell.xib in Resources */,
+				4123AB6E259B829900B4F012 /* video-bill.png in Resources */,
 				B1C562E5228C7C8D0037F12A /* RoomContextualMenuViewController.storyboard in Resources */,
 				3232ABA2225730E100AD6A5C /* DeviceVerificationStartViewController.storyboard in Resources */,
 				3284A35120A07C210044F922 /* postMessageAPI.js in Resources */,
 				EC1CA8D424D8103400DE9EBF /* App-Common.xcconfig in Resources */,
+				4123AB67259B829900B4F012 /* buy-credit1.png in Resources */,
 				B1B557A220EF58AD00210D55 /* ContactTableViewCell.xib in Resources */,
 				72A77C4F2536EADF0030CF63 /* directChatOff@3x.png in Resources */,
 				ECFBD5CE250A7AAF00DD5F5A /* DirectoryNetworkTableHeaderFooterView.xib in Resources */,
@@ -6360,6 +6545,8 @@
 				B1B558EB20EF768F00210D55 /* RoomIncomingTextMsgWithPaginationTitleBubbleCell.xib in Resources */,
 				B1C543A6239E999700DCA1FA /* KeyVerificationCellInnerContentView.xib in Resources */,
 				32891D76226728EF00C82226 /* KeyVerificationDataLoadingViewController.storyboard in Resources */,
+				4123AB64259B829900B4F012 /* logout.png in Resources */,
+				4123AB3D259B826600B4F012 /* ShowDialPad.png in Resources */,
 				72A77C6B2536ECF50030CF63 /* end-call.png in Resources */,
 				B1B5581820EF625800210D55 /* PreviewRoomTitleView.xib in Resources */,
 				B1B5583020EF66BA00210D55 /* RoomIdOrAliasTableViewCell.xib in Resources */,
@@ -6368,6 +6555,7 @@
 				B1B558DB20EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithoutSenderNameBubbleCell.xib in Resources */,
 				B185145D24B8C9A400EE19EA /* MajorUpdateViewController.storyboard in Resources */,
 				B1CE83E42422817200D07506 /* KeyVerificationVerifyBySASViewController.storyboard in Resources */,
+				4123AB74259B829900B4F012 /* settings.png in Resources */,
 				72A77C4D2536EADF0030CF63 /* outgoing.png in Resources */,
 				B1B5572B20EE6C4D00210D55 /* RoomMemberDetailsViewController.xib in Resources */,
 				B1D4752C21EE52C30067973F /* KeyBackupSetupIntroViewController.storyboard in Resources */,
@@ -6716,6 +6904,7 @@
 				EC1CA86424C1DEC400DE9EBF /* EnterPinCodeCoordinator.swift in Sources */,
 				B1963B2E228F1C4900CBA17F /* BubbleReactionViewData.swift in Sources */,
 				B1C3361C22F32B4A0021BA8D /* SingleImagePickerPresenter.swift in Sources */,
+				4123AB22259B820F00B4F012 /* TransferHistoryViewController.m in Sources */,
 				B1B5572F20EE6C4D00210D55 /* ReadReceiptsViewController.m in Sources */,
 				B1BD71BC238E8F9600BA92E2 /* WidgetPermissionViewController.swift in Sources */,
 				B1B558CB20EF768F00210D55 /* RoomIncomingEncryptedTextMsgWithoutSenderInfoBubbleCell.m in Sources */,
@@ -6774,6 +6963,7 @@
 				EC51E7AB2514D2E100AAE7DB /* RoomInfoListViewState.swift in Sources */,
 				B1B5571A20EE6C4D00210D55 /* SettingsViewController.m in Sources */,
 				B1CE9EFD22148703000FAE6A /* SignOutAlertPresenter.swift in Sources */,
+				4123AB21259B820F00B4F012 /* NewAccountViewController.m in Sources */,
 				32F6B9692270623100BBA352 /* KeyVerificationDataLoadingCoordinator.swift in Sources */,
 				B125FE1D231D5DE400B72806 /* SettingsDiscoveryViewModel.swift in Sources */,
 				32863A5A2384070300D07C4A /* RiotSharedSettings.swift in Sources */,
@@ -6904,6 +7094,7 @@
 				B1BEE73623DF44A60003A4CB /* UserVerificationSessionsStatusCoordinatorType.swift in Sources */,
 				B1C45A86232A8C2600165425 /* SettingsIdentityServerViewModelType.swift in Sources */,
 				F083BE031E7009ED00A9B29C /* EventFormatter.m in Sources */,
+				4123AB23259B820F00B4F012 /* MyAccountViewController.m in Sources */,
 				B157FAA623264AE900EBFBD4 /* SettingsDiscoveryThreePidDetailsViewController.swift in Sources */,
 				B126768A2523E4D100BE6B98 /* SecretsResetViewModel.swift in Sources */,
 				B1DCC62422E60CA900625807 /* EmojiPickerCategoryViewData.swift in Sources */,
@@ -7173,6 +7364,7 @@
 				B1C562D9228C0B760037F12A /* RoomContextualMenuItem.swift in Sources */,
 				B1C543B223A2913F00DCA1FA /* KeyVerificationConclusionBubbleCell.swift in Sources */,
 				323AB947232BD74600C1451F /* AuthFallBackViewController.m in Sources */,
+				4123AB24259B820F00B4F012 /* TransferCell.m in Sources */,
 				ECF57A87250A6872004BBF9D /* TextViewTableViewCell.swift in Sources */,
 				B1C562E1228C7C8C0037F12A /* RoomContextualMenuToolbarView.swift in Sources */,
 				B1CE83DF2422817200D07506 /* KeyVerificationVerifyBySASCoordinatorType.swift in Sources */,
@@ -7446,12 +7638,13 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/SupportingFiles/RiotShareExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/RiotShareExtensionDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -7466,16 +7659,17 @@
 					"@executable_path/../../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09.shareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call.shared;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/SupportingFiles/RiotShareExtension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Debug;
@@ -7492,11 +7686,12 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/SupportingFiles/RiotShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -7511,17 +7706,18 @@
 					"@executable_path/../../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09.shareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call.shared;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/SupportingFiles/RiotShareExtension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Release;
@@ -7534,12 +7730,13 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_ENTITLEMENTS = SiriIntents/SiriIntents.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = SiriIntents/SiriIntentsDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -7551,15 +7748,16 @@
 					"@executable_path/../../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09.SiriIntents;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call.siri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Debug;
@@ -7574,11 +7772,12 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = SiriIntents/SiriIntents.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -7590,16 +7789,17 @@
 					"@executable_path/../../Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09.SiriIntents;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call.siri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Release;
@@ -7614,12 +7814,13 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = RiotNSE/RiotNSE.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = RiotNSE/RiotNSEDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RiotNSE/Info.plist;
@@ -7628,17 +7829,17 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09.nse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call.nse1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -7654,11 +7855,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = RiotNSE/RiotNSE.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RiotNSE/Info.plist;
@@ -7667,16 +7869,16 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09.nse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call.nse1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -7799,12 +8001,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Riot/SupportingFiles/Riot.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Riot/Dial09Debug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -7831,19 +8033,19 @@
 					"$(PROJECT_DIR)/pjsipLib-2.8/simulator",
 					"$(PROJECT_DIR)/pjsipLib-2.8/lib",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call;
 				PRODUCT_NAME = Dial09;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Riot/SupportingFiles/Riot-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Riot-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
@@ -7858,9 +8060,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Riot/SupportingFiles/Riot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Q828BG865;
+				DEVELOPMENT_TEAM = 5S3TDY56YU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -7887,19 +8090,19 @@
 					"$(PROJECT_DIR)/pjsipLib-2.8/simulator",
 					"$(PROJECT_DIR)/pjsipLib-2.8/lib",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dial09;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goip2call;
 				PRODUCT_NAME = Dial09;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Riot/SupportingFiles/Riot-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Riot-Swift.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};

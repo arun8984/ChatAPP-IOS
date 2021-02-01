@@ -1062,7 +1062,7 @@ static NSArray *GEO_MOBILE_COUNTRIES;
   NSNumber *countryCallingCode = phoneNumber.countryCode;
   NSString *nationalSignificantNumber = [self getNationalSignificantNumber:phoneNumber];
 
-  if (numberFormat == NBEPhoneNumberFormatE164) {
+  if (numberFormat == NBEPhoneNumberFormatINTERNATIONAL) {
     // Early exit for E164 case (even if the country calling code is invalid)
     // since no formatting of the national number needs to be applied.
     // Extensions are not formatted.
@@ -1095,10 +1095,19 @@ static NSArray *GEO_MOBILE_COUNTRIES;
                                     phoneNumberFormat:numberFormat
                                           carrierCode:nil];
 
-  return [self prefixNumberWithCountryCallingCode:countryCallingCode
+   // NSLog(@"countryCallingCode : %@ - %@", countryCallingCode, formattedNationalNumber);
+    
+    NSString *trimmed = [[self prefixNumberWithCountryCallingCode:countryCallingCode
+                                                phoneNumberFormat:numberFormat
+                                          formattedNationalNumber:formattedNationalNumber
+                                               formattedExtension:formattedExtension] stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    return trimmed;
+    
+  /*return [self prefixNumberWithCountryCallingCode:countryCallingCode
                                 phoneNumberFormat:numberFormat
                           formattedNationalNumber:formattedNationalNumber
-                               formattedExtension:formattedExtension];
+                               formattedExtension:formattedExtension];*/
 }
 
 /**

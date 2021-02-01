@@ -12,13 +12,16 @@
 
 @interface KeypadController: UIViewController<UITextFieldDelegate,ABPeoplePickerNavigationControllerDelegate, CNContactPickerDelegate,CNContactViewControllerDelegate>{
     NSTimer *timer;
+    NSString *UserCurrency;
 }
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *balanceIndicator;
 @property(nonatomic,retain) IBOutlet UITextField *txtPhoneNo;
 @property(nonatomic,retain) IBOutlet UILabel *lblStatus;
 @property(nonatomic,retain) IBOutlet UILabel *lblBalance;
 @property(nonatomic,retain) IBOutlet UIButton *btndel;
 @property(nonatomic,retain) IBOutlet UIButton *btn0;
+@property(nonatomic,retain) IBOutlet UILabel *lblRegistered;
 
 -(IBAction)KeyPress0:(id)sender;
 -(IBAction)KeyPress1:(id)sender;

@@ -18,14 +18,25 @@
 #import <Contacts/CNContactStore.h>
 #import <Contacts/CNContactFetchRequest.h>
 #import "MXSession+Riot.h"
-@interface ContactsDetailsViewController:UITableViewController
+#import <MatrixKit/MatrixKit.h>
+
+@interface ContactsDetailsViewController : MXKViewController
 {
-    
+    IBOutlet UIView *nameContainerView;
+    IBOutlet UIView *optionsContainerView;
+
+    IBOutlet UITableView *tblObj;
 }
+
+@property (weak, nonatomic) IBOutlet UIImageView *ContactimageView;
+@property (weak, nonatomic) IBOutlet UILabel *Name;
+
 @property(nonatomic,strong)CNContact *Contact;
 @property(nonatomic,strong)NSString *LocalContactsCSV;
 @property(nonatomic,strong)NSArray *LocalContactsArray;
+
 -(IBAction)Call:(UIButton *)sender;
 -(IBAction)Chat:(UIButton *)sender;
+
 @end
 

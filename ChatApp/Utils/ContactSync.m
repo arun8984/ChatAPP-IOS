@@ -61,27 +61,8 @@ static sqlite3_stmt *statement = nil;
     return isSuccess;
 }
 
--(void)AddContact:(NSString*)PhoneNumber ContactName:(NSString*)ContactName{
+-(void) DeleteAll {
     
-    const char *dbpath = [databasePath UTF8String];
-    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
-    {
-        NSString *insertSQL;
-        insertSQL = [NSString stringWithFormat:@"insert into contacts (phoneno,name) values(\"%@\",\"%@\")",PhoneNumber, ContactName];
-        const char *insert_stmt = [insertSQL UTF8String];
-        sqlite3_prepare_v2 (database, insert_stmt,-1, &statement, NULL);
-        sqlite3_step(statement);
-        /*
-        if(sqlite3_step(statement) == SQLITE_DONE){
-            NSLog(@"Ok");
-        }else{
-            NSLog(@"NotOk");
-        }
-         */
-        sqlite3_close(database);
-    }
-}
--(void)DeleteAll{
     const char *dbpath = [databasePath UTF8String];
     //sqlite3_reset(statement);
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
@@ -101,15 +82,44 @@ static sqlite3_stmt *statement = nil;
         sqlite3_close(database);
     }
 }
+
+-(void)AddContact:(NSString*)PhoneNumber ContactName:(NSString*)ContactName{
+
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        NSString *insertSQL;
+        insertSQL = [NSString stringWithFormat:@"INSERT INTO contacts (phoneno, name) VALUES(\"%@\",\"%@\")",PhoneNumber, ContactName];
+        const char *insert_stmt = [insertSQL UTF8String];
+
+        sqlite3_prepare_v2 (database, insert_stmt,-1, &statement, NULL);
+
+        sqlite3_step(statement);
+
+//        if(sqlite3_step(statement) == SQLITE_DONE){
+//            NSLog(@"Ok");
+//        }else{
+//            NSLog(@"NotOk");
+//        }
+
+        [[NSNotificationCenter defaultCenter]
+            postNotificationName:@"ContactSync"
+            object:self];
+
+        sqlite3_close(database);
+    }
+}
+
 -(NSArray*)GetLocalContacts{
     
     const char *dbpath = [databasePath UTF8String];
     //sqlite3_reset(statement);
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *querySQL = @"select contactid,phoneno,name from contacts";
+        NSString *querySQL = @"select contactid, phoneno, name from contacts";
         const char *query_stmt = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+       
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
             ABAddressBookRef UsersAddressBook = ABAddressBookCreateWithOptions(NULL, nil);
@@ -124,6 +134,7 @@ static sqlite3_stmt *statement = nil;
                 localContacts.Name = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
                 
                 sqlite3_close(database);
+              
                 if(ContactInfoArray!=nil){
                     //get the total number of count of the users contact
                     CFIndex numberofPeople = CFArrayGetCount(ContactInfoArray);
@@ -162,8 +173,6 @@ static sqlite3_stmt *statement = nil;
                     }
                     
                 }
-                
-                
                 
                 [resultArray addObject:localContacts];
                 

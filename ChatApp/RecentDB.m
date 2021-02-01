@@ -139,7 +139,7 @@ static sqlite3_stmt *statement = nil;
     //sqlite3_reset(statement);
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *querySQL = @"select callid, phoneno,calltype, duration, calltime from recent order by callid desc limit 0,50";
+        NSString *querySQL = @"select callid, phoneno, calltype, duration, calltime from recent order by callid desc limit 0,50";
         const char *query_stmt = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK)
